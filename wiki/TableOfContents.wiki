@@ -37,8 +37,6 @@ Currently, only the user interface mockup diagram is available.
 
 = Project Details =
 
-The "Taxi Best" application will start out with the initial screen:
- 
-  * Where the users can choose either to login as '''Taxi Driver''' or '''Taxi Passenger'''  
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+The '''Taxi Best''' application will start out with the initial screen where the users can choose either to login as '''Taxi Driver''' or '''Taxi Passenger'''
+
+Taxi Driver Screen
