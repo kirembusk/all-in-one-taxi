@@ -5,7 +5,7 @@ All in One Taxi Application For Android Mobile Device By William Mac & Wai Yan C
 
 The All in One Taxi Application is an open source android mobile device application.  This application is targeted for both taxi drivers and taxi passengers.  It is for all people regardless of age, sex, and race.  The user interface of this application is written in English.  This application will extend to support other languages such as Chinese and Spanish.<br />
 
-"All in One Taxi" is the project name of this application.  The formal name of this droid application is called "Taxi Best".  Why do we call it "Taxi Best"?  The reason that we call it "Taxi Best" is that this taxi application offers 4 distinctive features which make up the word "BEST".  "BEST" is broken down into the following 4 parts:<br />
+"All in One Taxi" is the project name of this application.  The formal name of this droid application is called "Taxi Best".  Why do we call it "Taxi Best"?  The reason that we call it "Taxi Best" is that this taxi application offers 4 distinctive features which make up the word "BEST".  "BEST" is broken down into the following 4 parts<br />
 
 * B stands for Booking.  
 ** This means that users can make a taxi reservation online 24/7 with the touch of a button. 
@@ -18,6 +18,13 @@ The All in One Taxi Application is an open source android mobile device applicat
 ** The drivers can obtain information about the passengers such us the pickup location, the drop off location, and how many passengers.
 
 * S stands for Sharing.
+** This means that the app will include a ride share feature which could be some random drivers that wanted to go from destination A to a destination B and that the driver wanted to split the gas with the other person. Let's say I am driving to Market street to go to work, and I happen to find somebody around the neighborhood that is going to downtown too, so I contact the other person and ask them if he/she might want a ride there too and we will split the gas.
+
+* T stands for Tracking.
+** This means that the application will include a GPS tracking mechanism that can track the location of the passengers or the drivers at any particular point in time.
+** The passengers can find taxis based on their current GPS location.
+** The passengers track the arrival of their taxi ride on the mobile device.
+    
 
 = Details =
 
