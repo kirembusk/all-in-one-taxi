@@ -29,15 +29,16 @@ This application is provided "as is" without any warranty of any kind.  There is
 
 This application is written for android device users.
 
-Additional project documentation in word docs, the user interface mockup diagram, the user guides are all available in the download section found in the following URL:
+Additional project documentations, the user interface mockup diagram, the user guides are all available in the download section which can be found in the following URL:
 
 [http://code.google.com/p/all-in-one-taxi/downloads/list]
 
- the user guide in the download section of the main google code page.  Currently, it is not available yet.
+Currently, only the user interface mockup diagram is available.
 
 = Project Details =
 
-The "Taxi Best" application will start out with the 
-  * Text in *bold* or _italic_
+The "Taxi Best" application will start out with the initial screen:
+ 
+  * Where the users can choose either to login as '''Taxi Driver''' or '''Taxi Passenger'''  
   * Headings, paragraphs, and lists
   * Automatic links to other wiki pages
