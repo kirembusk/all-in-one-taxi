@@ -7,7 +7,7 @@ The All in One Taxi Application is an open source android mobile device applicat
 
 "All in One Taxi" is the project name of this application.  The formal name of this droid application is called "Taxi Best".  Why do we call it "Taxi Best"?  The reason that we call it "Taxi Best" is that this taxi application offers 4 distinctive features which make up the word "BEST".  "BEST" is broken down into the following 4 parts<br />
 
-* B stands for Booking.  
+  * B stands for Booking.  
 ** This means that users can make a taxi reservation online 24/7 with the touch of a button. 
 
 * E stands for Extra.
