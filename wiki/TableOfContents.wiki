@@ -10,12 +10,12 @@ The All in One Taxi Application is an open source android mobile device applicat
   * B stands for Booking.  
     ** This means that users can make a taxi reservation online 24/7 with the touch of a few taps or buttons. 
 
-* E stands for Extra.
-** This means that users can obtain information related to the taxi ride.
-** The passengers can figure out the estimate distance and fare of the taxi ride before the journey begins.
-** The passengers can find out the driver who will be picking up the passengers and when the estimate time that the cab will be arriving at the pickup location.
-** The passengers can also get an SMS message alert when the cab has arrived at the pickup location.
-** The drivers can obtain information about the passengers such us the pickup location, the drop off location, and how many passengers.
+  * E stands for Extra.
+    ** This means that users can obtain information related to the taxi ride.
+    ** The passengers can figure out the estimate distance and fare of the taxi ride before the journey begins.
+    ** The passengers can find out the driver who will be picking up the passengers and when the estimate time that the cab will be arriving at the pickup location.
+    ** The passengers can also get an SMS message alert when the cab has arrived at the pickup location.
+    ** The drivers can obtain information about the passengers such us the pickup location, the drop off location, and how many passengers.
 
 * S stands for Sharing.
 ** This means that the app will include a ride share feature which could be some random drivers that wanted to go from destination A to a destination B and that the driver wanted to split the gas with the other person. Let's say I am driving to Market street to go to work, and I happen to find somebody around the neighborhood that is going to downtown too, so I contact the other person and ask them if he/she might want a ride there too and we will split the gas.
