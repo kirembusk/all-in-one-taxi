@@ -17,13 +17,13 @@ The All in One Taxi Application is an open source android mobile device applicat
     ** The passengers can also get an SMS message alert when the cab has arrived at the pickup location.
     ** The drivers can obtain information about the passengers such us the pickup location, the drop off location, and how many passengers.
 
-* S stands for Sharing.
-** This means that the app will include a ride share feature which could be some random drivers that wanted to go from destination A to a destination B and that the driver wanted to split the gas with the other person. Let's say I am driving to Market street to go to work, and I happen to find somebody around the neighborhood that is going to downtown too, so I contact the other person and ask them if he/she might want a ride there too and we will split the gas.
+  * S stands for Sharing.
+    ** This means that the app will include a ride share feature which could be some random drivers that wanted to go from destination A to a destination B and that the driver wanted to split the gas with the other person. Let's say I am driving to Market street to go to work, and I happen to find somebody around the neighborhood that is going to downtown too, so I contact the other person and ask them if he/she might want a ride there too and we will split the gas.
 
-* T stands for Tracking.
-** This means that the application will include a GPS tracking mechanism that can track the location of the passengers or the drivers at any particular point in time.
-** The passengers can find taxis based on their current GPS location.
-** The passengers track the arrival of their taxi ride on the mobile device.
+  * T stands for Tracking.
+    ** This means that the application will include a GPS tracking mechanism that can track the location of the passengers or the drivers at any particular point in time.
+    ** The passengers can find taxis based on their current GPS location.
+    ** The passengers track the arrival of their taxi ride on the mobile device.
     
 
 = Details =
