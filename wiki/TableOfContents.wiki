@@ -1,10 +1,23 @@
-#summary One-sentence summary of this page.
 #labels Phase-Design,Featured,Phase-Requirements
+All in One Taxi Application For Android Mobile Device By William Mac & Wai Yan Cheung
 
 = Introduction =
 
-Add your content here.
+The All in One Taxi Application is an open source android mobile device application.  This application is targeted for both taxi drivers and taxi passengers.  It is for all people regardless of age, sex, and race.  The user interface of this application is written in English.  This application will extend to support other languages such as Chinese and Spanish.<br />
 
+"All in One Taxi" is the project name of this application.  The formal name of this droid application is called "Taxi Best".  Why do we call it "Taxi Best"?  The reason that we call it "Taxi Best" is that this taxi application offers 4 distinctive features which make up the word "BEST".  "BEST" is broken down into the following 4 parts:<br />
+
+* B stands for Booking.  
+** This means that users can make a taxi reservation online 24/7 with the touch of a button. 
+
+* E stands for Extra.
+** This means that users can obtain information related to the taxi ride.
+** The passengers can figure out the estimate distance and fare of the taxi ride before the journey begins.
+** The passengers can find out the driver who will be picking up the passengers and when the estimate time that the cab will be arriving at the pickup location.
+** The passengers can also get an SMS message alert when the cab has arrived at the pickup location.
+** The drivers can obtain information about the passengers such us the pickup location, the drop off location, and how many passengers.
+
+* S stands for Sharing.
 
 = Details =
 
