@@ -24,11 +24,14 @@ The All in One Taxi Application is an open source android mobile device applicat
     ** This means that the application will include a GPS tracking mechanism that can track the location of the passengers or the drivers at any particular point in time.
     ** The passengers can find taxis based on their current GPS location.
     ** The passengers track the arrival of their taxi ride on the mobile device.
-    
+  
+This application is provided "as is" without any warranty of any kind.  There is no technical support in using this program.  This application will come with a mini basic user guide showing you how to install and use the application.  You are welcome to modify the source code of this application in any form or shape.
 
-= Details =
+You can download the user guide in the download section of the main google code page.  Currently, it is not available yet.
 
-Add your content here.  Format your content with:
+= Project Details =
+
+The "Taxi Best" application will start out with the 
   * Text in *bold* or _italic_
   * Headings, paragraphs, and lists
   * Automatic links to other wiki pages
