@@ -5,10 +5,10 @@ All in One Taxi Application For Android Mobile Device By William Mac & Wai Yan C
 
 The All in One Taxi Application is an open source android mobile device application.  This application is targeted for both taxi drivers and taxi passengers.  It is for all people regardless of age, sex, and race.  The user interface of this application is written in English.  This application will extend to support other languages such as Chinese and Spanish.<br />
 
-"All in One Taxi" is the project name of this application.  The formal name of this droid application is called "Taxi Best".  Why do we call it "Taxi Best"?  The reason that we call it "Taxi Best" is that this taxi application offers 4 distinctive features which make up the word "BEST".  "BEST" is broken down into the following 4 parts<br />
+"All in One Taxi" is the project name of this application.  The formal name of this droid application is called "Taxi Best".  Why do we call it "Taxi Best"?  The reason that we call it "Taxi Best" is that this taxi application offers 4 distinctive features which make up the word "BEST".  "BEST" is broken down into the following 4 parts:
 
   * B stands for Booking.  
-** This means that users can make a taxi reservation online 24/7 with the touch of a button. 
+  ** This means that users can make a taxi reservation online 24/7 with the touch of a button. 
 
 * E stands for Extra.
 ** This means that users can obtain information related to the taxi ride.
