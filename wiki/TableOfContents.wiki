@@ -1,1 +1,3 @@
+<wiki:toc />
+
 <a href="http://code.google.com/p/all-in-one-taxi/wiki/ProjectDesignSummary">Project Design Summary</a>
