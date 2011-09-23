@@ -39,11 +39,14 @@ Currently, only the user interface mockup diagram is available.
 
 The *Taxi Best* application will start out with the initial screen where the users can choose either to log in as *Taxi Driver* or *Taxi Passenger*
 
-*Passenger Screen*
-The passenger is able to enter their current and destination address. From the address the passenger could either find a driver or look up the cab directory. The user is able to know the estimate time, cost, miles for the whole trip. The passenger is able to send request/call cab/call cab company for a pick up . The passenger would receive a confirmation receipt after the request. <br />
+*Passenger Screen
 
-*Taxi Driver Screen*
-The Taxi driver is able to log in and find the address of nearby passenger or he/she could open request page where it has a list of passengers requests. The request page should contain name of the passenger, a accept button to accept the request, a deny button to deny the request, a info button where it display address of where the passenger is at, address of where the passenger is going to, the phone no of the passenger.<br />
+The passenger is able to enter their current and destination address. From the address the passenger could either find a driver or look up the cab directory. The user is able to know the estimate time, cost, miles for the whole trip. The passenger is able to send request/call cab/call cab company for a pick up . The passenger would receive a confirmation receipt after the request. 
+
+
+*Taxi Driver Screen
+
+The Taxi driver is able to log in and find the address of nearby passenger or he/she could open request page where it has a list of passengers requests. The request page should contain name of the passenger, a accept button to accept the request, a deny button to deny the request, a info button where it display address of where the passenger is at, address of where the passenger is going to, the phone no of the passenger.
 
 *RideShare Screen*
-A ride share user is able to see posting of request from nearby. The posting should include a description, from and to address, price and phone number. Users are able to post requests. <br />
+A ride share user is able to see posting of request from nearby. The posting should include a description, from and to address, price and phone number. Users are able to post requests. 
