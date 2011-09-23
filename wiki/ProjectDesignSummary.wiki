@@ -1,7 +1,7 @@
 #labels Phase-Design,Phase-Requirements,Phase-Implementation,Featured
 All in One Taxi Application For Android Mobile Device By *William Mac & Wai Yan Cheung*
 
-= Introduction =
+= Project Overview =
 
 The All in One Taxi Application is an open source android mobile device application.  This application is targeted for both taxi drivers and taxi passengers.  It is for all people regardless of age, sex, and race.  The user interface of this application is written in English.  This application will extend to support other languages such as Chinese and Spanish.<br />
 
@@ -24,7 +24,9 @@ The All in One Taxi Application is an open source android mobile device applicat
     ** This means that the application will include a GPS tracking mechanism that can track the location of the passengers or the drivers at any particular point in time.
     ** The passengers can find taxis based on their current GPS location.
     ** The passengers track the arrival of their taxi ride on the mobile device.
-  
+
+The purpose for building this "Taxi Best" mobile application is to give passengers the flexibility to reserve a taxi ride on a fly without any hassle to wait for Taxi dispatched operator to answer the phone call and to make the reservation for them.  This application will also allow the passengers to track the status of their taxi ride at any point in time and provide the passengers the option to cancel the taxi ride if they feel the taxi ride is taking too long to arrive.  This application would also be very helpful for the drivers because it will allow the drivers to interact with the passengers to provide passengers live update of the request ride.  For example, if the drivers are experiencing traffic jam, they can send SMS alert inside this app to the passengers to inform them the ride delay due to traffic congestion.
+     
 This application is provided "as is" without any warranty of any kind.  There is no technical support in using this program.  This application will come with a mini basic user guide showing you how to install and use the application.  You are welcome to modify the source code of this application in any form or shape.  There is a hand-drawn mockup screen showing the design and flow of this application.
 
 This application is written for android device users.
