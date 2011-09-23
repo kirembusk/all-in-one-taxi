@@ -1,5 +1,5 @@
 #labels Phase-Design,Phase-Requirements,Phase-Implementation,Featured
-All in One Taxi Application For Android Mobile Device By William Mac & Wai Yan Cheung
+All in One Taxi Application For Android Mobile Device By *William Mac & Wai Yan Cheung*
 
 = Introduction =
 
