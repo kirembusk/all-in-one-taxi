@@ -41,7 +41,7 @@ The *Taxi Best* application will start out with the initial screen where the use
 
 *Passenger Screen
 
-The passenger is able to enter their current and destination address. From the address the passenger could either find a driver or look up the cab directory. The user is able to know the estimate time, cost, miles for the whole trip. The passenger is able to send request/call cab/call cab company for a pick up . The passenger would receive a confirmation receipt after the request. 
+The passenger is able to enter their current and destination address. With the address, the passenger could either find a driver or look up the cab directory. The user is able to know the estimate time, cost, miles for the whole trip. The passenger is able to send request/call cab/call cab company for a pick up . The passenger would receive a confirmation receipt after the request has been made. 
 
 
 *Taxi Driver Screen
