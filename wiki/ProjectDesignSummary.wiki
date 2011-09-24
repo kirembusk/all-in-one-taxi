@@ -53,8 +53,10 @@ To start out, the application will ask you to type in the pickup address and the
 
 The Taxi driver is able to log in and find the address of nearby passenger or he/she could open request page where it has a list of passengers requests. The request page should contain name of the passenger, a accept button to accept the request, a deny button to deny the request, a info button where it display address of where the passenger is at, address of where the passenger is going to, the phone no of the passenger.
 
-To start out, the assumption is that you must have a login ID and a password that is provided by your taxi company.  Type in the login id and password at the startup screent.  It will then take you to 
+To start out, the assumption is that you must have a login ID and a password that is provided by your taxi company.  Type in the login id and password at the start up screen.  It will then take you to the screen where you will have the option to select find a passenger or see open request.  If you select find a passenger, it will bring you to the screen where a map is being shown with all of the available nearby prospective passengers that you can go to pickup.  If you select "see open request", it will show you all of the open orders that the passengers have requested.  In each order, you can choose to accept, deny, or view the order.  If you select to accept the order, it will show you the order confirmation screen.  The confirmation screen will show the name, the pickup location, the drop off location, and the phone number.  If you select to deny the order, then the order will be deleted from the order queue screen.  If you choose to view the order info, it will take you to the screen where it will show the name of the passenger, the pickup location, the drop off location, the phone number, and the number of passengers to pick up.
 
 *Ride Share Screen
 
 A ride share user is able to see posting of request from nearby. The posting should include a description, current and destination address, price and phone number. Also Users are able to post requests. 
+
+This ride share screen is an advanced option feature that will be implemented only if we have sufficient time to work on by the time when the project is due. 
