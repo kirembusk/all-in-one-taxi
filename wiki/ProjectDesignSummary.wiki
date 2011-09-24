@@ -42,7 +42,7 @@ Currently, only the user interface mockup diagram is available.
 <a href="http://all-in-one-taxi.googlecode.com/files/001.jpg">Click here to see the mockup design</a>
 
 
-
+<br />
 = Use Cases =
 
 The *Taxi Best* application will start out with the initial screen where the users can choose either to log in as *Taxi Driver* or *Taxi Passenger*
