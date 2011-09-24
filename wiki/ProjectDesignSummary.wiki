@@ -37,9 +37,9 @@ Additional project documentations, the user interface mockup diagram, the user g
 
 [http://code.google.com/p/all-in-one-taxi/downloads/list]
 
-Currently, only the user interface mockup diagram is available. it is located at the following URL:
+Currently, only the user interface mockup diagram is available. 
 
-<a href="http://all-in-one-taxi.googlecode.com/files/001.jpg">http://all-in-one-taxi.googlecode.com/files/001.jpg</a>
+<a href="http://all-in-one-taxi.googlecode.com/files/001.jpg">Click here to see the mockup design</a>
 
 
 = Use Cases =
