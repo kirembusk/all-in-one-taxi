@@ -1,5 +1,3 @@
   * <a href="http://code.google.com/p/all-in-one-taxi/wiki/ProjectDesignSummary">Project Design Summary</a>
 
   * <a href="http://all-in-one-taxi.googlecode.com/files/001.jpg">Project Mock Up Design</a>
-
-<img src="http://all-in-one-taxi.googlecode.com/files/001.jpg">
