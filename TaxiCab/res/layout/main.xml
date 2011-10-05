@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    
+<TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="@string/hello"
+    />
+<LinearLayout android:layout_width="fill_parent" 
+			android:layout_weight="0.30" 
+			android:layout_margin="50px" 
+			android:layout_height="1px">
+			
+    <Button android:layout_width="300px" 
+    	android:text="Request passenger " 
+    		android:textSize="32px" 
+    		android:id="@+id/Button01" 
+    		android:layout_height="100px"></Button>
+    		
+</LinearLayout>
+
+	<LinearLayout android:layout_width="fill_parent" 
+			android:layout_weight="0.70" 
+			android:layout_margin="100px" 
+			android:layout_height="1px">
+			
+    <Button android:layout_width="300px" 
+    	android:text="Request driver " 
+    		android:textSize="32px" 
+    		android:id="@+id/Button03" 
+    		android:layout_height="100px"></Button>
+    		
+</LinearLayout>
+
+
+    
+</LinearLayout>
