@@ -1,0 +1,37 @@
+= Introduction =
+
+Journal #1 - Week #1 9/29 - 10/6
+
+= Details =
+
+-The progress you made (once you start coding, mention the revisions for that week)
+We have made our front page which include two buttons called "request driver" and "request passenger". If we were to click on request driver it would link to our second page which has two edit text box to type in to and from address. We found tutorials showing us how to enable GPS setting on the phone. We have created Google map view with a marker indicator. We did extensive research about finding the current location of a user and we'll be implementing the following week. 
+
+-The problem you have encounter:
+# We tried to created buttons from the form widget design tool but we have trouble positioning the button at certain location.
+
+# We have trouble assigning the button to an event handler which would carry out a certain operation for that button. 
+
+# We have trouble setting up the phone as a deployment. 
+
+-Lesson learned
+# We learned that instead of using LinearLayout, if we used RelativeLayout, it's easier for us to position our buttons using the widget design tool.
+
+# We learned for every button we have to assign an onClick action, the name of the onClick action has to have the same name as the name of the even handler function.
+
+# We learned that in order for us to deploy our project to our android phone, we first have to install the driver at our desktop. 
+
+-What you plan to do the following week
+
+# Enable GPS
+# implement the third page 
+# implement the find current location
+# implement the find nearby taxi by hard coding it into the program. 
+# implement the route calculation using Google API.
+
+
+
+
+
+
+We learn that using Relative Layout for widget  
