@@ -16,9 +16,9 @@ public class TaxiCabActivity extends LoggingActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        Button reqPger = (Button) findViewById(R.id.Button01);
-        reqPger.getRight(); 
-        reqPger.setOnClickListener(new View.OnClickListener() {
+        Button driver = (Button) findViewById(R.id.ButtonDriver);
+        
+        driver.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), Address.class);
                 startActivityForResult(myIntent, 0);

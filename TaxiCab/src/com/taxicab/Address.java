@@ -15,7 +15,7 @@ public class Address extends LoggingActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.address);
 
-        Button enter = (Button) findViewById(R.id.Button02);
+        Button enter = (Button) findViewById(R.id.ButtonEnter);
         enter.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent();
