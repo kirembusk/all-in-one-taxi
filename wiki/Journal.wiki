@@ -1,8 +1,7 @@
-= Introduction =
+= Journal =
 
-Journal #1 - Week #1 9/29 - 10/6
 
-= Details =
+= Week #1 9/29 - 10/6 =
 
 *The progress you made (once you start coding, mention the revisions for that week)*
 We have made our front page which include two buttons called "request driver" and "request passenger". If we were to click on request driver it would link to our second page which has two edit text box to type in to and from address. We found tutorials showing us how to enable GPS setting on the phone. We have created Google map view with a marker indicator. We did extensive research about finding the current location of a user and we'll be implementing the following week. 
