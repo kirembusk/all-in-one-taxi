@@ -12,8 +12,10 @@ import com.google.android.maps.OverlayItem;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 import android.location.Location;
 import android.location.LocationListener;
@@ -27,7 +29,16 @@ public class myMap extends MapActivity {
     private LocationManager locationManager;
     private LocationListener locationListener;
     private MapView mapView; 
-
+    private GeoPoint point;
+    public int lng;
+    public int log;
+    public  Drawable drawable;
+    public OverLay itemizedoverlay;
+    public List<Overlay> mapOverlays ;
+    
+    
+    
+   
 	/** Called when the activity is first created. */
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,41 +47,77 @@ public class myMap extends MapActivity {
         setContentView(R.layout.main);
         
         //zoom map 
-        MapView mapView = (MapView) findViewById(R.id.mapview);  
+      //  RelativeLayout linearLayout = (RelativeLayout)findViewById(R.id.mainlayout); 
+        mapView = (MapView) findViewById(R.id.mapview); 
+        mapView.setBuiltInZoomControls(true); 
         //enable street view
-        //mapView.setStreetView(true);
+        mapView.setStreetView(true);
         //enable sateillite view
-       // mapView.setSatellite(true);
+      //  mapView.setSatellite(true);
         //enable traffic on map
-        mapView.setTraffic(true);
+       // mapView.setTraffic(true);
         // set zoom to 16
         mapController = mapView.getController();
-        mapController.setZoom(16); 
+        mapController.setZoom(14); 
         
         //zoom control
-        mapView.setBuiltInZoomControls(true); 
+        
       
         //find current location
       
-        
         //creating a marker
-        List<Overlay> mapOverlays = mapView.getOverlays();
+        /*List<Overlay> mapOverlays = mapView.getOverlays();
         Drawable drawable = this.getResources().getDrawable(R.drawable.cmarker);
-        OverLay itemizedoverlay = new OverLay(drawable);
-         
+        OverLay itemizedoverlay = new OverLay(drawable);*/
+       /* mapOverlays = mapView.getOverlays();
+        drawable = this.getResources().getDrawable(R.drawable.cmarker);
+        itemizedoverlay = new OverLay(drawable);*/
         
-        
-        /*GeoPoint point = new GeoPoint(19240000,-99120000);
+      /*  GeoPoint point = new GeoPoint(19240000,-99120000);
         OverlayItem overlayitem = new OverlayItem(point, "Grace" , "current location");
         itemizedoverlay.addOverlay(overlayitem);
         mapOverlays.add(itemizedoverlay);*/
         
-    }
+        locationManager =(LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        locationListener = new LocationListener(){
 
+			public void onLocationChanged(Location location) {
+				// TODO Auto-generated method stub
+				int lng= (int)(location.getLongitude());
+				int lat = (int)(location.getLatitude());
+				 point = new GeoPoint(lat,lng);
+				 mapController.animateTo(point);   
+			       
+			}
+			
+			
+
+			public void onProviderDisabled(String provider) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			public void onProviderEnabled(String provider) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			public void onStatusChanged(String provider, int status,
+					Bundle extras) {
+				// TODO Auto-generated method stub
+				
+			}
+        	
+        };
+        
+	}
+
+	@Override
 	protected boolean isRouteDisplayed() {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
 	
 	/*public void getLatandLong(){
 		LocationManager lm =(LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -98,6 +145,9 @@ public class myMap extends MapActivity {
 	
 	
 }
+
+
+
 
 
 

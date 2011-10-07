@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
     <com.google.android.maps.MapView
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/mapview"
@@ -11,5 +10,5 @@
                  android:apiKey="0NEqhuUJoU4QaK4iniz04M6Knpop0ItfMeJQmQg"
                  />
         
-                 
+ 
 
