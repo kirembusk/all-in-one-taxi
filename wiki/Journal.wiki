@@ -44,6 +44,14 @@ We setup Apache Tomcat Server on port 8080.  We create a servlet called "TaxiCen
 
 The servlet will process the request passed from either the mobile device or any java stand alone application.  It will saved these coordinate information corresponding to the appropriate taxi driver into memory.
 
+*The problems you have encounter:*
+
+  # We cannot get the servlet to execute.  It returns page not not found.  We have uncomment some codes in the web.xml for servlet execution.
+  # The google map does not display the current location of the mobile device accurately.  It is in some unknown location on the map.
+  # We have problems of setting up a json object to be returned from the servlet to the mobile device.  We didn't know how to setup the correct string values pair to be returned as a json object. 
+  # We were not able to implement the route calculation using the google API due to our struggle to setup
+  
+
 *Lesson learned*
 
   # We learned how to setup and configure Apache Tomcat web server on our local computer.  We learned how to modify the server.xml to listen to different port.  Default is port 8080.  We learned how to modify the web.xml file to enable servlet execution.
