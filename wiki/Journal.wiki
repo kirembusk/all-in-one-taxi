@@ -29,7 +29,4 @@ We have made our front page which include two buttons called "request driver" an
 
 
 
-
-
-
-We learn that using Relative Layout for widget  
+== <u> Week #1 9/29 - 10/6 </u> == 
