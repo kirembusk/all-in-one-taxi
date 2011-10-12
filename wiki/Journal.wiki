@@ -43,3 +43,10 @@ We setup Apache Tomcat Server on port 8080.  We create a servlet called "TaxiCen
     * action=get
 
 The servlet will process the request passed from either the mobile device or any java stand alone application.  It will saved these coordinate information corresponding to the appropriate taxi driver into memory.
+
+*Lesson learned*
+
+  # We learned how to setup and configure Apache Tomcat web server on our local computer.  We learned how to modify the server.xml to listen to different port.  Default is port 8080.  We learned how to modify the web.xml file to enable servlet execution.
+  # We learned how to deploy the java stand alone application onto the web server by exporting war file.
+  # We learned how to write a servlet program to handle and process http request to update driver GPS location.
+  # We learned how to put different marker on the google map.
