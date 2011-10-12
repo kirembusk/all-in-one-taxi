@@ -29,9 +29,6 @@ public class myMap extends MapActivity {
     private LocationManager locationManager;
     private LocationListener locationListener;
     private MapView mapView; 
-    private GeoPoint point;
-    public int lng;
-    public int log;
     public  Drawable drawable;
     public OverLay itemizedoverlay;
     public List<Overlay> mapOverlays ;
@@ -47,24 +44,17 @@ public class myMap extends MapActivity {
         setContentView(R.layout.main);
         
         //zoom map 
-      //  RelativeLayout linearLayout = (RelativeLayout)findViewById(R.id.mainlayout); 
+        RelativeLayout linearLayout = (RelativeLayout)findViewById(R.id.mainlayout); 
         mapView = (MapView) findViewById(R.id.mapview); 
-        mapView.setBuiltInZoomControls(true); 
-        //enable street view
-        mapView.setStreetView(true);
-        //enable sateillite view
-      //  mapView.setSatellite(true);
+        
         //enable traffic on map
-       // mapView.setTraffic(true);
+          mapView.setTraffic(true);
         // set zoom to 16
+        mapView.setBuiltInZoomControls(true); 
         mapController = mapView.getController();
-        mapController.setZoom(14); 
+        mapController.setZoom(16); 
         
-        //zoom control
         
-      
-        //find current location
-      
         //creating a marker
         /*List<Overlay> mapOverlays = mapView.getOverlays();
         Drawable drawable = this.getResources().getDrawable(R.drawable.cmarker);
@@ -79,70 +69,51 @@ public class myMap extends MapActivity {
         mapOverlays.add(itemizedoverlay);*/
         
         locationManager =(LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        locationListener = new LocationListener(){
-
-			public void onLocationChanged(Location location) {
-				// TODO Auto-generated method stub
-				int lng= (int)(location.getLongitude());
-				int lat = (int)(location.getLatitude());
-				 point = new GeoPoint(lat,lng);
-				 mapController.animateTo(point);   
-			       
-			}
-			
-			
-
-			public void onProviderDisabled(String provider) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			public void onProviderEnabled(String provider) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			public void onStatusChanged(String provider, int status,
-					Bundle extras) {
-				// TODO Auto-generated method stub
-				
-			}
-        	
-        };
+        locationListener = new GPSLocationListener();
         
-	}
+        locationManager.requestLocationUpdates(
+          LocationManager.GPS_PROVIDER, 
+          0, 
+          0, 
+          new GPSLocationListener());
+        }
+        
+        @Override
+    	protected boolean isRouteDisplayed() {
+    		// TODO Auto-generated method stub
+    		return false;
+    	}
+    	
+	
+	public class GPSLocationListener implements LocationListener 
+	{
+	  public void onLocationChanged(Location location) {
+	    if (location != null) {
+	      GeoPoint point = new GeoPoint(
+	          (int) (location.getLatitude() * 1E6), 
+	          (int) (location.getLongitude() * 1E6));
+	      
+	      mapController.animateTo(point);
+	      mapView.invalidate();
+	    }
+	  }
 
-	@Override
-	protected boolean isRouteDisplayed() {
+	public void onProviderDisabled(String arg0) {
 		// TODO Auto-generated method stub
-		return false;
-	}
-	
-	
-	/*public void getLatandLong(){
-		LocationManager lm =(LocationManager) getSystemService(Context.LOCATION_SERVICE);
-		List providers = lm.getAllProviders();
-		Location loc = lm.getLastKnownLocation(LOCATION_SERVICE); 
-		updatePositionOnScreen(loc); 
-		Intent i = new Intent(LOCATION_CHANGED);
-		LocationListener ll = new LocationListener() { 
-			
-			public void onLocationChanged(Location location) {   
-				updatePositionOnScreen(location); } 
-			
-			public void onProviderDisabled(String provider) { } 
-			public void onProviderEnabled(String provider) { } 
-			public void onStatusChanged(String provider, int status, Bundle extras) { }};
-			
-		lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 30000, 100, ll);
-		
 		
 	}
 
-	private void updatePositionOnScreen(Location loc) {
-				
-	}*/
+	public void onProviderEnabled(String provider) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void onStatusChanged(String provider, int status, Bundle extras) {
+		// TODO Auto-generated method stub
+		
+	}
 	
+	}
 	
 }
 
