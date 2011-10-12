@@ -29,4 +29,17 @@ We have made our front page which include two buttons called "request driver" an
 
 
 
-== <u> Week #1 9/29 - 10/6 </u> == 
+== <u> Week #1 10/6 - 10/13 </u> == 
+
+*The progress you made (once you start coding, mention the revisions for that week)*
+
+We setup Apache Tomcat Server on port 8080.  We create a servlet called "TaxiCenterController".  This servlet will accept the following request parameters via GET or POST method.
+
+  # lat (for latitude coordinate) ie. lat=12.34
+  # long (for longitude coordinate) ie. long=100.322
+  # tid (for taxi driver login id) ie. tid=joe22
+  # action (for either updating driver location information or return driver info). Action includes
+    * action=set
+    * action=get
+
+The servlet will process the request passed from either the mobile device or any java stand alone applicaton.  It will saved these coordinate information corresponding to the appropriate taxi driver into memory.
