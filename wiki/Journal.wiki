@@ -38,8 +38,8 @@ We setup Apache Tomcat Server on port 8080.  We create a servlet called "TaxiCen
   # lat (for latitude coordinate) ie. lat=12.34
   # long (for longitude coordinate) ie. long=100.322
   # tid (for taxi driver login id) ie. tid=joe22
-  # action (for either updating driver location information or return driver info). Action includes
+  # action (for either updating the driver's location information or return the driver info as a json object). Action includes
     * action=set
     * action=get
 
-The servlet will process the request passed from either the mobile device or any java stand alone applicaton.  It will saved these coordinate information corresponding to the appropriate taxi driver into memory.
+The servlet will process the request passed from either the mobile device or any java stand alone application.  It will saved these coordinate information corresponding to the appropriate taxi driver into memory.
