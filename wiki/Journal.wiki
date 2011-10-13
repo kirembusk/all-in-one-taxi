@@ -46,7 +46,7 @@ The servlet will process the request passed from either the mobile device or any
 
 We have also created a map find the current location using GPS. We used ItemizedOverlay to implement our markers because we want to implement several markers for different drivers. With the ability of creating different markers at different location, we could find the GPS coordinate of different taxi drivers and create a marker. 
 
-We have implement the third page of our design which included two buttons called "Cab directory" and "Find nearby taxi" 
+We have implement the third page of our design which included two buttons called "Cab directory" and "Find nearby taxi" and we also comment and rename variables so it make it easier for us to maintain in the future. 
 
 
 *The problems you have encounter:*
