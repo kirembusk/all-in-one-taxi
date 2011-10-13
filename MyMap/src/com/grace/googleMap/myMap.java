@@ -15,6 +15,10 @@ import android.content.Intent;
 import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import android.location.Location;
@@ -29,21 +33,17 @@ public class myMap extends MapActivity {
     private LocationManager locationManager;
     private LocationListener locationListener;
     private MapView mapView; 
-    public  Drawable drawable;
-    public OverLay itemizedoverlay;
-    public List<Overlay> mapOverlays ;
-    
-    
-    
+  
    
 	/** Called when the activity is first created. */
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
+      
         // show the google map
         setContentView(R.layout.main);
         
-        //zoom map 
+        
         RelativeLayout linearLayout = (RelativeLayout)findViewById(R.id.mainlayout); 
         mapView = (MapView) findViewById(R.id.mapview); 
         
@@ -52,22 +52,8 @@ public class myMap extends MapActivity {
         // set zoom to 16
         mapView.setBuiltInZoomControls(true); 
         mapController = mapView.getController();
-        mapController.setZoom(16); 
         
-        
-        //creating a marker
-        /*List<Overlay> mapOverlays = mapView.getOverlays();
-        Drawable drawable = this.getResources().getDrawable(R.drawable.cmarker);
-        OverLay itemizedoverlay = new OverLay(drawable);*/
-       /* mapOverlays = mapView.getOverlays();
-        drawable = this.getResources().getDrawable(R.drawable.cmarker);
-        itemizedoverlay = new OverLay(drawable);*/
-        
-      /*  GeoPoint point = new GeoPoint(19240000,-99120000);
-        OverlayItem overlayitem = new OverlayItem(point, "Grace" , "current location");
-        itemizedoverlay.addOverlay(overlayitem);
-        mapOverlays.add(itemizedoverlay);*/
-        
+       
         locationManager =(LocationManager) getSystemService(Context.LOCATION_SERVICE);
         locationListener = new GPSLocationListener();
         
@@ -76,8 +62,10 @@ public class myMap extends MapActivity {
           0, 
           0, 
           new GPSLocationListener());
-        }
         
+        
+	}
+
         @Override
     	protected boolean isRouteDisplayed() {
     		// TODO Auto-generated method stub
@@ -88,16 +76,32 @@ public class myMap extends MapActivity {
 	public class GPSLocationListener implements LocationListener 
 	{
 	  public void onLocationChanged(Location location) {
+		
 	    if (location != null) {
-	      GeoPoint point = new GeoPoint(
+	    	
+	    	Drawable marker=getResources().getDrawable(android.R.drawable.star_big_on);
+	        int markerWidth = marker.getIntrinsicWidth();
+	        int markerHeight = marker.getIntrinsicHeight();
+	        marker.setBounds(0, markerHeight, markerWidth, 0);
+	        OverLay overLay = new OverLay(marker);
+	        mapView.getOverlays().add(overLay);
+	        
+	       GeoPoint point = new GeoPoint(
 	          (int) (location.getLatitude() * 1E6), 
 	          (int) (location.getLongitude() * 1E6));
+	       	overLay.addItem(point, "myPoint1", "myPoint1");
+	       GeoPoint point2 = new GeoPoint((int) ((location.getLatitude() * 1E6)+10000), 
+	 	          (int) (location.getLongitude() * 1E6));
+	       overLay.addItem(point2, "myPoint2", "myPoint2");
+	       mapController.animateTo(point2);
+	      //mapController.setZoom(13); 
+		       mapView.invalidate();
+         
 	      
-	      mapController.animateTo(point);
-	      mapView.invalidate();
 	    }
 	  }
-
+	
+	  public Location locationReturn(Location location){return location;}
 	public void onProviderDisabled(String arg0) {
 		// TODO Auto-generated method stub
 		
@@ -116,8 +120,6 @@ public class myMap extends MapActivity {
 	}
 	
 }
-
-
 
 
 
