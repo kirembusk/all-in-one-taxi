@@ -29,7 +29,7 @@ We have made our front page which include two buttons called "request driver" an
 
 
 
-== <u> Week #1 10/6 - 10/13 </u> == 
+== <u> Week #2 10/6 - 10/13 </u> == 
 
 *The progress you made (once you start coding, mention the revisions for that week)*
 
@@ -44,13 +44,17 @@ We setup Apache Tomcat Server on port 8080.  We create a servlet called "TaxiCen
 
 The servlet will process the request passed from either the mobile device or any java stand alone application.  It will saved these coordinate information corresponding to the appropriate taxi driver into memory.
 
+We have also created a map find the current location using GPS. We used ItemizedOverlay<OverlayItem> to implement our markers because we want to implement several markers for different drivers. With the ability of creating different markers at different location, we could find the GPS coordinate of different taxi drivers and create a marker. 
+
 *The problems you have encounter:*
 
   # We cannot get the servlet to execute.  It returns page not not found.  We have uncomment some codes in the web.xml for servlet execution.
   # The google map does not display the current location of the mobile device accurately.  It is in some unknown location on the map.
   # We have problems of setting up a json object to be returned from the servlet to the mobile device.  We didn't know how to setup the correct string values pair to be returned as a json object. 
   # We were not able to implement the route calculation using the google API due to our struggle to setup
-  
+  # We first used the zoom in streetView to show the map but the map came up looking very funny with boxes and x mark but using trafficView solve the problem
+  # The first thing we used to implement the marker was to use the overlay class. We have to change it because it does not support more than one marker
+ 
 
 *Lesson learned*
 
@@ -58,3 +62,6 @@ The servlet will process the request passed from either the mobile device or any
   # We learned how to deploy the java stand alone application onto the web server by exporting war file.
   # We learned how to write a servlet program to handle and process http request to update driver GPS location.
   # We learned how to put different marker on the google map.
+  # We learned that zooming in too much causes the streetView to look very funny
+  # We learned extending ItemizedOverlay<OverlayItem> have the ability to defined multiple markers at multiple location. 
+  # we learned that onTap of the marker, we could display information of the driver. 
