@@ -14,5 +14,6 @@
             </intent-filter>
         </activity>
 		<activity android:name =".Address"></activity>
+		<activity android:name =".FindBy"></activity>
     </application>
 </manifest>

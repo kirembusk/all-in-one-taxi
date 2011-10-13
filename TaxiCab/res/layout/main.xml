@@ -4,34 +4,30 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     >
-    
 <TextView  
     android:layout_width="100px" 
     android:layout_height="100px" 
     android:id="@+id/TaxiBest" 
     android:textSize="70px" 
     android:text="Taxi Best"
-   	android:layout_alignLeft="@+id/ButtonDriver" 
-   	android:layout_alignRight="@+id/ButtonDriver"/>
+   	android:layout_alignLeft="@+id/RequestDriver" 
+   	android:layout_alignRight="@+id/RequestDriver"/>
    	
     <Button android:textSize="32px" 
-    	android:id="@+id/ButtonDriver" 
+    	android:id="@+id/RequestDriver" 
     	android:layout_height="110px" 
     	android:text="Request Driver " 
     	android:layout_width="300px" 
     	android:layout_below="@+id/TaxiBest" 
-    	android:layout_alignLeft="@+id/Button03" 
+    	android:layout_alignLeft="@+id/RequestPassenger" 
     	android:layout_marginTop="81dp"></Button>
     	
     <Button android:textSize="32px" 
-    	android:id="@+id/Button03" 
+    	android:id="@+id/RequestPassenger" 
     	android:layout_height="110px" 
     	android:text="Request passenger " 
     	android:layout_width="300px" 
-    	android:layout_below="@+id/ButtonDriver" 
+    	android:layout_below="@+id/RequestDriver" 
     	android:layout_centerHorizontal="true" 
     	android:layout_marginTop="42dp"></Button>
-    		
-
-    
 </RelativeLayout>

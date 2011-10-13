@@ -13,14 +13,18 @@ public class Address extends LoggingActivity{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // set the content view to address.xml
         setContentView(R.layout.address);
-
+        
+        // get the button called ButtonEnter. it's a enter button after the users 
+        // has enter the address.
         Button enter = (Button) findViewById(R.id.ButtonEnter);
+        
+      //if the button called enter is click direct to page FindBy.class
         enter.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent intent = new Intent();
-                setResult(RESULT_OK, intent);
-                finish();
+        	public void onClick(View view) {
+        		 Intent myIntent = new Intent(view.getContext(), FindBy.class);
+        		 startActivityForResult(myIntent, 0);
             }
 
         });
