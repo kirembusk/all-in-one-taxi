@@ -40,7 +40,8 @@ We setup Apache Tomcat Server on port 8080.  We create a servlet called "TaxiCen
   # tid (for taxi driver login id) ie. tid=joe22
   # action (for either updating the driver's location information or return the driver info as a json object). Action includes
     * action=set
-    * action=get
+    * action=json
+    * action=html
 
 The servlet will process the request passed from either the mobile device or any java stand alone application.  It will saved these coordinate information corresponding to the appropriate taxi driver into memory.
 
@@ -70,3 +71,13 @@ We have implement the third page of our design which included two buttons called
   # we learned that onTap of the marker, we could display information of the driver. 
 
 *What you plan to do the following week*
+
+  # Make http request to get the available driver location
+  # Parse the json objects to extract taxi driver info
+  # take driver info and plot it into the map
+  # Implement enable GPS checkbox
+  # Convert address to coordinate and vice versa 
+  # Debug markers on map
+  # Route calculation
+  # Implement cab directory 
+  # Implement subdirectory of cab directory
