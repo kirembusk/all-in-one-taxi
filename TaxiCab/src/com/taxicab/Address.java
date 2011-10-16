@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 
 public class Address extends LoggingActivity{
@@ -19,11 +20,19 @@ public class Address extends LoggingActivity{
         // get the button called ButtonEnter. it's a enter button after the users 
         // has enter the address.
         Button enter = (Button) findViewById(R.id.ButtonEnter);
+        final EditText toAddress = (EditText) findViewById(R.id.editToAddress);
+        final EditText fromAddress = (EditText) findViewById(R.id.editFromAddress);
+        
         
       //if the button called enter is click direct to page FindBy.class
         enter.setOnClickListener(new View.OnClickListener() {
         	public void onClick(View view) {
+        		Bundle bundle = new Bundle();
+        		bundle.putString("toAddress", toAddress.getText().toString());
+        		bundle.putString("fromAddress", fromAddress.getText().toString());
+        	
         		 Intent myIntent = new Intent(view.getContext(), FindBy.class);
+        		 myIntent.putExtras(bundle);
         		 startActivityForResult(myIntent, 0);
             }
 

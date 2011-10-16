@@ -19,7 +19,7 @@ public class TaxiCabActivity extends LoggingActivity {
         // get the RequestDriver button in main.xml
         Button driver = (Button) findViewById(R.id.RequestDriver);
         
-        //if the RequestDriver buttton is click direct the page to Address.class
+        //if the RequestDriver button is click direct the page to Address.class
         driver.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), Address.class);

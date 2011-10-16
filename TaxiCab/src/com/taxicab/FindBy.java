@@ -13,6 +13,14 @@ public class FindBy extends LoggingActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.findby);
 
+        Bundle bundle = getIntent().getExtras();
+         String toAddress = bundle.getString("toAddress"); 
+         String fromAddress = bundle.getString("fromAddress");
+         
+       
+        Toast toast = Toast.makeText(getApplicationContext(), fromAddress, BIND_AUTO_CREATE);
+        toast.show();
+        
      //   Button enter = (Button) findViewById(R.id.ButtonEnter);
         
       /*  enter.setOnClickListener(new View.OnClickListener() {
