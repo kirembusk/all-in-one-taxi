@@ -81,3 +81,11 @@ We have implement the third page of our design which included two buttons called
   # Route calculation
   # Implement cab directory 
   # Implement subdirectory of cab directory
+
+
+== <u> Week #3 10/13 - 10/20 </u> == 
+
+*The progress you made (once you start coding, mention the revisions for that week)*
+
+  # Remove the bug of where the marker was overlapping
+  # Able to pass multiple data between activities
