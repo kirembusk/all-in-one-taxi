@@ -89,4 +89,4 @@ We have implement the third page of our design which included two buttons called
 
   # Remove the bug of where the marker was overlapping
   # Able to pass multiple data between activities
-  # Able to convert address to coordinate to plot the graph
+  # Able to convert address to coordinate to plot the map
