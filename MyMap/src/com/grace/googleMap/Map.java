@@ -28,6 +28,7 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager; 
+import android.location.LocationProvider;
 
 
 
@@ -42,6 +43,7 @@ public class Map extends MapActivity {
     private Bundle bundle; 
     private String toAddress;
     private String fromAddress;
+   
 	/** Called when the activity is first created. */
 	public void onCreate(Bundle savedInstanceState) {
 		
@@ -54,13 +56,12 @@ public class Map extends MapActivity {
         setContentView(R.layout.map);
         RelativeLayout linearLayout = (RelativeLayout)findViewById(R.id.mainlayout); 
         mapView = (MapView) findViewById(R.id.mapview); 
-        bundle = getIntent().getExtras();
-		
+        
         
         //enable traffic on map
           mapView.setTraffic(true);
-          mapView.setSatellite(true);
-          
+        //  mapView.setSatellite(true);
+       //   mapView.setStreetView(false);
         // set zoom to 16
         mapView.setBuiltInZoomControls(true); 
         mapController = mapView.getController();
@@ -70,17 +71,23 @@ public class Map extends MapActivity {
         
         
         locationManager =(LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        locationListener = new GPSLocationListener();
+        //if network is available then use network provider else use GPS provider
+        if(locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)){
+        //update location every 5 secs or when user moves 500 meter.
+        	locationManager.requestLocationUpdates(
+        			LocationManager.NETWORK_PROVIDER, 
+        			5000, 
+        			500, 
+        			new NetworkLocationListner());
+        	}else{
+        	locationManager.requestLocationUpdates(
+        	          LocationManager.GPS_PROVIDER, 
+        	          5000, 
+        	          500, 
+        	          new GPSLocationListener());	
+        }
         
-        locationManager.requestLocationUpdates(
-          LocationManager.GPS_PROVIDER, 
-          0, 
-          0, 
-          new GPSLocationListener());
-        
-        
-        
-        
+		  
 	}
 
         @Override
@@ -88,8 +95,72 @@ public class Map extends MapActivity {
     		// TODO Auto-generated method stub
     		return false;
     	}
-    	
-	
+       
+
+      public class NetworkLocationListner implements LocationListener {
+
+          //  @Override
+            public void onStatusChanged(String provider, int status, Bundle extras) {
+                
+            }
+
+         //   @Override
+            public void onProviderEnabled(String provider) {
+                
+            }
+
+         //   @Override
+            public void onProviderDisabled(String provider) {
+              
+            }
+
+            public void onLocationChanged(Location location) {
+            	 if (location != null) {
+         	    	Drawable marker=getResources().getDrawable(R.drawable.cmarker);
+         	    	 OverLay overLay = new OverLay(marker);
+         	        Toast toast = Toast.makeText(getApplicationContext(), "Network Provider", BIND_AUTO_CREATE);
+         	        toast.show();
+         	        mapView.getOverlays().add(overLay);
+         	        int currentLat = (int) (location.getLatitude() * 1E6);
+         	        int currentLog = (int) (location.getLongitude() * 1E6);
+         	        
+         	       GeoPoint point = new GeoPoint(currentLat,currentLog);
+         	       overLay.addItem(point, "myPoint1", "myPoint1");
+         	     
+         	       GeoPoint point2; 
+         	        try {
+         	        	
+         	            List<Address> addresses = geoCoder.getFromLocationName( 
+         	            		"115 broad st, san francisco,ca", 5);
+         	            String add = "";
+         	            
+         	            if (addresses.size() > 0) {
+         	                point2 = new GeoPoint(
+         	                        (int) (addresses.get(0).getLatitude() * 1E6), 
+         	                        (int) (addresses.get(0).getLongitude() * 1E6));
+         	                overLay.addItem(point2, "myPoint2", "myPoint2");
+         	                
+         	                mapController.animateTo(point);
+         	             
+         	            }    
+         	        } catch (IOException e) {
+         	            e.printStackTrace();
+         	        }
+         	        
+         	       //  mapController.setCenter(point); 
+         	         //mapController.animateTo(point2);
+         	        // mapController.setZoom(13); 
+         	      // mapController.zoomToSpan(overLay.getLatSpanE6(), overLay.getLonSpanE6());
+         		       mapView.invalidate();
+                  
+         	    	
+         	    	
+            	 }
+                  
+            }
+        };;
+        
+
 	public class GPSLocationListener implements LocationListener 
 	{
 	  public void onLocationChanged(Location location) {
@@ -109,7 +180,7 @@ public class Map extends MapActivity {
 	        
 	       GeoPoint point = new GeoPoint(currentLat,currentLog);
 	       overLay.addItem(point, "myPoint1", "myPoint1");
-	     //  Geocoder geoCoder = new Geocoder(this, Locale.getDefault()); 
+	     
 	       GeoPoint point2; 
 	        try {
 	        	
@@ -143,19 +214,34 @@ public class Map extends MapActivity {
 	
 	  public Location locationReturn(Location location){return location;}
 	public void onProviderDisabled(String arg0) {
+		Toast toast3 = Toast.makeText(getApplicationContext(), "GPS disable", BIND_AUTO_CREATE);
+		toast3.show();
 		// TODO Auto-generated method stub
 		
 	}
 
 	public void onProviderEnabled(String provider) {
+		Toast toast = Toast.makeText(getApplicationContext(), "GPS started", BIND_AUTO_CREATE);
+		toast.show();
 		// TODO Auto-generated method stub
 		
 	}
 
 	public void onStatusChanged(String provider, int status, Bundle extras) {
 		// TODO Auto-generated method stub
+		switch (status){
+		case LocationProvider.AVAILABLE:
+			Toast toast = Toast.makeText(getApplicationContext(), "available", BIND_AUTO_CREATE);
+	        toast.show();
+	        break;
+		case LocationProvider.OUT_OF_SERVICE:
+				Toast toast1 = Toast.makeText(getApplicationContext(), "unavilable", BIND_AUTO_CREATE);
+		        toast1.show();
+		        break;
+
 		
-	}
+		}
+	}	
 	
 	}
 	
