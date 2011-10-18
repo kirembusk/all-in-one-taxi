@@ -7,14 +7,17 @@
 	
     <application android:icon="@drawable/icon" android:label="@string/app_name">
        <uses-library android:name="com.google.android.maps" />
-        <activity android:name=".Map"
+        <activity android:name=".TaxiCabActivity"
                   android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-       
+        <activity android:name =".Address"></activity>
+		<activity android:name =".FindBy"></activity>
+		<activity android:name =".Map"></activity>
+		
     </application>
     
     <uses-permission android:name="android.permission.ACCESS_LOCATION"/>

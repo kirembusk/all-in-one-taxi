@@ -48,10 +48,12 @@ public class Map extends MapActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		
         super.onCreate(savedInstanceState);
-        //bundle = getIntent().getExtras();
-       // toAddress = bundle.getString("toAddress"); 
-      //  fromAddress = bundle.getString("fromAddress");
         
+        bundle = getIntent().getExtras();
+        toAddress = bundle.getString("toAddress"); 
+        fromAddress = bundle.getString("fromAddress");
+        
+       
         // show the google map
         setContentView(R.layout.map);
         RelativeLayout linearLayout = (RelativeLayout)findViewById(R.id.mainlayout); 
@@ -85,7 +87,7 @@ public class Map extends MapActivity {
         	          5000, 
         	          500, 
         	          new GPSLocationListener());	
-        }
+			}
         
 		  
 	}
@@ -95,6 +97,60 @@ public class Map extends MapActivity {
     		// TODO Auto-generated method stub
     		return false;
     	}
+        
+        
+       public void updateLocation(Location location){
+    	   if (location != null) {
+   	    	Drawable marker=getResources().getDrawable(R.drawable.cmarker);
+   	    //	Drawable marker=getResources().getDrawable(android.R.drawable.star_big_on);
+   	      //  int markerWidth = marker.getIntrinsicWidth();
+   	      //  int markerHeight = marker.getIntrinsicHeight();
+   	      //  marker.setBounds(0, markerHeight, markerWidth, 0);
+   	    	
+   	        OverLay overLay = new OverLay(marker);
+   	        
+   	        mapView.getOverlays().add(overLay);
+   	        int currentLat = (int) (location.getLatitude() * 1E6);
+   	        int currentLog = (int) (location.getLongitude() * 1E6);
+   	        
+   	       GeoPoint point = new GeoPoint(currentLat,currentLog);
+   	       overLay.addItem(point, "myPoint1", "myPoint1");
+   	     
+   	       GeoPoint point2; 
+   	        try {
+   	        	Toast toast = Toast.makeText(getApplicationContext(),"from Address: " + fromAddress + " To address: "+ toAddress, BIND_AUTO_CREATE);
+   	         toast.show();
+   	        	
+   	            List<Address> addresses = geoCoder.getFromLocationName( 
+   	            		toAddress, 5);
+   	           // String add = "";
+   	            
+   	            if (addresses.size() > 0) {
+   	                point2 = new GeoPoint(
+   	                        (int) (addresses.get(0).getLatitude() * 1E6), 
+   	                        (int) (addresses.get(0).getLongitude() * 1E6));
+   	                overLay.addItem(point2, "myPoint2", "myPoint2");
+   	                
+   	                mapController.animateTo(point);
+   	              //  map.animateTo(p);    
+   	           //     mapView.invalidate();
+   	            }    
+   	        } catch (IOException e) {
+   	            e.printStackTrace();
+   	        }
+   	    
+   	       //  mapController.setCenter(point); 
+   	         //mapController.animateTo(point2);
+   	        // mapController.setZoom(13); 
+   	      // mapController.zoomToSpan(overLay.getLatSpanE6(), overLay.getLonSpanE6());
+   		       mapView.invalidate();
+            
+   	      
+   	    }
+             
+       }
+    	   
+    	   
        
 
       public class NetworkLocationListner implements LocationListener {
@@ -115,48 +171,9 @@ public class Map extends MapActivity {
             }
 
             public void onLocationChanged(Location location) {
-            	 if (location != null) {
-         	    	Drawable marker=getResources().getDrawable(R.drawable.cmarker);
-         	    	 OverLay overLay = new OverLay(marker);
-         	        Toast toast = Toast.makeText(getApplicationContext(), "Network Provider", BIND_AUTO_CREATE);
-         	        toast.show();
-         	        mapView.getOverlays().add(overLay);
-         	        int currentLat = (int) (location.getLatitude() * 1E6);
-         	        int currentLog = (int) (location.getLongitude() * 1E6);
-         	        
-         	       GeoPoint point = new GeoPoint(currentLat,currentLog);
-         	       overLay.addItem(point, "myPoint1", "myPoint1");
-         	     
-         	       GeoPoint point2; 
-         	        try {
-         	        	
-         	            List<Address> addresses = geoCoder.getFromLocationName( 
-         	            		"115 broad st, san francisco,ca", 5);
-         	            String add = "";
-         	            
-         	            if (addresses.size() > 0) {
-         	                point2 = new GeoPoint(
-         	                        (int) (addresses.get(0).getLatitude() * 1E6), 
-         	                        (int) (addresses.get(0).getLongitude() * 1E6));
-         	                overLay.addItem(point2, "myPoint2", "myPoint2");
-         	                
-         	                mapController.animateTo(point);
-         	             
-         	            }    
-         	        } catch (IOException e) {
-         	            e.printStackTrace();
-         	        }
-         	        
-         	       //  mapController.setCenter(point); 
-         	         //mapController.animateTo(point2);
-         	        // mapController.setZoom(13); 
-         	      // mapController.zoomToSpan(overLay.getLatSpanE6(), overLay.getLonSpanE6());
-         		       mapView.invalidate();
-                  
-         	    	
-         	    	
-            	 }
-                  
+            	
+            	updateLocation(location);
+            	
             }
         };;
         
@@ -164,52 +181,8 @@ public class Map extends MapActivity {
 	public class GPSLocationListener implements LocationListener 
 	{
 	  public void onLocationChanged(Location location) {
-		
-	    if (location != null) {
-	    	Drawable marker=getResources().getDrawable(R.drawable.cmarker);
-	    //	Drawable marker=getResources().getDrawable(android.R.drawable.star_big_on);
-	      //  int markerWidth = marker.getIntrinsicWidth();
-	      //  int markerHeight = marker.getIntrinsicHeight();
-	      //  marker.setBounds(0, markerHeight, markerWidth, 0);
-	        
-	        OverLay overLay = new OverLay(marker);
-	        
-	        mapView.getOverlays().add(overLay);
-	        int currentLat = (int) (location.getLatitude() * 1E6);
-	        int currentLog = (int) (location.getLongitude() * 1E6);
-	        
-	       GeoPoint point = new GeoPoint(currentLat,currentLog);
-	       overLay.addItem(point, "myPoint1", "myPoint1");
-	     
-	       GeoPoint point2; 
-	        try {
-	        	
-	            List<Address> addresses = geoCoder.getFromLocationName( 
-	            		"115 broad st, san francisco,ca", 5);
-	            String add = "";
-	            
-	            if (addresses.size() > 0) {
-	                point2 = new GeoPoint(
-	                        (int) (addresses.get(0).getLatitude() * 1E6), 
-	                        (int) (addresses.get(0).getLongitude() * 1E6));
-	                overLay.addItem(point2, "myPoint2", "myPoint2");
-	                
-	                mapController.animateTo(point);
-	              //  map.animateTo(p);    
-	           //     mapView.invalidate();
-	            }    
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        }
-	    
-	       //  mapController.setCenter(point); 
-	         //mapController.animateTo(point2);
-	        // mapController.setZoom(13); 
-	      // mapController.zoomToSpan(overLay.getLatSpanE6(), overLay.getLonSpanE6());
-		       mapView.invalidate();
-         
-	      
-	    }
+		  updateLocation(location);
+	   
 	  }
 	
 	  public Location locationReturn(Location location){return location;}

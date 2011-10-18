@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent" 
+        android:layout_height="fill_parent" >
+       
+                <TextView android:layout_height="wrap_content" 
+                        android:id="@+id/Text_From" 
+                        android:textSize="30px" 
+                        android:text="From: " 
+                        android:layout_width="wrap_content" 
+                        android:layout_alignBaseline="@+id/editFromAddress" 
+                        android:layout_alignBottom="@+id/editFromAddress" 
+                        android:layout_alignParentLeft="true"></TextView>
+        
+                <EditText android:width="100px" 
+                        android:layout_height="wrap_content" 
+                        android:id="@+id/editToAddress" 
+                        android:layout_width="fill_parent" 
+                        android:layout_centerVertical="true"  
+                        android:layout_alignLeft="@+id/editFromAddress" 
+                        android:layout_alignRight="@+id/ButtonEnter">
+       </EditText>
+                        
+       <EditText android:width="100px" 
+       android:layout_height="wrap_content" 
+       android:id="@+id/editFromAddress" 
+       android:layout_width="fill_parent" 
+       android:layout_above="@+id/editToAddress" 
+       android:layout_marginBottom="50dp" 
+       android:layout_toRightOf="@+id/Text_From" android:layout_alignRight="@+id/ButtonEnter"></EditText>
+        
+       <CheckBox android:layout_height="wrap_content" 
+       android:text=" Enable GPS" 
+       android:layout_width="wrap_content" 
+       android:typeface="serif" 
+       android:layout_above="@+id/editToAddress" 
+       android:layout_alignParentLeft="true" 
+       android:layout_marginLeft="16dp" 
+       android:id="@+id/checkBox1"></CheckBox>
+       
+       <TextView android:layout_height="wrap_content" 
+       android:id="@+id/Text_To" 
+       android:textSize="30px" 
+       android:text="To: " 
+       android:layout_width="wrap_content" 
+       android:layout_centerVertical="true" 
+       android:layout_alignLeft="@+id/checkBox1"></TextView>
+       
+       <Button android:textSize="20px" 
+       android:id="@+id/ButtonEnter" 
+       android:layout_height="wrap_content" 
+       android:text="enter" 
+       android:layout_width="wrap_content" 
+       android:layout_below="@+id/editToAddress" 
+       android:layout_alignParentRight="true" 
+       android:layout_marginRight="22dp" 
+       android:layout_marginTop="49dp"></Button>
+       
+       <TextView android:layout_height="wrap_content" 
+       android:id="@+id/Eg" 
+       android:textSize="20px" 
+       android:text="eg(10 abc st, san francisco, ca) " 
+       android:layout_width="wrap_content" 
+       android:layout_above="@+id/editFromAddress" 
+       android:layout_alignRight="@+id/editFromAddress" 
+       android:layout_marginRight="27dp"></TextView>
+        
+      
+         
+</RelativeLayout>
