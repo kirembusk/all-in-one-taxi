@@ -3,6 +3,7 @@ import com.google.android.maps.MapController;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.Vector;
 import java.io.IOException;
 import java.lang.Object; 
 import com.google.android.maps.GeoPoint;
@@ -43,11 +44,16 @@ public class Map extends MapActivity {
     private Bundle bundle; 
     private String toAddress;
     private String fromAddress;
+    private Vector<String> geopoints;  
    
 	/** Called when the activity is first created. */
 	public void onCreate(Bundle savedInstanceState) {
 		
         super.onCreate(savedInstanceState);
+        geopoints = new Vector<String>();
+        geopoints.add("126.135:154.354");
+        geopoints.add("1000.35:10000.365");
+        geopoints.add("123456.123:13456.123");
         
         bundle = getIntent().getExtras();
         toAddress = bundle.getString("toAddress"); 
@@ -113,8 +119,8 @@ public class Map extends MapActivity {
    	        int currentLat = (int) (location.getLatitude() * 1E6);
    	        int currentLog = (int) (location.getLongitude() * 1E6);
    	        
-   	       GeoPoint point = new GeoPoint(currentLat,currentLog);
-   	       overLay.addItem(point, "myPoint1", "myPoint1");
+   	      // GeoPoint point = new GeoPoint(currentLat,currentLog);
+   	      // overLay.addItem(point, "myPoint1", "myPoint1");
    	     
    	       GeoPoint point2; 
    	        try {
@@ -126,19 +132,36 @@ public class Map extends MapActivity {
    	           // String add = "";
    	            
    	            if (addresses.size() > 0) {
-   	                point2 = new GeoPoint(
-   	                        (int) (addresses.get(0).getLatitude() * 1E6), 
-   	                        (int) (addresses.get(0).getLongitude() * 1E6));
-   	                overLay.addItem(point2, "myPoint2", "myPoint2");
+   	        //        point2 = new GeoPoint(
+   	          //              (int) (addresses.get(0).getLatitude() * 1E6), 
+   	            //            (int) (addresses.get(0).getLongitude() * 1E6));
+   	             //   overLay.addItem(point2, "myPoint2", "myPoint2");
    	                
-   	                mapController.animateTo(point);
+   	              //  mapController.animateTo(point);
    	              //  map.animateTo(p);    
    	           //     mapView.invalidate();
    	            }    
    	        } catch (IOException e) {
    	            e.printStackTrace();
    	        }
-   	    
+   	        
+   	        String temp = "";
+   	        String [] points;
+   	        GeoPoint point3;
+   	        for(int i = 0; i< geopoints.size();i++){
+   	        		temp =geopoints.get(i);
+   	        		points = temp.split(":");
+   	        		int lat = Integer.parseInt(points[0]);
+   	        	    int lng = Integer.parseInt(points[1]);
+   	        	    	
+   	        		 point3 = new GeoPoint(lat,lng);
+   	        		overLay.addItem(point3,"mypoint","mypoint");
+   	        		mapController.animateTo(point3);
+   	        		
+   	        		
+   	        }
+   	        
+   
    	       //  mapController.setCenter(point); 
    	         //mapController.animateTo(point2);
    	        // mapController.setZoom(13); 
