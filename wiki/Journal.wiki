@@ -93,16 +93,25 @@ We have implement the third page of our design which included two buttons called
   # Implement to use the Network provider or GPS provider
   # Implemented the cab directory 
   # We combined the two projects together, which is the map and testcab application. Now we can type in the address to show in marker
-  
+  # Enabled GPS and implement into the project
+  # Move Json object to Project 
 
 *The problems you have encounter:*
   # We did not know that if we were to combing the map with the taxicab project we need a new MAP API key. The key is only valid for the specify project. Which is very troublesome. 
   # I made some update to the taxicab project and then accidentally delete the taxicab project because i was trying to combine the map project together. I end up having  to import the project from SVN and re-update the changes and commit it back on the svn. 
-  # We tried to put the Vectory of coordinate points into a loop and add it to the marker but it doesn't work. 
+  # We tried to put the Vector of coordinate points into a loop and add it to the marker but it doesn't work. 
   # We tried to pass multiple data between activities but it took us a while because we made it mistake on naming the id of the edittext in the layout of XML.
+  # Trouble animating two points if it is too far. 
 
 *Lesson learned*
   # By setting the update rate of location request either 5 secs or 5 meter instead of 0,0 would eliminate the overlapping marker. We could also implement deleting the last marker but setting the marker to 5,5 is easier
   # We also learned that the bug on our address.xml where we switch the name of from edittext to to edittext which gave us inconsistent result.
   # We learned that we could convert address to coordinate and plot multiple coordinate on the map and vice versa. 
-  # We also learned that we have to include error checking which we co 
+ 
+*What you plan to do the following week*
+  # Route calculation
+  # Implement cab directory 
+  # Implement subdirectory of cab directory
+  # Parse Json 
+  # able to use a loop to get the points to plot it in the map
+  # able to calculate the maximum distance where user could see in a map
