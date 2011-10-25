@@ -115,3 +115,15 @@ We have implement the third page of our design which included two buttons called
   # Parse Json 
   # able to use a loop to get the points to plot it in the map
   # able to calculate the maximum distance where user could see in a map
+
+== <u> Week #4 10/20 - 10/27 </u> == 
+*The progress you made (once you start coding, mention the revisions for that week)*
+
+
+*The problems you have encounter:*
+  # The program force close when i tried to extends ListActivity
+  # Forgot to add the activity to Acitivty Manifest 
+
+*Lesson learned*
+  # Always remember to add activity to Manifest when creating a new activity 
+  # Need to add andriod:id/list inorder to extend ListActity
