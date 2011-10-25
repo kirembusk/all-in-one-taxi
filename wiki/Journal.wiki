@@ -122,8 +122,9 @@ We have implement the third page of our design which included two buttons called
 
 *The problems you have encounter:*
   # The program force close when i tried to extends ListActivity
-  # Forgot to add the activity to Acitivty Manifest 
+  # Forgot to add the activity to Activity Manifest 
 
 *Lesson learned*
   # Always remember to add activity to Manifest when creating a new activity 
-  # Need to add andriod:id/list inorder to extend ListActity
+  # Need to add andriod:id/list in order to extend ListActity
+  # Extending ListActivity is alot easier than extending Activity to implement ListView. The code is more readable if we were to extend ListActivity. 
