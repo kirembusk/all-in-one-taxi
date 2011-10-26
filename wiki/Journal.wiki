@@ -118,7 +118,10 @@ We have implement the third page of our design which included two buttons called
 
 == <u> Week #4 10/20 - 10/27 </u> == 
 *The progress you made (once you start coding, mention the revisions for that week)*
-
+  # We have implement the cab directory that extends ListActivity. 
+  # We used the onListItemClick to check for the array of string value to determined which intent to call. 
+  # After pressing on a taxi company, we create a new intent that has a call button that allow user to call the cab company to request a taxi cab
+  
 
 *The problems you have encounter:*
   # The program force close when i tried to extends ListActivity
