@@ -17,8 +17,8 @@ public class TaxiCabActivity extends LoggingActivity {
         //select the main.xml for layout
         setContentView(R.layout.main);
         // get the RequestDriver button in main.xml
-        Button driver = (Button) findViewById(R.id.RequestDriver);
         
+        Button driver = (Button) findViewById(R.id.RequestDriver);  
         //if the RequestDriver button is click direct the page to Address.class
         driver.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -27,8 +27,7 @@ public class TaxiCabActivity extends LoggingActivity {
             }
 
         });
-        
-      
+         
     }
     
 }

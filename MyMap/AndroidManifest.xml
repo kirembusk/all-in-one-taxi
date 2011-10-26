@@ -17,6 +17,9 @@
         <activity android:name =".Address"></activity>
 		<activity android:name =".FindBy"></activity>
 		<activity android:name =".Map"></activity>
+		<activity android:name =".CabDirectory"></activity>
+		<activity android:name =".YellowCab"></activity>
+		<activity android:name =".LuxorCab"></activity>
 		
     </application>
     
@@ -26,5 +29,9 @@
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 	<uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/>
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CALL_PRIVILEGED"/>
+    
+    
     
 </manifest>

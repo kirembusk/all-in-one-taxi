@@ -1,5 +1,6 @@
 package com.grace.googleMap;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +11,9 @@ import android.widget.LinearLayout;
 public class Address extends LoggingActivity{
 	
 	private static int calls = 0;
-	 
+	public static String TOADDRESS;
+	public static String FROMADDRESS;
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +31,8 @@ public class Address extends LoggingActivity{
         enter.setOnClickListener(new View.OnClickListener() {
         	public void onClick(View view) {
         		Bundle bundle = new Bundle();
+        		TOADDRESS = toAddress.getText().toString();
+        		FROMADDRESS = fromAddress.getText().toString();
         		bundle.putString("toAddress", toAddress.getText().toString());
         		bundle.putString("fromAddress", fromAddress.getText().toString());
         	
@@ -38,14 +43,14 @@ public class Address extends LoggingActivity{
 
         });
     }
- 
+ /*
     /**
      * You need to handle the BACK button explicitly. Pressing the BACK button
      * finishes the Activity and results have to be set BEFORE finishing the
      * Activity. So using lifecycle methods like onPause or onStop will not
      * work.
      */
-    @Override
+ //   @Override
     public void onBackPressed() {
         storeNumberOfCalls();
         super.onBackPressed();
