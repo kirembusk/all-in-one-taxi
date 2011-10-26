@@ -23,6 +23,7 @@ public class FindBy extends LoggingActivity {
        
         Toast toast = Toast.makeText(getApplicationContext(),"from Address: " + fromAddress + " To address: "+ toAddress, BIND_AUTO_CREATE);
         toast.show();
+       
         
         Button cabDir = (Button) findViewById(R.id.ButtonCabDir);
         
