@@ -121,11 +121,14 @@ We have implement the third page of our design which included two buttons called
   # We have implement the cab directory that extends ListActivity. 
   # We used the onListItemClick to check for the array of string value to determined which intent to call. 
   # After pressing on a taxi company, we create a new intent that has a call button that allow user to call the cab company to request a taxi cab
+ # we created a call button to call the cab
+ 
   
 
 *The problems you have encounter:*
   # The program force close when i tried to extends ListActivity
   # Forgot to add the activity to Activity Manifest 
+  # we try to calculate distance between two points but it is very inaccurate
 
 *Lesson learned*
   # Always remember to add activity to Manifest when creating a new activity 
