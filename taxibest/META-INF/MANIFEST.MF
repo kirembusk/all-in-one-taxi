@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: taxibest
+Bundle-SymbolicName: taxibest
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: taxibest.jar,
+ src/my/libs/jopt-simple-3.3.jar
+Export-Package: joptsimple,
+ joptsimple.internal,
+ joptsimple.util,
+ my.apps,
+ my.beans,
+ my.servlets,
+ share.html,
+ share.utils
