@@ -9,9 +9,33 @@
 		<servlet-class>my.servlets.TaxiCenterController</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+	<servlet>
+		<description>
+		Taxi Station Server</description>
+		<display-name>TaxiBestController</display-name>
+		<servlet-name>TaxiBestController</servlet-name>
+		<servlet-class>my.servlets.TaxiBestController</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet>
+		<description>
+		Taxi Station Server</description>
+		<display-name>TaxiStationController</display-name>
+		<servlet-name>TaxiStationController</servlet-name>
+		<servlet-class>my.servlets.TaxiStationController</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>TaxiCenterController</servlet-name>
 		<url-pattern>/TaxiCenterController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>TaxiBestController</servlet-name>
+		<url-pattern>/TaxiBestController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>TaxiStationController</servlet-name>
+		<url-pattern>/TaxiStationController</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
