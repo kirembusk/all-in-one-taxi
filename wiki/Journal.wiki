@@ -122,15 +122,25 @@ We have implement the third page of our design which included two buttons called
   # We used the onListItemClick to check for the array of string value to determined which intent to call. 
   # After pressing on a taxi company, we create a new intent that has a call button that allow user to call the cab company to request a taxi cab
  # we created a call button to call the cab
- 
+ # We were able to connect to our tom cat server to get the coordinate from the server and plot it in the map. 
   
 
 *The problems you have encounter:*
   # The program force close when i tried to extends ListActivity
   # Forgot to add the activity to Activity Manifest 
   # we try to calculate distance between two points but it is very inaccurate
+  # We had a problem connecting to our server in our application because we are in the same network. Instead connecting to localhost we have to be specifiy our ip address and be at the same network. 
+  # The coordinate came out at the wrong spot because we didn't mutliply it by 1E6
 
 *Lesson learned*
   # Always remember to add activity to Manifest when creating a new activity 
   # Need to add andriod:id/list in order to extend ListActity
   # Extending ListActivity is alot easier than extending Activity to implement ListView. The code is more readable if we were to extend ListActivity. 
+ 
+*What you plan to do the following week*
+  # Set up Google App Engine
+  # swap the map to the driver UI
+  # Instead of passenger that will see available driver we would have to have robots that acts as an passengers that let driver see where's the available passengers
+  # Passenger is able to make request for driver and driver would be able to accept requestes.
+  # After passenger made request they are able to see a confirmation page
+  # implement the cab directory where passenger could find the distance, time and cost of each taxi cab company
