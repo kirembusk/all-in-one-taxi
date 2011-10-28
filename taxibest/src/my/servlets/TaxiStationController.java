@@ -43,22 +43,22 @@ public class TaxiStationController extends HttpServlet {
 		// TODO Auto-generated method stub
 taxiDrivers = new HashMap();
 		
-		TaxiDriver driver = new TaxiDriver("1", "John Doe", "1111", "4153381200", "0.00", "0.00");
+		TaxiDriver driver = new TaxiDriver("1", "John Doe", "1111", "4153381200", "37.720595", "-122.476080");
 		taxiDrivers.put("1", driver);
 	
-		driver = new TaxiDriver("2", "Jack Washington", "2222", "4153381201", "0.00", "0.00");
+		driver = new TaxiDriver("2", "Jack Washington", "2222", "4153381201", "37.742131", "-122.491682");
 		taxiDrivers.put("2", driver);
 		
-		driver = new TaxiDriver("3", "Ken Peterson", "3333", "4153381202", "0.00", "0.00");
+		driver = new TaxiDriver("3", "Ken Peterson", "3333", "4153381202", "37.727977", "-122.476268");
 		taxiDrivers.put("3", driver);
 		
-		driver = new TaxiDriver("4", "John Doe", "4444", "4153381203", "0.00", "0.00");
+		driver = new TaxiDriver("4", "John Doe", "4444", "4153381203", "37.720678", "-122.480930");
 		taxiDrivers.put("4", driver);
 	
-		driver = new TaxiDriver("5", "Kelly Clarkson", "5555", "4153381204", "0.00", "0.00");
+		driver = new TaxiDriver("5", "Kelly Clarkson", "5555", "4153381204", "37.746630", "-122.474682");
 		taxiDrivers.put("5", driver);
 		
-		driver = new TaxiDriver("6", "May Deng", "6666", "4153381205", "0.00", "0.00");
+		driver = new TaxiDriver("6", "May Deng", "6666", "4153381205", "37.732431", "-122.477482");
 		taxiDrivers.put("6", driver);
 
 	}
