@@ -141,6 +141,7 @@ We have implement the third page of our design which included two buttons called
   # Set up Google App Engine
   # swap the map to the driver UI
   # Instead of passenger that will see available driver we would have to have robots that acts as an passengers that let driver see where's the available passengers
-  # Passenger is able to make request for driver and driver would be able to accept requestes.
-  # After passenger made request they are able to see a confirmation page
-  # implement the cab directory where passenger could find the distance, time and cost of each taxi cab company
+  # Passenger is able to request for driver providing information. The passenger data is send to the server.(fake the data in server)
+  # After passenger made request they are able to see a confirmation page. 
+  # The driver is able to see the map of where customers that had made requests. 
+  # The driver is accept requests. 
