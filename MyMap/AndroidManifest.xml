@@ -16,7 +16,7 @@
         </activity>
         <activity android:name =".Address"></activity>
 		<activity android:name =".FindBy"></activity>
-		<activity android:name =".Map"></activity>
+		<activity android:name =".MapOfRequests"></activity>
 		<activity android:name =".CabDirectory"></activity>
 		<activity android:name =".YellowCab"></activity>
 		<activity android:name =".LuxorCab"></activity>
