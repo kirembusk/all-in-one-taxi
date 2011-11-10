@@ -25,6 +25,8 @@
 		<activity android:name =".RequestConfirmation"></activity>
 		<activity android:name =".Map"></activity>
 		<activity android:name =".ListOfRequest"></activity>
+		<activity android:name =".PassengerRequest"></activity>
+		<activity android:name =".StatusPage"></activity>
 		
     </application>
     
