@@ -25,9 +25,6 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 
-
-
-
 public class MapOfRequests extends MapActivity {
 
 	static final String tag = "Main"; // for Log
@@ -53,8 +50,8 @@ public class MapOfRequests extends MapActivity {
 
 
 		// show the google map
-		setContentView(R.layout.map);
-		RelativeLayout linearLayout = (RelativeLayout)findViewById(R.id.mainlayout); 
+		setContentView(R.layout.main);
+	/*	RelativeLayout linearLayout = (RelativeLayout)findViewById(R.id.mainlayout); 
 		mapView = (MapView) findViewById(R.id.mapview); 
 
 
@@ -64,7 +61,7 @@ public class MapOfRequests extends MapActivity {
 		//   mapView.setStreetView(false);
 		// set zoom to 16
 		mapView.setBuiltInZoomControls(true); 
-		mapController = mapView.getController();
+		mapController = mapView.getController();*/
 	/*	Drawable marker=getResources().getDrawable(R.drawable.cmarker);
 		Drawable marker2 = getResources().getDrawable(android.R.drawable.star_big_on);
 		OverLay overLay = new OverLay(marker);

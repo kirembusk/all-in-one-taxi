@@ -23,6 +23,8 @@
 		<activity android:name =".DriverRequest"></activity>
 		<activity android:name =".MapOfRequests"></activity>
 		<activity android:name =".RequestConfirmation"></activity>
+		<activity android:name =".Map"></activity>
+		<activity android:name =".ListOfRequest"></activity>
 		
     </application>
     

@@ -52,6 +52,7 @@ public class TaxiRideActivity extends Activity {
         //select the main.xml for layout
         setContentView(R.layout.main);
         // get the RequestDriver button in main.xml
+     
         
         Button driver = (Button) findViewById(R.id.RequestDriver);  
         //if the RequestDriver button is click direct the page to Address.class

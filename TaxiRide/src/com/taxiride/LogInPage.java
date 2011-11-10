@@ -17,7 +17,7 @@ public class LogInPage extends Activity  {
 	        Button enter = (Button) findViewById(R.id.ButtonEnter); 
 	       enter.setOnClickListener(new View.OnClickListener() {
 	            public void onClick(View view) {
-	                 Intent myIntent = new Intent(view.getContext(),MapOfRequests.class);
+	                 Intent myIntent = new Intent(view.getContext(),ListOfRequest.class);
 	                startActivityForResult(myIntent, 0);
 	            	
 	            }

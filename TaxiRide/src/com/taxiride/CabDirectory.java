@@ -30,7 +30,7 @@ public class CabDirectory extends ListActivity{
     		 startActivityForResult(myIntent, 0);
 		 }
 		 if(selection == "Luxor Cab"){
-			 Intent myIntent = new Intent(v.getContext(), YellowCab.class);
+			 Intent myIntent = new Intent(v.getContext(), LuxorCab.class);
     		 startActivityForResult(myIntent, 0);	 
 			 
 		 }
