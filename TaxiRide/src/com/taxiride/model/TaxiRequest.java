@@ -10,15 +10,17 @@ public class TaxiRequest {
 	private String requestDestination;
 	private String requestSpecialNeeds;
 	private String assignedDriverName;
+	private String assignedDriverLogin;
 	private int totalPeople;
 	boolean isRequestFilled;
+	
 	
 	
 	public TaxiRequest(Long id, String requestConfirmationNumber,
 			String requestName, String requestPhoneNumber,
 			String requestPickupLocation, String requestDestination,
 			String requestSpecialNeeds, String assignedDriverName,
-			int totalPeople, boolean isRequestFilled) {
+			String assignedDriverLogin, int totalPeople, boolean isRequestFilled) {
 		this.id = id;
 		this.requestConfirmationNumber = requestConfirmationNumber;
 		this.requestName = requestName;
@@ -27,6 +29,7 @@ public class TaxiRequest {
 		this.requestDestination = requestDestination;
 		this.requestSpecialNeeds = requestSpecialNeeds;
 		this.assignedDriverName = assignedDriverName;
+		this.assignedDriverLogin = assignedDriverLogin;
 		this.totalPeople = totalPeople;
 		this.isRequestFilled = isRequestFilled;
 	}
@@ -78,6 +81,12 @@ public class TaxiRequest {
 	public void setAssignedDriverName(String assignedDriverName) {
 		this.assignedDriverName = assignedDriverName;
 	}
+	public String getAssignedDriverLogin() {
+		return assignedDriverLogin;
+	}
+	public void setAssignedDriverLogin(String assignedDriverLogin) {
+		this.assignedDriverLogin = assignedDriverLogin;
+	}
 	public int getTotalPeople() {
 		return totalPeople;
 	}
@@ -92,5 +101,5 @@ public class TaxiRequest {
 	}
 	
 	
-
+	
 }

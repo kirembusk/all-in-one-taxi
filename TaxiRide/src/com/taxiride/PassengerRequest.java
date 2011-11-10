@@ -27,7 +27,9 @@ public class PassengerRequest extends LoggingActivity{
 				totalPass.setText("Total Passengers: " + ListOfRequest.TAXIREQUEST.getTotalPeople());
 				
 				TextView status = (TextView) findViewById(R.id.status);
-				status.setText(" Status:  Open");
+				
+				if(ListOfRequest.TAXIREQUEST.isRequestFilled() == true)
+				status.setText(" Assigned to: " + ListOfRequest.TAXIREQUEST.isRequestFilled());
 				
 				Button accept = (Button)findViewById(R.id.status);
 				//accept
