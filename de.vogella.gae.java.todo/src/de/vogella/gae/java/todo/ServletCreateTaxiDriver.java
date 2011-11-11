@@ -20,7 +20,7 @@ import com.google.appengine.api.users.UserServiceFactory;
 import de.vogella.gae.java.todo.dao.Dao;
 
 @SuppressWarnings("serial")
-public class ServletCreateTaxiRequest extends HttpServlet {
+public class ServletCreateTaxiDriver extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		// TODO Auto-generated method stub
 
@@ -38,36 +38,23 @@ public class ServletCreateTaxiRequest extends HttpServlet {
 
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
-		System.out.println("Making Taxi Reservation... ");
+		System.out.println("Creating Taxi Driver... ");
 
-
-		String name = checkNull(req.getParameter("requestor"));
-		String phoneNumber = checkNull(req.getParameter("phoneNumber"));
-		String from = checkNull(req.getParameter("from"));
-		String to = checkNull(req.getParameter("to"));
-		String people = checkNull(req.getParameter("people"));
-		int numberPeople = 0;
-		try
-		{
-			numberPeople = Integer.parseInt(people);
-		}
-		catch (NumberFormatException nf)
-		{
-			numberPeople = 0;
-		}
-
-		Random r = new Random();
-		int randInt = r.nextInt(10);
-		String today = getCurrentDate("EEEMMddyyyyHHmmssSSS");
-
-		String requestConfirmationNumber = today + String.valueOf(randInt);
-
-		String driverName = "";
-		String driverLogin = "";
 		
-		Dao.INSTANCE.addTaxiRequest(requestConfirmationNumber, name, phoneNumber, from, to, "", driverName, driverLogin, numberPeople);
+	      
+		
+		String loginName = checkNull(req.getParameter("loginName"));
+		String loginPin = checkNull(req.getParameter("loginPin"));
+		String fullName = checkNull(req.getParameter("fullName"));
+		String cabName = checkNull(req.getParameter("cabName"));
+		String phoneNumber = checkNull(req.getParameter("phoneNumber"));
+		String currentLatitude = checkNull(req.getParameter("currentLatitude"));
+		String currentLongitude = checkNull(req.getParameter("currentLongitude"));
+		
+		
+		Dao.INSTANCE.addTaxiDriver(loginName, loginPin, fullName, cabName, phoneNumber, currentLatitude, currentLongitude);
 
-		resp.sendRedirect("/TaxiRequestApplication.jsp");
+		resp.sendRedirect("/TaxiDriverApplication.jsp");
 	}
 
 	private String checkNull(String s) {

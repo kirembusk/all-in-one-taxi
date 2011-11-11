@@ -42,10 +42,12 @@ public class ServletUpdateTaxiRequest extends HttpServlet {
 		String requestId = today + String.valueOf(randInt);
 */
 		String refId = checkNull(req.getParameter("refId"));
-		String from = checkNull(req.getParameter("from"));
+		String assignedTo = checkNull(req.getParameter("assigned"));
 		long id = Long.parseLong(refId);
 		
-		Dao.INSTANCE.updateTaxiPickupLocation(id, from);
+		Dao.INSTANCE.updateTaxiAssignedTo(id, assignedTo);
+	//	Dao.INSTANCE.updateTaxiRequestTaken(id);
+	//	Dao.INSTANCE.updateTaxiRequestCompleted(id);
 
 		resp.sendRedirect("/TaxiUpdateApplication.jsp");
 	}

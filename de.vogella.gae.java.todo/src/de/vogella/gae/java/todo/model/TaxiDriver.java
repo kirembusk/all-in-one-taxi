@@ -19,12 +19,25 @@ public class TaxiDriver {
 	private String phoneNumber;
 	private String currentLatitude;
 	private String currentLongitude;
-	boolean isAvailable;
+	private String isAvailable;
+	boolean isAuth;
 	
 	
-	public TaxiDriver(String loginName, String loginPin,
-			String fullName, String cabName, String phoneNumber,
-			String currentLatitude, String currentLongitude) {
+	public TaxiDriver() {
+		this.loginName = "";
+		this.loginPin = "";
+		this.fullName = "";
+		this.cabName = "";
+		this.phoneNumber = "";
+		this.currentLatitude = "";
+		this.currentLongitude = "";
+		this.isAvailable = "N";
+		this.isAuth = false;
+	}
+
+	public TaxiDriver(String loginName, String loginPin, String fullName,
+			String cabName, String phoneNumber, String currentLatitude,
+			String currentLongitude) {
 		this.loginName = loginName;
 		this.loginPin = loginPin;
 		this.fullName = fullName;
@@ -32,7 +45,8 @@ public class TaxiDriver {
 		this.phoneNumber = phoneNumber;
 		this.currentLatitude = currentLatitude;
 		this.currentLongitude = currentLongitude;
-		this.isAvailable = true;
+		this.isAvailable = "Y";
+		this.isAuth = false;
 	}
 	
 	public Long getId() {
@@ -83,13 +97,20 @@ public class TaxiDriver {
 	public void setCurrentLongitude(String currentLongitude) {
 		this.currentLongitude = currentLongitude;
 	}
-	public boolean isAvailable() {
+	public String getIsAvailable() {
 		return isAvailable;
 	}
-	public void setAvailable(boolean isAvailable) {
+	public void setIsAvailable(String isAvailable) {
 		this.isAvailable = isAvailable;
 	}
-
+	public boolean isAuth() {
+		return isAuth;
+	}
+	public void setAuth(boolean isAuth) {
+		this.isAuth = isAuth;
+	}
+	
+	
 	
 
 }

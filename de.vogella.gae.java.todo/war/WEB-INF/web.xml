@@ -21,6 +21,39 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<servlet-name>UpdateTaxiRequest</servlet-name>
 		<servlet-class>de.vogella.gae.java.todo.ServletUpdateTaxiRequest</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>ListTaxiRequest</servlet-name>
+		<servlet-class>de.vogella.gae.java.todo.ServletListTaxiRequest</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ListMyTaxiRequest</servlet-name>
+		<servlet-class>de.vogella.gae.java.todo.ServletListMyTaxiRequest</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DriverLoginCheck</servlet-name>
+		<servlet-class>de.vogella.gae.java.todo.ServletDriverLoginCheck</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>CreateNewTaxiDriver</servlet-name>
+		<servlet-class>de.vogella.gae.java.todo.ServletCreateTaxiDriver</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CreateNewTaxiDriver</servlet-name>
+		<url-pattern>/driver</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DriverLoginCheck</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ListMyTaxiRequest</servlet-name>
+		<url-pattern>/order</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ListTaxiRequest</servlet-name>
+		<url-pattern>/list</url-pattern>
+	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>UpdateTaxiRequest</servlet-name>
 		<url-pattern>/change</url-pattern>

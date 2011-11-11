@@ -50,7 +50,10 @@ You have a total number of <%= requests.size() %>  Taxi Requests.
       <th>Phone Number</th>
       <th>Pickup Location</th>
       <th>Destination</th>
+      <th>Assigned To</th>
       <th>totalPeople</th>
+      <th>Request Taken</th>
+      <th>Request Completed</th>
             
     </tr>
 
@@ -72,7 +75,16 @@ You have a total number of <%= requests.size() %>  Taxi Requests.
 <%=req.getRequestDestination()%>
 </td>
 <td>
+<%=req.getAssignedDriverLogin()%>
+</td>
+<td>
 <%=req.getTotalPeople()%>
+</td>
+<td>
+<%=req.getIsRequestTaken()%>
+</td>
+<td>
+<%=req.getIsRequestCompleted()%>
 </td>
 <%}
 %>
