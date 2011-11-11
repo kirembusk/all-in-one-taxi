@@ -166,3 +166,19 @@ We have implement the third page of our design which included two buttons called
  # running into trouble of saving the data into the database
  # making sql query with no result exception
  # trying to create the servlet to manage the driver and the taxi request having the mapping result in http 405 exception
+
+*Lesson Learned*
+ # We learned google app engine. 
+ # We learned using listactivity
+ # We learned how to map java object to database using persistence model
+  
+ 
+*What you plan to do the following week*
+ # Set up preference for phone passenger and driver side
+ # re-do the database mapping using the new preferences schema design
+ # find current location of driver and passenger 
+ # convert current location of passenger to address and fill into the edittext
+ # Setup the registration and save info into preferences
+ # create sql filtering to match driver and passenger preferences
+ # Implement server side accepting request for the driver
+ # implement client and server side competing request (handling problem for simultaneous accepting request submission from both taxi drivers
