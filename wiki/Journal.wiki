@@ -145,3 +145,24 @@ We have implement the third page of our design which included two buttons called
   # After passenger made request they are able to see a confirmation page. 
   # The driver is able to see the map of where customers that had made requests. 
   # The driver is accept requests. 
+
+
+
+== <u> Week #5-6 10/27 - 11/10 </u> ==
+*The progress you made (once you start coding, mention the revisions for that week)*
+  # Set up the google app engine account to host the server side for process the taxi request
+  # Set up the data structure and storage to keep track and manage taxi driver and passenger information. 
+  # Write the log in authentication procedure to verify user
+  # Create a web based front end to add new driver and add new request for testing purpose
+  # Set up a request page for users where user could enter information in order to request nearby driver
+  # Set up a confirmation page after user requested a driver
+  # Set up a log in page where user could log in
+  # Set up a open request page which it connected to the google app engine server to get all the open request for driver to view 
+  # Set up a my order page where driver could see the order that he has made.  
+
+ *The problems you have encounter:*
+ # encounter the google map does not work anymore and to replace it we use list instead because of time constraint
+ # Struggling on how to set up the database back end
+ # running into trouble of saving the data into the database
+ # making sql query with no result exception
+ # trying to create the servlet to manage the driver and the taxi request having the mapping result in http 405 exception
