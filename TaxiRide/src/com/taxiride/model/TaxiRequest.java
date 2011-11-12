@@ -12,7 +12,9 @@ public class TaxiRequest {
 	private String assignedDriverName;
 	private String assignedDriverLogin;
 	private int totalPeople;
-	boolean isRequestFilled;
+	private String isRequestTaken;
+	private String isRequestCompleted;
+	
 	
 	
 	
@@ -20,7 +22,8 @@ public class TaxiRequest {
 			String requestName, String requestPhoneNumber,
 			String requestPickupLocation, String requestDestination,
 			String requestSpecialNeeds, String assignedDriverName,
-			String assignedDriverLogin, int totalPeople, boolean isRequestFilled) {
+			String assignedDriverLogin, int totalPeople, String isRequestTaken,
+			String isRequestCompleted) {
 		this.id = id;
 		this.requestConfirmationNumber = requestConfirmationNumber;
 		this.requestName = requestName;
@@ -31,7 +34,8 @@ public class TaxiRequest {
 		this.assignedDriverName = assignedDriverName;
 		this.assignedDriverLogin = assignedDriverLogin;
 		this.totalPeople = totalPeople;
-		this.isRequestFilled = isRequestFilled;
+		this.isRequestTaken = isRequestTaken;
+		this.isRequestCompleted = isRequestCompleted;
 	}
 	public Long getId() {
 		return id;
@@ -93,13 +97,18 @@ public class TaxiRequest {
 	public void setTotalPeople(int totalPeople) {
 		this.totalPeople = totalPeople;
 	}
-	public boolean isRequestFilled() {
-		return isRequestFilled;
+	public String getIsRequestTaken() {
+		return isRequestTaken;
 	}
-	public void setRequestFilled(boolean isRequestFilled) {
-		this.isRequestFilled = isRequestFilled;
+	public void setIsRequestTaken(String isRequestTaken) {
+		this.isRequestTaken = isRequestTaken;
 	}
-	
+	public String getIsRequestCompleted() {
+		return isRequestCompleted;
+	}
+	public void setIsRequestCompleted(String isRequestCompleted) {
+		this.isRequestCompleted = isRequestCompleted;
+	}
 	
 	
 }

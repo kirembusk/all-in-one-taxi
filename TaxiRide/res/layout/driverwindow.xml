@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    <Button android:textSize="32px" android:layout_height="110px" android:layout_width="300px" android:text="My Order " android:id="@+id/MyOrder" android:layout_alignParentTop="true" android:layout_alignLeft="@+id/OpenRequest" android:layout_marginTop="137dp"></Button>
+    <Button android:textSize="32px" android:layout_height="110px" android:layout_width="300px" android:text="Open Request " android:id="@+id/OpenRequest" android:layout_below="@+id/MyOrder" android:layout_centerHorizontal="true" android:layout_marginTop="84dp"></Button>
+</RelativeLayout>
+ 

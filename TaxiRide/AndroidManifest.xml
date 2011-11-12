@@ -27,6 +27,10 @@
 		<activity android:name =".ListOfRequest"></activity>
 		<activity android:name =".PassengerRequest"></activity>
 		<activity android:name =".StatusPage"></activity>
+		<activity android:name =".DriverWindow"></activity>
+		<activity android:name =".MyOrder"></activity>
+		<activity android:name =".MyOrderInfo"></activity>
+		
 		
     </application>
     
