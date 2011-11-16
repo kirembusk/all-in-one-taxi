@@ -23,19 +23,16 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class FindBy extends LoggingActivity {
-	public static PassengerInfo passengerInfo;
+	public static PassengerInfo passengerInfo = new PassengerInfo();
 	private String toAddress;
 	private String fromAddress;
 	private static final Intent LOCATION_CHANGED = null;
     private MapController mapController;
     private LocationManager locationManager;
     private LocationListener locationListener;
-    public static int TO_LAT;
-    public static int TO_LNG;
-    public static int FROM_LAT =0;
-    public static int FROM_LNG =0;
     private Geocoder geoCoder;
-	
+    private boolean isDone = false;
+    
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         passengerInfo= new PassengerInfo();
@@ -52,14 +49,6 @@ public class FindBy extends LoggingActivity {
  			passengerInfo.setEnableGPS(true);
  			locationManager =(LocationManager) getSystemService(Context.LOCATION_SERVICE);
 	        //if network is available then use network provider else use GPS provider
-	      /*  if(locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)){
-	       // update location every 5 secs or when user moves 500 meter.
-	        	locationManager.requestLocationUpdates(
-	        			LocationManager.NETWORK_PROVIDER, 
-	        			5000, 
-	        			500, 
-	        			new NetworkLocationListener());
-	        	}else{*/
 	        	locationManager.requestLocationUpdates(
 	        	          LocationManager.GPS_PROVIDER, 
 	        	          5000, 
@@ -68,7 +57,9 @@ public class FindBy extends LoggingActivity {
  			
  		}else{
  			passengerInfo.setFromAddress(fromAddress);
+ 			isDone=true;
  		}
+ 		
        //DEBUGGING USE
         //Toast toast = Toast.makeText(getApplicationContext(),"from Address: " + fromAddress + " To address: "+ toAddress, BIND_AUTO_CREATE);
         //toast.show();
@@ -113,43 +104,21 @@ public class FindBy extends LoggingActivity {
         
         driverDir.setOnClickListener(new View.OnClickListener() {
         	public void onClick(View view) {
-        		
+        		if(isDone==true ){
                   Intent myIntent = new Intent(view.getContext(), DriverRequest.class);
-                
                   startActivityForResult(myIntent, 0);
+                  
+        		}else{
+        			Toast toast3 = Toast.makeText(getApplicationContext(),"Please wait ---- Determinding your current location", 10);
+       	            toast3.show();
+         	   
+        		}
+        			
             }
 
         });
 	}
  
-	public  class NetworkLocationListener implements LocationListener {
-
-        //  @Override
-          public void onStatusChanged(String provider, int status, Bundle extras) {
-              
-          }
-
-       //   @Override
-          public void onProviderEnabled(String provider) {
-              
-          }
-
-       //   @Override
-          public void onProviderDisabled(String provider) {
-            
-          }
-
-          public void onLocationChanged(Location location) {
-          	
-         	FindBy.FROM_LAT=(int) (location.getLatitude() * 1E6);
-  	        FindBy.FROM_LNG= (int) (location.getLongitude() * 1E6);
-  	        Toast toast = Toast.makeText(getApplicationContext(), "From Lat: " + FindBy.FROM_LAT + "from current LAT:  " + (int) (location.getLatitude() * 1E6) , BIND_AUTO_CREATE);
-	   		toast.show();
-  	     
-          	
-          }
-      };;
-	
       
  public class GPSLocationListener implements LocationListener 
   	{
@@ -173,25 +142,23 @@ public class FindBy extends LoggingActivity {
 	    	try {
 	    		
 	    	      List<Address> address = gc.getFromLocation(lat, log, 1);
-	    	      Toast toast3 = Toast.makeText(getApplicationContext(),"address size: " + address , BIND_AUTO_CREATE);
-			       toast3.show();
+	    	      //Toast toast3 = Toast.makeText(getApplicationContext(),"address size: " + address , BIND_AUTO_CREATE);
+			       //toast3.show();
 			        
-	    	      
-	    	
 	    	     if (address.size() > 0) {
 	    	        Address addr = address.get(0);
 	    	        sb.append(addr.getAddressLine(0));
-	    	        sb.append(","); 
+	    	        sb.append(", "); 
 	    	        sb.append(addr.getLocality());
-	    	        sb.append(",");
+	    	        sb.append(", ");
 	    	        sb.append(addr.getAdminArea());
 	    	      }
 	    	    } catch (IOException e) {}
-	    	    
+	    	    addressString = sb.toString();
 	    	    passengerInfo.setFromAddress(addressString);
-	    	    Toast toast3 = Toast.makeText(getApplicationContext(),"from Address: " +sb, BIND_AUTO_CREATE);
-	            toast3.show();
-  	   
+	    	//    Toast toast3 = Toast.makeText(getApplicationContext(),"from Address: " +addressString, BIND_AUTO_CREATE);
+	         //   toast3.show();
+	    	    isDone=true;
   	  }
   	
   	  public Location locationReturn(Location location){return location;}

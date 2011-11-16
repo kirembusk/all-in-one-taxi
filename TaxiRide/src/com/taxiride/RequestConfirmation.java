@@ -13,10 +13,10 @@ public class RequestConfirmation extends LoggingActivity {
 		setContentView(R.layout.requestconfirmation);
 		
 		TextView fromAddress = (TextView) findViewById(R.id.fromAddress);
-		fromAddress.setText("From: " + Address.FROMADDRESS);
+		fromAddress.setText("From: " + FindBy.passengerInfo.getFromAddress());
 		
 		TextView toAddress = (TextView) findViewById(R.id.toAddress);
-		toAddress.setText("To: " + Address.TOADDRESS);
+		toAddress.setText("To: " + FindBy.passengerInfo.getToAddress());
 		
 		Button refresh = (Button) findViewById(R.id.refresh);
 		

@@ -8,6 +8,10 @@
 package com.taxiride;
 
 public final class R {
+    public static final class array {
+        public static final int payment=0x7f050000;
+        public static final int paymentValues=0x7f050001;
+    }
     public static final class attr {
     }
     public static final class drawable {
@@ -15,50 +19,51 @@ public final class R {
         public static final int icon=0x7f020001;
     }
     public static final class id {
-        public static final int ButtonCabDir=0x7f050012;
-        public static final int ButtonDriverDir=0x7f050011;
-        public static final int ButtonEnter=0x7f050003;
-        public static final int DriverName_ =0x7f05002a;
-        public static final int EditNumOfPeople=0x7f05000d;
-        public static final int Eg=0x7f050006;
-        public static final int LinearLayout01=0x7f050007;
-        public static final int MyOrder=0x7f05000f;
-        public static final int Name=0x7f050009;
-        public static final int NumOfPeople=0x7f05000e;
-        public static final int OpenRequest=0x7f050010;
-        public static final int PhoneNum=0x7f05000b;
-        public static final int PhoneNumber=0x7f05000a;
-        public static final int RequestDriver=0x7f05001c;
-        public static final int RequestName =0x7f050027;
-        public static final int RequestPassenger=0x7f05001d;
-        public static final int RequestPhone =0x7f050026;
-        public static final int TaxiBest=0x7f05001b;
-        public static final int Text_From=0x7f050000;
-        public static final int Text_Password=0x7f050017;
-        public static final int Text_To=0x7f050005;
-        public static final int Text_Username=0x7f050015;
-        public static final int To=0x7f05000c;
-        public static final int Username=0x7f050016;
-        public static final int accept=0x7f050020;
-        public static final int addBtn=0x7f050013;
-        public static final int arrivalTime =0x7f050021;
-        public static final int call=0x7f05001a;
-        public static final int cancel=0x7f050025;
-        public static final int checkBox1=0x7f050004;
-        public static final int driverPhone =0x7f050029;
-        public static final int editFromAddress=0x7f050001;
-        public static final int editName=0x7f050008;
-        public static final int editToAddress=0x7f050002;
-        public static final int fromAddress =0x7f050028;
-        public static final int mainlayout=0x7f05001e;
-        public static final int mapview=0x7f05001f;
-        public static final int password =0x7f050014;
-        public static final int password_ =0x7f050018;
-        public static final int refresh=0x7f05002b;
-        public static final int status=0x7f050024;
-        public static final int toAddress =0x7f050022;
-        public static final int totalPass =0x7f050023;
-        public static final int yellowcab=0x7f050019;
+        public static final int ButtonCabDir=0x7f070013;
+        public static final int ButtonDriverDir=0x7f070012;
+        public static final int ButtonEnter=0x7f070003;
+        public static final int DriverName_ =0x7f07002b;
+        public static final int EditNumOfPeople=0x7f07000d;
+        public static final int Eg=0x7f070006;
+        public static final int LinearLayout01=0x7f070007;
+        public static final int MyOrder=0x7f07000f;
+        public static final int Name=0x7f070009;
+        public static final int NumOfPeople=0x7f07000e;
+        public static final int OpenRequest=0x7f070010;
+        public static final int PhoneNum=0x7f07000b;
+        public static final int PhoneNumber=0x7f07000a;
+        public static final int RequestDriver=0x7f07001d;
+        public static final int RequestName =0x7f070028;
+        public static final int RequestPassenger=0x7f07001e;
+        public static final int RequestPhone =0x7f070027;
+        public static final int TaxiBest=0x7f07001c;
+        public static final int Text_From=0x7f070000;
+        public static final int Text_Password=0x7f070018;
+        public static final int Text_To=0x7f070005;
+        public static final int Text_Username=0x7f070016;
+        public static final int To=0x7f07000c;
+        public static final int Username=0x7f070017;
+        public static final int accept=0x7f070021;
+        public static final int addBtn=0x7f070014;
+        public static final int arrivalTime =0x7f070022;
+        public static final int call=0x7f07001b;
+        public static final int cancel=0x7f070026;
+        public static final int checkBox1=0x7f070004;
+        public static final int driverPhone =0x7f07002a;
+        public static final int editFromAddress=0x7f070001;
+        public static final int editName=0x7f070008;
+        public static final int editPreference=0x7f070011;
+        public static final int editToAddress=0x7f070002;
+        public static final int fromAddress =0x7f070029;
+        public static final int mainlayout=0x7f07001f;
+        public static final int mapview=0x7f070020;
+        public static final int password =0x7f070015;
+        public static final int password_ =0x7f070019;
+        public static final int refresh=0x7f07002c;
+        public static final int status=0x7f070025;
+        public static final int toAddress =0x7f070023;
+        public static final int totalPass =0x7f070024;
+        public static final int yellowcab=0x7f07001a;
     }
     public static final class layout {
         public static final int address=0x7f030000;
@@ -77,7 +82,10 @@ public final class R {
         public static final int yellowcab=0x7f03000d;
     }
     public static final class string {
-        public static final int app_name=0x7f040001;
-        public static final int hello=0x7f040000;
+        public static final int app_name=0x7f060001;
+        public static final int hello=0x7f060000;
+    }
+    public static final class xml {
+        public static final int driver_preferences=0x7f040000;
     }
 }

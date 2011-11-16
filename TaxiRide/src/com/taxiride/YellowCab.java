@@ -23,13 +23,13 @@ public class YellowCab extends LoggingActivity{
         
 	    Location locationA = new Location("point A");  
 	      
-	    locationA.setLatitude(FindBy.FROM_LAT);  
-	    locationA.setLongitude(FindBy.FROM_LNG);  
+	    locationA.setLatitude(FindBy.passengerInfo.getFromLat());  
+	    locationA.setLongitude(FindBy.passengerInfo.getFromlog());  
 	      
 	    Location locationB = new Location("point B");  
 	      
-	    locationB.setLatitude(FindBy.TO_LAT);  
-	    locationB.setLongitude(FindBy.TO_LNG);
+	    locationB.setLatitude(FindBy.passengerInfo.getToLat());  
+	    locationB.setLongitude(FindBy.passengerInfo.getToLog());
 	    
 	    
 	    distance = locationA.distanceTo(locationB);  

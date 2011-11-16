@@ -38,7 +38,9 @@ import java.net.URLEncoder;
 import java.util.List;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.RelativeLayout;
@@ -68,10 +70,16 @@ public class TaxiRideActivity extends Activity {
         //if the RequestDriver button is click direct the page to Address.class
         passenger.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(),LogInPage.class);
+            	SharedPreferences prefs = getSharedPreferences("DriverPreference", Context.MODE_PRIVATE);
+            	boolean haveWeShownPreferences = prefs.getBoolean("HaveShownPrefs", false);
+            	if(!haveWeShownPreferences){
+                Intent myIntent = new Intent(view.getContext(),DriverPreference.class);
                 startActivityForResult(myIntent, 0);
-            }
-           
+            	}else{
+            		Intent myIntent = new Intent(view.getContext(),DriverWindow.class);
+                    startActivityForResult(myIntent, 0);
+            	  }
+            	} 
         });
          
     }

@@ -19,15 +19,13 @@ import android.widget.Toast;
 
 
 public class Address extends LoggingActivity{
-	public static PassengerInfo passengerInfo = new PassengerInfo();
 	private static int calls = 0;
 	public static String TOADDRESS;
 	public static String FROMADDRESS;
-	private GPSLocationListner gpsLocation= new GPSLocationListner();
 	private double lat;
 	private double log; 
-	private String addressString = ""; 
-	
+	private String addressString =""; 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,50 +40,14 @@ public class Address extends LoggingActivity{
         
         fromAddress.setText("Current Location"); 
         
-   /*     LocationManager locationManager =(LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        locationManager.requestLocationUpdates(
-  	          LocationManager.GPS_PROVIDER, 
-  	          5000, 
-  	          500, 
-  	         gpsLocation);
-        
-        	lat = gpsLocation.getLatitude();
-        	log = gpsLocation.getLongtitude();
-        	
-        	 Toast toast = Toast.makeText(getApplicationContext(),"from lat: " + passengerInfo.getFromLat() + "from log: " + log, BIND_AUTO_CREATE);
-             toast.show();
-        	
-        	Geocoder gc = new Geocoder(this,Locale.getDefault());
-        	try {
-        	      List<android.location.Address> addresses = gc.getFromLocation(lat, log, 1);
-        	      StringBuilder sb = new StringBuilder();
-        	      if (addresses.size() > 0) {
-        	        android.location.Address address = addresses.get(0);
-        	        
-        	        sb.append(address.getLocality()).append("\n");
-        	        sb.append(address.getCountryName());
-        	      }
-        	      addressString = sb.toString();
-        	    } catch (IOException e) {}
-        	    
-        	    fromAddress.setText(addressString);
-        	  //  Toast toast = Toast.makeText(getApplicationContext(),"from Address: " + addressString, BIND_AUTO_CREATE);
-              //  toast.show();*/
-        	    
-        	    
+  
         	
         	
       //if the button called enter is click direct to page FindBy.class
         enter.setOnClickListener(new View.OnClickListener() {
         	
         	public void onClick(View view) {
-        		
-        	/*	passengerInfo.setToAddress(toAddress.getText().toString());
-        		if(fromAddress.getText().toString()=="Current Location"){
-        			passengerInfo.setEnableGPS(true);
-        		}else{
-        			passengerInfo.setFromAddress(fromAddress.getText().toString());
-        		}*/
+        	
         		Bundle bundle = new Bundle();
                 TOADDRESS = toAddress.getText().toString();
                 FROMADDRESS = fromAddress.getText().toString();

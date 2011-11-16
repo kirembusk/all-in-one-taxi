@@ -2,8 +2,8 @@ package com.taxiride;
 
 public class PassengerInfo {
 	
-	private String fromAddress;
-	private String toAddress;
+	private String fromAddress ="";
+	private String toAddress = "";
 	private double fromLat;
 	private double fromlog;
 	private double toLat;

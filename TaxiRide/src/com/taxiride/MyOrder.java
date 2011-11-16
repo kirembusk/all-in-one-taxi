@@ -34,6 +34,7 @@ public class MyOrder extends ListActivity{
 		 super.onCreate(savedInstanceState);
 		 
 		 String myURL = "http://taxitestcenter.appspot.com/order?action=json&loginID=william";
+		 
 		 StringBuilder taxiStationResponse = new StringBuilder();
 		 StringBuffer jb = new StringBuffer();
 		 Gson gson = new Gson();
