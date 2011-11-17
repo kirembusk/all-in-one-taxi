@@ -18,5 +18,6 @@
       android:layout_width="wrap_content" 
       android:textSize="40px" android:id="@+id/call" 
       android:layout_alignParentBottom="true" android:layout_alignParentRight="true" android:layout_alignParentLeft="true"></Button>
+     <TextView android:layout_height="wrap_content" android:text="Output: " android:textSize="32px" android:id="@+id/output" android:layout_width="wrap_content" android:layout_below="@+id/yellowcab" android:layout_alignParentLeft="true" android:layout_marginLeft="23dp" android:layout_marginTop="28dp"></TextView>
        
 </RelativeLayout>

@@ -1,6 +1,8 @@
 package com.taxiride;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Locale;
 
@@ -27,11 +29,14 @@ public class FindBy extends LoggingActivity {
 	private String toAddress;
 	private String fromAddress;
 	private static final Intent LOCATION_CHANGED = null;
-    private MapController mapController;
+   
     private LocationManager locationManager;
     private LocationListener locationListener;
     private Geocoder geoCoder;
     private boolean isDone = false;
+    private boolean isConvertToLocDone = false;
+   
+    private double[] coordinate = new double[2]; 
     
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,58 +58,54 @@ public class FindBy extends LoggingActivity {
 	        	          LocationManager.GPS_PROVIDER, 
 	        	          5000, 
 	        	          500, 
-	        	          new GPSLocationListener());//}
+	        	          new GPSLocationListener());
  			
  		}else{
  			passengerInfo.setFromAddress(fromAddress);
+ 			convertToCoordinate(fromAddress); 
+ 			passengerInfo.setFromLat(coordinate[0]);
+ 			passengerInfo.setFromlog(coordinate[1]);
+ 		
  			isDone=true;
  		}
  		
-       //DEBUGGING USE
-        //Toast toast = Toast.makeText(getApplicationContext(),"from Address: " + fromAddress + " To address: "+ toAddress, BIND_AUTO_CREATE);
-        //toast.show();
-        // IF USER DID NOT ENTER ANY FROM ADDRESS THEN FINE NETWORK OR GPS PROVIDER
-       
-        	
-        //CONVERT "FROM ADDRESS" TO LATITUDE AND LONGTITUDE AND ASSIGN TO 
-        // THE GLOBAL VARIABLE
-        List<Address> addresses;
-		try {
-			addresses = geoCoder.getFromLocationName(toAddress, 5);
-			 if (addresses.size() > 0) {
-	               
-	              // TO_LAT=(int) (addresses.get(0).getLatitude() * 1E6); 
-	              // TO_LNG=(int) (addresses.get(0).getLongitude() * 1E6);
-				 	passengerInfo.setToLat(addresses.get(0).getLatitude() * 1E6);
-				 	passengerInfo.setToLog(addresses.get(0).getLongitude() * 1E6);
-	           }
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
+ 		
+ 		convertToCoordinate(toAddress); 
+ 		passengerInfo.setToLat(coordinate[0]);
+ 		passengerInfo.setToLog(coordinate[1]); 
+ 		isConvertToLocDone =true;
 		
     	   
         Button cabDir = (Button) findViewById(R.id.ButtonCabDir);
         
         cabDir.setOnClickListener(new View.OnClickListener() {
         	public void onClick(View view) {
-        	//	Bundle bundle2 = new Bundle();
-        	//	bundle2.putString("toAddress", toAddress);
-        	//	bundle2.putString("fromAddress", fromAddress);
+        		if(isDone==true && isConvertToLocDone == true){
+        			setDistance();
               Intent myIntent2 = new Intent(view.getContext(),CabDirectory.class);
-                //  myIntent2.putExtras(bundle2);
                   startActivityForResult(myIntent2, 0);
+        		}
+        		else{
+        			Toast toast3 = Toast.makeText(getApplicationContext(),"-------- Please wait -----", 10);
+       	            toast3.show();
+        		}
             }
         });
          
+        Button editPreference = (Button) findViewById(R.id.editPreference);
+        editPreference.setOnClickListener(new View.OnClickListener() {
+        	public void onClick(View view) {
+              Intent myIntent2 = new Intent(view.getContext(),PassengerPreference.class);
+                  startActivityForResult(myIntent2, 0);
+            }
+        });
         
         Button driverDir = (Button) findViewById(R.id.ButtonDriverDir);
         
         driverDir.setOnClickListener(new View.OnClickListener() {
         	public void onClick(View view) {
-        		if(isDone==true ){
+        		if(isDone==true && isConvertToLocDone == true){
+        			setDistance();
                   Intent myIntent = new Intent(view.getContext(), DriverRequest.class);
                   startActivityForResult(myIntent, 0);
                   
@@ -117,33 +118,61 @@ public class FindBy extends LoggingActivity {
             }
 
         });
+        
+        
 	}
+	
+	public void convertToCoordinate(String address){
+		 List<Address> addresses;
+		 
+		 	
+			try {
+				addresses = geoCoder.getFromLocationName(address, 1);
+				  
+				 if (addresses.size() > 0) {
+					coordinate[0] = addresses.get(0).getLatitude();
+					coordinate[1] = addresses.get(0).getLongitude(); 
+		           }
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		
+	}
+	 public void setDistance(){
+		 
+  		 float[] results = {0};
+  		 Location distanceBetween = new Location ("point a to b");
+ 	    distanceBetween.distanceBetween(passengerInfo.getFromLat(), passengerInfo.getFromlog(), passengerInfo.getToLat(), passengerInfo.getToLog(), results);
+ 	    double result = (float)(results[0]);
+	    result = result * 0.000621371192;
+	    DecimalFormat newFormat = new DecimalFormat("#.#");
+	    double convertMiles = Double.valueOf(newFormat.format(result));
+	    passengerInfo.setDistance(convertMiles); 
+ 	    
+  		  
+  	  }
  
       
  public class GPSLocationListener implements LocationListener 
   	{
   	  public void onLocationChanged(Location location) {
-  		//Toast toast = Toast.makeText(getApplicationContext(),"outside : " , BIND_AUTO_CREATE);
-        //toast.show();
-  		 //  updateLocation(location);
-  		  	//FindBy.FROM_LAT=(int) (location.getLatitude() * 1E6);
-	        //FindBy.FROM_LNG = (int) (location.getLongitude() * 1E6);
-        	double lat = location.getLatitude();
+  		
+  		  double lat = location.getLatitude();
         	double log = location.getLongitude();
         	
+        	passengerInfo.setFromLat(location.getLatitude());
+        	passengerInfo.setFromlog(location.getLongitude());
         	
-	        passengerInfo.setFromLat(location.getLatitude()* 1E6);
-	        passengerInfo.setFromlog(location.getLongitude() * 1E6);
-	       // Toast toast2 = Toast.makeText(getApplicationContext(), "From Lat: " +  passengerInfo.getFromLat() + "from current LAT:  " + (int) (location.getLatitude() * 1E6) , BIND_AUTO_CREATE);
-	   		//toast2.show();
+        	
 	        String addressString="";
 	        Geocoder gc = new Geocoder(getApplicationContext(),Locale.getDefault());
 	        StringBuilder sb =new StringBuilder();
 	    	try {
 	    		
 	    	      List<Address> address = gc.getFromLocation(lat, log, 1);
-	    	      //Toast toast3 = Toast.makeText(getApplicationContext(),"address size: " + address , BIND_AUTO_CREATE);
-			       //toast3.show();
+	    	      
 			        
 	    	     if (address.size() > 0) {
 	    	        Address addr = address.get(0);
@@ -158,10 +187,16 @@ public class FindBy extends LoggingActivity {
 	    	    passengerInfo.setFromAddress(addressString);
 	    	//    Toast toast3 = Toast.makeText(getApplicationContext(),"from Address: " +addressString, BIND_AUTO_CREATE);
 	         //   toast3.show();
+	    	    
+	    	   
 	    	    isDone=true;
   	  }
+  	  
+  	 
+  	  
   	
   	  public Location locationReturn(Location location){return location;}
+  	  
   	public void onProviderDisabled(String arg0) {
   		Toast toast3 = Toast.makeText(getApplicationContext(), "GPS disable", BIND_AUTO_CREATE);
   		toast3.show();

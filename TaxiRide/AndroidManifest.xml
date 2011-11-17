@@ -30,9 +30,8 @@
 		<activity android:name =".DriverWindow"></activity>
 		<activity android:name =".MyOrder"></activity>
 		<activity android:name =".MyOrderInfo"></activity>
-		<activity android:name="DriverPreference"></activity>
-		
-		
+		<activity android:name=".DriverPreference"></activity>
+		<activity android:name=".PassengerPreference"></activity>
     </application>
     
     <uses-permission android:name="android.permission.ACCESS_LOCATION"/>

@@ -60,8 +60,16 @@ public class TaxiRideActivity extends Activity {
         //if the RequestDriver button is click direct the page to Address.class
         driver.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), Address.class);
+            	SharedPreferences prefs2 = getSharedPreferences("PassengerPreference", Context.MODE_PRIVATE);
+            	boolean haveWeShownPreferences = prefs2.getBoolean("HaveShownPrefs", false);
+            	if(!haveWeShownPreferences){
+                Intent myIntent = new Intent(view.getContext(),PassengerPreference.class);
                 startActivityForResult(myIntent, 0);
+            	}else{
+            		Intent myIntent = new Intent(view.getContext(),Address.class);
+                    startActivityForResult(myIntent, 0);
+            	  }
+            	 
             }
 
         });

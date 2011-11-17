@@ -19,8 +19,8 @@ public final class R {
         public static final int icon=0x7f020001;
     }
     public static final class id {
-        public static final int ButtonCabDir=0x7f070013;
-        public static final int ButtonDriverDir=0x7f070012;
+        public static final int ButtonCabDir=0x7f070012;
+        public static final int ButtonDriverDir=0x7f070013;
         public static final int ButtonEnter=0x7f070003;
         public static final int DriverName_ =0x7f07002b;
         public static final int EditNumOfPeople=0x7f07000d;
@@ -57,6 +57,7 @@ public final class R {
         public static final int fromAddress =0x7f070029;
         public static final int mainlayout=0x7f07001f;
         public static final int mapview=0x7f070020;
+        public static final int output=0x7f07002d;
         public static final int password =0x7f070015;
         public static final int password_ =0x7f070019;
         public static final int refresh=0x7f07002c;
@@ -87,5 +88,6 @@ public final class R {
     }
     public static final class xml {
         public static final int driver_preferences=0x7f040000;
+        public static final int passenger_preference=0x7f040001;
     }
 }

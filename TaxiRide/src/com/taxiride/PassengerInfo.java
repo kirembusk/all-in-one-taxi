@@ -2,14 +2,15 @@ package com.taxiride;
 
 public class PassengerInfo {
 	
-	private String fromAddress ="";
-	private String toAddress = "";
+	private String fromAddress;
+	private String toAddress;
 	private double fromLat;
 	private double fromlog;
 	private double toLat;
 	private double toLog;
 	private int totalPeople;
 	private boolean isEnableGPS;
+	private double distance; 
 	
 	
 	
@@ -23,6 +24,7 @@ public class PassengerInfo {
 		this.toLog = 0;
 		this.totalPeople = 0;
 		this.isEnableGPS = false;
+		this.distance = 0; 
 	}
 	
 	public String getFromAddress() {
@@ -73,8 +75,14 @@ public class PassengerInfo {
 	public void setEnableGPS(boolean isEnableGPS) {
 		this.isEnableGPS = isEnableGPS;
 	}
+	public void setDistance(double distance){
+		this.distance = distance; 
+		
+	}
 	
-	
+	public double getDistance(){
+		return distance; 
+	}
 	
 	
 

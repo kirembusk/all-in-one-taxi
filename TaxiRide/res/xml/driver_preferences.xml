@@ -4,27 +4,27 @@
     <PreferenceCategory
                 android:title="My Preferences">
                 <EditTextPreference
-                android:name="Edit First Name"
-                android:summary="Enter your first name"
+                android:name="Edit First and Last Name"
+                android:summary="Enter your first name and last name"
                 android:defaultValue=""
                 android:title="Edit This Text"
-                android:key="editFirstName"/>
+                android:key="editName"/>
                 <EditTextPreference
-                android:name="Edit Last Name"
-                android:summary="Enter your last name"
-                android:defaultValue="Nothing"
+                android:name="Edit Phone number"
+                android:summary="Enter your phone number"
+                android:defaultValue=""
                 android:title="Edit This Text"
-                android:key="editLastName" />
+                android:key="editPhoneNum" />
                 <EditTextPreference
                 android:name="Max distanct for pick up"
                 android:summary="Enter max distanct for pick up in miles"
-                android:defaultValue="Nothing"
+                android:defaultValue=""
                 android:title="Edit This Text"
                 android:key="editMaxPickup" />
                 <EditTextPreference
                 android:name="Max distanct for drop off"
                 android:summary="Enter max distanct for drop off in miles"
-                android:defaultValue="Nothing"
+                android:defaultValue=""
                 android:title="Edit This Text"
                 android:key="editMaxDropOff" />
                <ListPreference

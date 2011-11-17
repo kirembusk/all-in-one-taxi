@@ -11,24 +11,25 @@ import android.preference.PreferenceManager;
 import android.provider.Settings.Secure;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 
-public class DriverPreference extends PreferenceActivity  implements OnSharedPreferenceChangeListener{
+public class PassengerPreference extends PreferenceActivity  implements OnSharedPreferenceChangeListener{
 	 
 	private boolean flag = false;
 	
 	protected void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
-         addPreferencesFromResource(R.xml.driver_preferences);
-         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-         sp.registerOnSharedPreferenceChangeListener(this);
-         SharedPreferences prefs = getSharedPreferences("DriverPreference", Context.MODE_PRIVATE);
-         SharedPreferences.Editor ed = prefs.edit();
-         ed.putBoolean("HaveShownPrefs", true);
-         ed.commit();
-        // String androidID = Secure.getString(getBaseContext().getContentResolver(),
-        //     Secure.ANDROID_ID); 
+         
+         addPreferencesFromResource(R.xml.passenger_preference);
+        /* SharedPreferences sp2 = PreferenceManager.getDefaultSharedPreferences(this);
+         sp2.registerOnSharedPreferenceChangeListener(this);
+         SharedPreferences prefs2 = getSharedPreferences("PassengerPreference", Context.MODE_PRIVATE);
+         SharedPreferences.Editor ed2 = prefs2.edit();
+         ed2.putBoolean("HaveShownPrefs", true);
+         ed2.commit();*/
+         String androidID = Secure.getString(getBaseContext().getContentResolver(),
+                 Secure.ANDROID_ID); 
+         
 	 }   
 	
 	  @Override
@@ -43,8 +44,7 @@ public class DriverPreference extends PreferenceActivity  implements OnSharedPre
 	  	    	if(flag == true){
 	  	        switch (item.getItemId()) {
 	  	            case 0:
-	  	                startActivity(new Intent(this, DriverWindow.class));
-	  	                
+	  	                startActivity(new Intent(this, Address.class));
 	  	                return true;
 	  	        }
 	  	      }
@@ -55,8 +55,7 @@ public class DriverPreference extends PreferenceActivity  implements OnSharedPre
 			@Override
 			public void onSharedPreferenceChanged(SharedPreferences sp,
 					String key) {
-				
-				 if (key.equals("editFullName")) {
+				 if (key.equals("editFirstName")) {
 					 String value = sp.getString(key, null);
 					 if(value == "")
 						 flag = false;
