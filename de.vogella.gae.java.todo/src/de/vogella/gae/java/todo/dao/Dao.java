@@ -46,7 +46,55 @@ public enum Dao {
 			em.close();
 		}
 	}
-	
+
+	public boolean isTaxiDriverExists(String loginName) {
+		EntityManager em = EMFService.get().createEntityManager();
+		// Read the existing entries
+		Query q = em.createQuery("select d from TaxiDriver d where d.loginName = :loginName");
+		q.setParameter("loginName", loginName);
+		boolean result = false;
+		TaxiDriver driver = new TaxiDriver();
+		try
+		{
+			driver = (TaxiDriver) q.getSingleResult();
+			result = true;
+		}
+		catch(Exception e)
+		{
+			result = false;
+		}
+
+		return result;
+	}
+
+
+	public long getTaxiDriverId(String loginName) {
+		EntityManager em = EMFService.get().createEntityManager();
+		// Read the existing entries
+		Query q = em.createQuery("select d from TaxiDriver d where d.loginName = :loginName");
+		q.setParameter("loginName", loginName);
+		
+		TaxiDriver driver = null;
+
+		long result = 0;
+
+		try
+		{
+			driver = (TaxiDriver) q.getSingleResult();
+			if (driver != null)
+			{
+				result = driver.getId();
+			}
+		}
+		catch(Exception e)
+		{
+			result = 0;
+		}
+
+		return result;
+	}
+
+
 	public TaxiDriver checkLogin(String loginName, String loginPin) {
 		EntityManager em = EMFService.get().createEntityManager();
 		// Read the existing entries
@@ -56,17 +104,17 @@ public enum Dao {
 		TaxiDriver driver = new TaxiDriver();
 		try
 		{
-		    driver = (TaxiDriver) q.getSingleResult();
-		    driver.setAuth(true);
+			driver = (TaxiDriver) q.getSingleResult();
+			driver.setAuth(true);
 		}
 		catch(Exception e)
 		{
 			driver = new TaxiDriver();
 		}
-		
+
 		return driver;
 	}
-	
+
 	public List<TaxiRequest> listAllOpenTaxiRequest() {
 		EntityManager em = EMFService.get().createEntityManager();
 		// Read the existing entries
@@ -75,7 +123,7 @@ public enum Dao {
 		List<TaxiRequest> requests = q.getResultList();
 		return requests;
 	}
-	
+
 	public List<TaxiRequest> listAllTaxiRequest() {
 		EntityManager em = EMFService.get().createEntityManager();
 		// Read the existing entries
@@ -83,13 +131,21 @@ public enum Dao {
 		List<TaxiRequest> requests = q.getResultList();
 		return requests;
 	}
-	
+
 	public List<TaxiRequest> getTaxiRequest(String requestId) {
 		EntityManager em = EMFService.get().createEntityManager();
 		Query q = em.createQuery("select t from TaxiRequest t where t.requestID = :requestId");
 		q.setParameter("requestId", requestId);
 		List<TaxiRequest> requests = q.getResultList();
 		return requests;
+	}
+
+	public TaxiRequest getUpdateTaxiRequest(long requestID) {
+		EntityManager em = EMFService.get().createEntityManager();
+		Query q = em.createQuery("select t from TaxiRequest t where t.id = :requestId");
+		q.setParameter("requestId", requestID);
+		TaxiRequest request = (TaxiRequest) q.getSingleResult();
+		return request;
 	}
 	
 	public List<TaxiRequest> getMyTaxiRequest(String loginId) {
@@ -99,25 +155,99 @@ public enum Dao {
 		List<TaxiRequest> requests = q.getResultList();
 		return requests;
 	}
+
+
+
 	
-	public void addTaxiRequest(String requestConfirmationNumber, String requestName, String requestPhoneNumber, String requestPickupLocation, String requestDestination, String requestSpecialNeeds, String requestDriverName, String requestDriverLogin, int totalPeople) {
+	public long addTaxiRequest(String requestName, String requestPhoneNumber, String requestPickupLocation, String requestDestination, String preferredPayment, String currentLatitude, String currentLongitude, String toLatitude, String toLongitude, int totalPeople, String totalDistance) {
+		long result = 0;
+		
 		synchronized (this) {
+			String assignedDriverName = "";
+			String assignedDriverPhoneNumber = "";
+			String assignedDriverLatitude = "";
+			String assignedDriverLongitude = "";
+			String estimatedArrivalTime = "";
+			
 			EntityManager em = EMFService.get().createEntityManager();
-			TaxiRequest request = new TaxiRequest( requestConfirmationNumber,  requestName, requestPhoneNumber, requestPickupLocation,  requestDestination,  requestSpecialNeeds,  requestDriverName, requestDriverLogin, totalPeople);
+			TaxiRequest request = new TaxiRequest(requestName, requestPhoneNumber, requestPickupLocation, requestDestination,
+			                                      assignedDriverName, assignedDriverPhoneNumber, assignedDriverLatitude, assignedDriverLongitude, estimatedArrivalTime, 
+			                                      preferredPayment, currentLatitude, currentLongitude, toLatitude, toLongitude, totalDistance, totalPeople);
 			em.persist(request);
+			em.close();
+			result = request.getId();
+		}
+		
+		return result;
+	}
+
+	public void removeTaxiRequest(long id) {
+		EntityManager em = EMFService.get().createEntityManager();
+		try {
+			TaxiRequest request = em.find(TaxiRequest.class, id);
+			em.remove(request);
+		} finally {
 			em.close();
 		}
 	}
-	
-	public void addTaxiDriver(String loginName, String loginPin, String fullName, String cabName, String phoneNumber, String currentLatitude, String currentLongitude) {
+
+	public void addTaxiDriver(String loginName, String loginPin, String fullName, String cabName, String phoneNumber, String currentLatitude, String currentLongitude, String maxPickupDistance, String maxDropOffDistance, String preferredPayment) {
 		synchronized (this) {
 			EntityManager em = EMFService.get().createEntityManager();
-			TaxiDriver driver = new TaxiDriver(loginName, loginPin, fullName, cabName, phoneNumber, currentLatitude, currentLongitude);
+			TaxiDriver driver = new TaxiDriver(loginName, loginPin, fullName, cabName, phoneNumber, currentLatitude, currentLongitude, maxPickupDistance, maxDropOffDistance, preferredPayment);
 			em.persist(driver);
 			em.close();
 		}
 	}
-	
+
+	public String updateTaxiDriver(long regID, String loginName, String loginPin, String fullName, String cabName, String phoneNumber, String currentLatitude, String currentLongitude, String maxPickupDistance, String maxDropOffDistance, String preferredPayment) {
+		String result = "fail";
+		
+		synchronized (this) {
+			
+			EntityManager em = EMFService.get().createEntityManager();
+			try {
+				TaxiDriver driver = em.find(TaxiDriver.class, regID);
+
+				if (driver != null)
+				{
+					driver.setLoginName(loginName);
+					driver.setLoginPin(loginPin);
+					driver.setFullName(fullName);
+					driver.setCabName(cabName);
+					driver.setPhoneNumber(phoneNumber);
+					driver.setCurrentLatitude(currentLatitude);
+					driver.setCurrentLongitude(currentLongitude);
+					driver.setMaxPickupDistance(maxPickupDistance);
+					driver.setMaxDropOffDistance(maxDropOffDistance);
+					driver.setPreferredPayment(preferredPayment);
+					result = String.valueOf(regID);
+				}
+
+				em.persist(driver);
+			}
+			catch (Exception e)
+			{
+				result = "fail";
+			}
+			finally {
+				em.close();
+			}
+		}
+		
+		return result;
+	}
+
+	public void removeTaxiDriver(long id) {
+		EntityManager em = EMFService.get().createEntityManager();
+		try {
+			TaxiDriver driver = em.find(TaxiDriver.class, id);
+			em.remove(driver);
+		} finally {
+			em.close();
+		}
+	}
+
 	public List<TaxiDriver> listAllTaxiDriver() {
 		EntityManager em = EMFService.get().createEntityManager();
 		// Read the existing entries
@@ -125,40 +255,39 @@ public enum Dao {
 		List<TaxiDriver> drivers = q.getResultList();
 		return drivers;
 	}
-	
+
 	public void updateTaxiAssignedTo(long refId, String assignedTo) {
 		EntityManager em = EMFService.get().createEntityManager();
 		try {
 			TaxiRequest request = em.find(TaxiRequest.class, refId);
-			request.setAssignedDriverLogin(assignedTo);
 			request.setIsRequestTaken("Y");
 			request.setIsRequestCompleted("N");
 			em.persist(request);
-			
+
 		} finally {
 			em.close();
 		}
 	}
-	
+
 	public void updateTaxiRequestTaken(long refId) {
 		EntityManager em = EMFService.get().createEntityManager();
 		try {
 			TaxiRequest request = em.find(TaxiRequest.class, refId);
 			request.setIsRequestTaken("Y");
 			em.persist(request);
-		
+
 		} finally {
 			em.close();
 		}
 	}
-	
+
 	public void updateTaxiRequestCompleted(long refId) {
 		EntityManager em = EMFService.get().createEntityManager();
 		try {
 			TaxiRequest request = em.find(TaxiRequest.class, refId);
 			request.setIsRequestCompleted("N");
 			em.persist(request);
-		
+
 		} finally {
 			em.close();
 		}

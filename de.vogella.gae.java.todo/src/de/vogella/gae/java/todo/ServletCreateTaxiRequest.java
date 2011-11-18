@@ -65,7 +65,7 @@ public class ServletCreateTaxiRequest extends HttpServlet {
 		String driverName = "";
 		String driverLogin = "";
 		
-		Dao.INSTANCE.addTaxiRequest(requestConfirmationNumber, name, phoneNumber, from, to, "", driverName, driverLogin, numberPeople);
+		//Dao.INSTANCE.addTaxiRequest(requestConfirmationNumber, name, phoneNumber, from, to, "", driverName, driverLogin, numberPeople);
 
 		resp.sendRedirect("/TaxiRequestApplication.jsp");
 	}

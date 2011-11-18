@@ -95,7 +95,7 @@ public class ServletListMyTaxiRequest extends HttpServlet {
 				phone = myRequest.getRequestPhoneNumber();
 				pickup = myRequest.getRequestPickupLocation();
 				destination = myRequest.getRequestDestination();
-				assigned = myRequest.getAssignedDriverLogin();
+				assigned = myRequest.getAssignedDriverName();
 				totalPeople = myRequest.getTotalPeople();
 				taken = myRequest.getIsRequestTaken();
 				completed = myRequest.getIsRequestCompleted();

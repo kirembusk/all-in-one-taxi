@@ -19,11 +19,16 @@ public class TaxiDriver {
 	private String phoneNumber;
 	private String currentLatitude;
 	private String currentLongitude;
+	private String maxPickupDistance;
+	private String maxDropOffDistance;
+	private String preferredPayment;
 	private String isAvailable;
 	boolean isAuth;
 	
 	
+	
 	public TaxiDriver() {
+	
 		this.loginName = "";
 		this.loginPin = "";
 		this.fullName = "";
@@ -31,13 +36,18 @@ public class TaxiDriver {
 		this.phoneNumber = "";
 		this.currentLatitude = "";
 		this.currentLongitude = "";
-		this.isAvailable = "N";
+		this.maxPickupDistance = "";
+		this.maxDropOffDistance = "";
+		this.preferredPayment = "";
+		this.isAvailable = "Y";
 		this.isAuth = false;
 	}
-
+	
 	public TaxiDriver(String loginName, String loginPin, String fullName,
 			String cabName, String phoneNumber, String currentLatitude,
-			String currentLongitude) {
+			String currentLongitude, String maxPickupDistance,
+			String maxDropOffDistance, String preferredPayment) {
+		
 		this.loginName = loginName;
 		this.loginPin = loginPin;
 		this.fullName = fullName;
@@ -45,9 +55,13 @@ public class TaxiDriver {
 		this.phoneNumber = phoneNumber;
 		this.currentLatitude = currentLatitude;
 		this.currentLongitude = currentLongitude;
+		this.maxPickupDistance = maxPickupDistance;
+		this.maxDropOffDistance = maxDropOffDistance;
+		this.preferredPayment = preferredPayment;
 		this.isAvailable = "Y";
 		this.isAuth = false;
 	}
+	
 	
 	public Long getId() {
 		return id;
@@ -97,6 +111,24 @@ public class TaxiDriver {
 	public void setCurrentLongitude(String currentLongitude) {
 		this.currentLongitude = currentLongitude;
 	}
+	public String getMaxPickupDistance() {
+		return maxPickupDistance;
+	}
+	public void setMaxPickupDistance(String maxPickupDistance) {
+		this.maxPickupDistance = maxPickupDistance;
+	}
+	public String getMaxDropOffDistance() {
+		return maxDropOffDistance;
+	}
+	public void setMaxDropOffDistance(String maxDropOffDistance) {
+		this.maxDropOffDistance = maxDropOffDistance;
+	}
+	public String getPreferredPayment() {
+		return preferredPayment;
+	}
+	public void setPreferredPayment(String preferredPayment) {
+		this.preferredPayment = preferredPayment;
+	}
 	public String getIsAvailable() {
 		return isAvailable;
 	}
@@ -109,6 +141,8 @@ public class TaxiDriver {
 	public void setAuth(boolean isAuth) {
 		this.isAuth = isAuth;
 	}
+	
+	
 	
 	
 	

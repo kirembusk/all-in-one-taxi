@@ -4,6 +4,7 @@
 <%@ page import="com.google.appengine.api.users.UserService" %>
 <%@ page import="com.google.appengine.api.users.UserServiceFactory" %>
 <%@ page import="de.vogella.gae.java.todo.model.TaxiRequest" %>
+<%@ page import="de.vogella.gae.java.todo.model.TaxiDriver" %>
 <%@ page import="de.vogella.gae.java.todo.dao.Dao" %>
 
 <!DOCTYPE html>
@@ -13,7 +14,7 @@
 
 <html>
 	<head>
-		<title>Todos</title>
+		<title>Taxi Driver</title>
 		<link rel="stylesheet" type="text/css" href="css/main.css"/>
 		  <meta charset="utf-8"> 
 	</head>
@@ -50,8 +51,18 @@ You have a total number of <%= requests.size() %>  Taxi Requests.
       <th>Phone Number</th>
       <th>Pickup Location</th>
       <th>Destination</th>
-      <th>Assigned To</th>
-      <th>totalPeople</th>
+      <th>Assigned Driver Name</th>
+      <th>Assigned Driver Phone Number</th>
+      <th>Assigned Driver Latitude</th>
+      <th>Assigned Driver Longitude</th>
+      <th>Estimated Arrival Time</th>
+      <th>Preferred Payment</th>
+      <th>Current Latitude</th>
+      <th>Current Longitude</th>
+      <th>To Latitude</th>
+      <th>To Longitude</th>
+      <th>Total Distance</th>
+      <th>Total People</th>
       <th>Request Taken</th>
       <th>Request Completed</th>
             
@@ -78,6 +89,36 @@ You have a total number of <%= requests.size() %>  Taxi Requests.
 <%=req.getAssignedDriverName()%>
 </td>
 <td>
+<%=req.getAssignedDriverPhoneNumber()%>
+</td>
+<td>
+<%=req.getAssignedDriverLatitude()%>
+</td>
+<td>
+<%=req.getAssignedDriverLongitude()%>
+</td>
+<td>
+<%=req.getEstimatedArrivalTime()%>
+</td>
+<td>
+<%=req.getPreferredPayment()%>
+</td>
+<td>
+<%=req.getCurrentLatitude()%>
+</td>
+<td>
+<%=req.getCurrentLongitude()%>
+</td>
+<td>
+<%=req.getToLatitude()%>
+</td>
+<td>
+<%=req.getToLongitude()%>
+</td>
+<td>
+<%=req.getTotalDistance()%>
+</td>
+<td>
 <%=req.getTotalPeople()%>
 </td>
 <td>
@@ -97,24 +138,20 @@ You have a total number of <%= requests.size() %>  Taxi Requests.
 
 <div class="main">
 
-<div class="headline">Taxi Update Pickup Location</div>
+<div class="headline">Taxi Driver Adding/Updating</div>
 
 
 
-<form action="/change" method="post" accept-charset="utf-8">
+<form action="/delete" method="post" accept-charset="utf-8">
 	<table>
-		<tr>
-			<td><label for="refId">Reference ID</label></td>
-			<td><input type="text" name="refId" id="refId" size="65"/></td>
-		</tr>
+		
+	<tr>
+		<td valign="top"><label for="ccID">Confirmation ID</label></td>
+		<td><input type="text" name="ccID" id="ccID" size="65" /></td>
+	</tr>
 	
 	<tr>
-		<td valign="top"><label for="assigned">Assigned To</label></td>
-		<td><input type="text" name="assigned" id="assigned" size="65" /></td>
-	</tr>
-
-	<tr>
-			<td colspan="2" align="right"><input type="submit" value="Update Pickup Location"/></td>
+			<td colspan="2" align="right"><input type="submit" value="Delete Taxi Request"/></td>
 		</tr>
 	</table>
 </form>

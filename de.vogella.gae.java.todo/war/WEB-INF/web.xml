@@ -38,6 +38,46 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<servlet-class>de.vogella.gae.java.todo.ServletCreateTaxiDriver</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+	<servlet>
+		<servlet-name>RequestTaxiDriver</servlet-name>
+		<servlet-class>de.vogella.gae.java.todo.ServletRequestTaxiDriver</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DeleteTaxiDriver</servlet-name>
+		<servlet-class>de.vogella.gae.java.todo.ServletDeleteTaxiDriver</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SubmitTaxiRequest</servlet-name>
+		<servlet-class>de.vogella.gae.java.todo.ServletSubmitRequest</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DeleteTaxiRequest</servlet-name>
+		<servlet-class>de.vogella.gae.java.todo.ServletDeleteTaxiRequest</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>GetTaxiRequestStatus</servlet-name>
+		<servlet-class>de.vogella.gae.java.todo.ServletGetUpdateTaxiRequest</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetTaxiRequestStatus</servlet-name>
+		<url-pattern>/update</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DeleteTaxiRequest</servlet-name>
+		<url-pattern>/delete</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SubmitTaxiRequest</servlet-name>
+		<url-pattern>/submit</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DeleteTaxiDriver</servlet-name>
+		<url-pattern>/remove</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RequestTaxiDriver</servlet-name>
+		<url-pattern>/settings</url-pattern>
+	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>CreateNewTaxiDriver</servlet-name>
 		<url-pattern>/driver</url-pattern>
