@@ -16,6 +16,7 @@ import com.google.gson.Gson;
 
 import de.vogella.gae.java.todo.dao.Dao;
 import de.vogella.gae.java.todo.model.TaxiRequest;
+import de.vogella.gae.java.todo.model.TaxiDriver;
 
 public class ServletApproveTaxiRequest extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -23,36 +24,47 @@ public class ServletApproveTaxiRequest extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
 		String driverLoginName = checkNull(req.getParameter("driverLoginName"));
-		String driverFullName = checkNull(req.getParameter("driverFullName"));
-		String driverLatitude = checkNull(req.getParameter("driverLatitude"));
-		String driverLongitude = checkNull(req.getParameter("driverLongitude"));
-		String estimatedArrivalTime = checkNull(req.getParameter("estimatedArrivalTime"));
-		String requestID = checkNull(req.getParameter("requestID"));
+		String driverLoginPin = checkNull(req.getParameter("driverLoginPin"));
 
+		TaxiDriver driver = Dao.INSTANCE.checkLogin(driverLoginName, driverLoginPin);
+
+		String driverFullName = "";
+		String driverLatitude = "";
+		String driverLongitude = "";
+		String estimatedArrivalTime = "";
+		String requestID = "";
 		long refID = 0;
-
-		try
-		{
-			refID = Long.parseLong(requestID);
-		}
-		catch (NumberFormatException nf)
-		{
-			refID = 0;
-		}
-
 
 		String result = "fail";
 		
-		if (refID > 0)
+		if (driver != null)
 		{
-			result = Dao.INSTANCE.updateTaxiRequestAssignedTo(refID, driverFullName, driverLatitude, driverLongitude, estimatedArrivalTime);
+			driverFullName = driver.getFullName();
+			driverLatitude = checkNull(req.getParameter("driverLatitude"));
+			driverLongitude = checkNull(req.getParameter("driverLongitude"));
+			estimatedArrivalTime = checkNull(req.getParameter("estimatedArrivalTime"));
+			requestID = checkNull(req.getParameter("requestID"));
+
+			try
+			{
+				refID = Long.parseLong(requestID);
+			}
+			catch (NumberFormatException nf)
+			{
+				refID = 0;
+			}
+
+			if (refID > 0)
+			{
+				result = Dao.INSTANCE.updateTaxiRequestAssignedTo(refID, driverFullName, driverLatitude, driverLongitude, estimatedArrivalTime);
+			}
+
 		}
+
 
 		PrintWriter out = resp.getWriter();
 		out.println(result);
 		out.flush();
-
-
 
 	}
 

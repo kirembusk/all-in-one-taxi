@@ -101,7 +101,7 @@ public enum Dao {
 		Query q = em.createQuery("select d from TaxiDriver d where d.loginName = :loginName and d.loginPin = :loginPin");
 		q.setParameter("loginName", loginName);
 		q.setParameter("loginPin", loginPin);
-		TaxiDriver driver = new TaxiDriver();
+		TaxiDriver driver = null;
 		try
 		{
 			driver = (TaxiDriver) q.getSingleResult();
@@ -109,7 +109,7 @@ public enum Dao {
 		}
 		catch(Exception e)
 		{
-			driver = new TaxiDriver();
+			driver = null;
 		}
 
 		return driver;
@@ -256,13 +256,6 @@ public enum Dao {
 		return drivers;
 	}
 	
-	private String assignedDriverName;
-	private String assignedDriverPhoneNumber;
-	private String assignedDriverLatitude;
-	private String assignedDriverLongitude;
-	private String estimatedArrivalTime;
-	
-
 	public String updateTaxiRequestAssignedTo(long refId, String assignedDriverName, String assignedDriverLatitude, String assignedDriverLongitude, String estimatedArrivalTime) {
 		String result = "fail";
 		EntityManager em = EMFService.get().createEntityManager();

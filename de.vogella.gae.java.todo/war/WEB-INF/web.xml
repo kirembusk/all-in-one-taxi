@@ -58,6 +58,14 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<servlet-name>GetTaxiRequestStatus</servlet-name>
 		<servlet-class>de.vogella.gae.java.todo.ServletGetUpdateTaxiRequest</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>ApproveTaxiRequest</servlet-name>
+		<servlet-class>de.vogella.gae.java.todo.ServletApproveTaxiRequest</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ApproveTaxiRequest</servlet-name>
+		<url-pattern>/approve</url-pattern>
+	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>GetTaxiRequestStatus</servlet-name>
 		<url-pattern>/update</url-pattern>
