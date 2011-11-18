@@ -148,6 +148,10 @@ You have a total number of <%= requests.size() %>  Taxi Requests.
 			<td><input type="text" name="driverLoginName" id="driverLoginName" size="65"/></td>
 		</tr>
 		<tr>
+			<td><label for="driverLoginName">Driver Login ID</label></td>
+			<td><input type="text" name="driverLoginPin" id="driverLoginPin" size="65"/></td>
+		</tr>
+		<tr>
 			<td valign="top"><label for="driverLatitude">Phone Number</label></td>
 			<td><input type="text" name="driverLatitude" id="driverLatitude" size="15"/></td>
 		</tr>
