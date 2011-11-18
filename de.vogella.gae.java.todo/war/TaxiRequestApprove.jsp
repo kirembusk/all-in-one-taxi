@@ -148,23 +148,23 @@ You have a total number of <%= requests.size() %>  Taxi Requests.
 			<td><input type="text" name="driverLoginName" id="driverLoginName" size="65"/></td>
 		</tr>
 		<tr>
-			<td><label for="driverLoginName">Driver Login ID</label></td>
+			<td><label for="driverLoginName">Driver Login Pin</label></td>
 			<td><input type="text" name="driverLoginPin" id="driverLoginPin" size="65"/></td>
 		</tr>
 		<tr>
-			<td valign="top"><label for="driverLatitude">Phone Number</label></td>
+			<td valign="top"><label for="driverLatitude">Driver Login Latitude</label></td>
 			<td><input type="text" name="driverLatitude" id="driverLatitude" size="15"/></td>
 		</tr>
 	<tr>
-		<td valign="top"><label for="driverLongitude">Pickup Location</label></td>
+		<td valign="top"><label for="driverLongitude">Driver Login Longitude</label></td>
 		<td><input type="text" name="driverLongitude" id="driverLongitude" size="65" /></td>
 	</tr>
 	<tr>
-		<td valign="top"><label for="estimatedArrivalTime">Destination</label></td>
+		<td valign="top"><label for="estimatedArrivalTime">Estimated Arrival Time</label></td>
 		<td><input type="text" name="estimatedArrivalTime" id="estimatedArrivalTime" size="65" /></td>
 	</tr>
 	<tr>
-		<td valign="top"><label for="requestID">Payment Type</label></td>
+		<td valign="top"><label for="requestID">Request ID</label></td>
 		<td><input type="text" name="requestID" id="requestID" size="65" /></td>
 	</tr>
 	
