@@ -45,7 +45,7 @@ public class ServletUpdateTaxiRequest extends HttpServlet {
 		String assignedTo = checkNull(req.getParameter("assigned"));
 		long id = Long.parseLong(refId);
 		
-		Dao.INSTANCE.updateTaxiAssignedTo(id, assignedTo);
+		//Dao.INSTANCE.updateTaxiAssignedTo(id, assignedTo);
 	//	Dao.INSTANCE.updateTaxiRequestTaken(id);
 	//	Dao.INSTANCE.updateTaxiRequestCompleted(id);
 

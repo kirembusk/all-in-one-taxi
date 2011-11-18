@@ -255,18 +255,37 @@ public enum Dao {
 		List<TaxiDriver> drivers = q.getResultList();
 		return drivers;
 	}
+	
+	private String assignedDriverName;
+	private String assignedDriverPhoneNumber;
+	private String assignedDriverLatitude;
+	private String assignedDriverLongitude;
+	private String estimatedArrivalTime;
+	
 
-	public void updateTaxiAssignedTo(long refId, String assignedTo) {
+	public String updateTaxiRequestAssignedTo(long refId, String assignedDriverName, String assignedDriverLatitude, String assignedDriverLongitude, String estimatedArrivalTime) {
+		String result = "fail";
 		EntityManager em = EMFService.get().createEntityManager();
 		try {
 			TaxiRequest request = em.find(TaxiRequest.class, refId);
+			request.setAssignedDriverName(assignedDriverName);
+			request.setAssignedDriverLatitude(assignedDriverLatitude);
+			request.setAssignedDriverLongitude(assignedDriverLongitude);
+			request.setEstimatedArrivalTime(estimatedArrivalTime);
 			request.setIsRequestTaken("Y");
 			request.setIsRequestCompleted("N");
 			em.persist(request);
-
-		} finally {
+			result = "success";
+		} 
+		catch (Exception e)
+		{
+			result = "fail";
+		}
+		finally {
 			em.close();
 		}
+		
+		return result;
 	}
 
 	public void updateTaxiRequestTaken(long refId) {
