@@ -182,3 +182,29 @@ We have implement the third page of our design which included two buttons called
  # create sql filtering to match driver and passenger preferences
  # Implement server side accepting request for the driver
  # implement client and server side competing request (handling problem for simultaneous accepting request submission from both taxi drivers
+
+== <u> Week #7 11/10 - 11/17 </u> ==
+*The progress you made (once you start coding, mention the revisions for that week)*
+ # Created both perferences for driver and passenger
+ # Send driver perferences and passenger perferences to server
+ # Get GPS location from driver and passenger
+ # convert current GPS coordinate to street address
+ # Able to send http request to request for a driver
+ # From the driver side, i was able to retrieve the passenger order from the server
+ # From the driver side, I was able to retrieve my order from the server
+ # caculated the distance between point a to point b
+ # Able to accept passenger order
+
+*The problems you have encounter:*
+ # There was a problem convert coordinate to address. I named the class called Address and to convert, I need to use geocoder which return an array of List<address> and the compiler didn't recoginze which address i am talking about.
+ # In the FindBy class, I turn on the GPS but it take time to load until i could convert the point to address. I have to wait for the GPS to finish to get the address before preceeding further, so i set a flag to prohibit to continue unless i have my current location
+*lesson learned*
+ # Google supported mutil-thread 
+ # I learned to pass value to HTTP and connect to the server to get result back 
+ # I learned how to make perferences and store it into the phone
+*What you plan to do the following week*
+ # Filter cab request by location and payment option
+ # Get estimated arrival time
+ # cancel requests for my order as well as passenger request order
+ # create javadoc
+ # clean up the UI. 
