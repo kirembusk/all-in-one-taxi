@@ -1,8 +1,10 @@
 package com.taxiride;
+import android.preference.PreferenceManager;
 import android.provider.Settings.Secure;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -14,13 +16,41 @@ import android.widget.Toast;
 public class DriverWindow extends LoggingActivity {
 	private double lat;
 	private double log; 
+	public static DriverInfo driverInfo;
 	private boolean isDone =false; 
+
 	private GPSLocationListner gpsLocation = new GPSLocationListner();
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //select the main.xml for layout
-       
         setContentView(R.layout.driverwindow);
+        
+        
+        driverInfo = new DriverInfo(); 
+        SharedPreferences pref =getSharedPreferences("DriverPreference",Context.MODE_PRIVATE);
+		String fName = pref.getString("editCompanyName", "");
+	    driverInfo.setCabName(fName);
+	    String password = pref.getString("editPassword", "");
+	    driverInfo.setPin(password);
+	    
+	    String deviceID = Secure.getString(getBaseContext().getContentResolver(),
+                Secure.ANDROID_ID);
+	    driverInfo.setDeviceID(deviceID);
+       /* driverInfo.setCabName(DriverPreference.cabName);
+        driverInfo.setDeviceID(DriverPreference.deviceID);
+        driverInfo.setFullName(DriverPreference.fullName);
+        driverInfo.setMaxDropOff(DriverPreference.maxDropOff);
+        driverInfo.setMaxPickUp(DriverPreference.maxPickUp);
+        driverInfo.setPaymentType(DriverPreference.paymentType);
+        driverInfo.setPhoneNum(DriverPreference.phoneNum);
+        driverInfo.setPin(DriverPreference.pin);*/
+        
+        driverInfo.setFullName(DriverPreference.fullName);
+       Toast toast1= Toast.makeText(getApplicationContext(),DriverPreference.fullName , 100);
+        toast1.show();
+        
+        
+        
              
         
         Button openRequest = (Button) findViewById(R.id.OpenRequest);  
@@ -28,7 +58,11 @@ public class DriverWindow extends LoggingActivity {
         
         openRequest.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+            	isDone = true;
             	if(isDone==true){
+            		driverInfo.setCurrentLatitude(String.valueOf(lat));
+            		driverInfo.setCurrentLongitude(String.valueOf(log));
+            		
                 Intent myIntent = new Intent(view.getContext(), ListOfRequest.class);
                 startActivityForResult(myIntent, 0);
             	}else{
@@ -104,8 +138,8 @@ public class DriverWindow extends LoggingActivity {
 	
 	  public Location locationReturn(Location location){return location;}
 	public void onProviderDisabled(String arg0) {
-	//	Toast toast3 = Toast.makeText(getApplicationContext(), "GPS disable", BIND_AUTO_CREATE);
-	//	toast3.show();
+		Toast toast3 = Toast.makeText(getApplicationContext(), "GPS disable", BIND_AUTO_CREATE);
+		toast3.show();
 		// TODO Auto-generated method stub
 		
 	}

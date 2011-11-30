@@ -8,18 +8,19 @@
                 android:summary="e.g John Doe"
                 android:defaultValue=""
                 android:title="Enter your full name"
-                android:key="editFirstName"/>
-                <EditTextPreference
+                android:key="editFullName"/>
                 
+                <EditTextPreference
                 android:summary="e.g   4155511234"
                 android:defaultValue=""
                 android:title="Enter phone number"
                 android:key="editPhoneNum" />
+                
                <ListPreference
                         android:title="payment option"
                         android:summary="select which payment you are willing to accept"
                         android:key="listPref"
-                        android:defaultValue="digiGreen"
+                        android:defaultValue=""
                         android:entries="@array/payment"
                         android:entryValues="@array/paymentValues" />
                 

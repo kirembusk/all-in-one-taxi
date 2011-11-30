@@ -3,11 +3,11 @@
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="match_parent"
   android:layout_height="match_parent">
-       <TextView android:id="@+id/driverPhone " android:textSize="30px" android:text="Driver Phone #: " android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_below="@+id/DriverName: " android:layout_alignParentLeft="true" android:layout_marginTop="49dp"></TextView>
-       <TextView android:id="@+id/DriverName: " android:textSize="30px" android:text="Driver Name:  " android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_alignParentTop="true" android:layout_alignLeft="@+id/fromAddress " android:layout_marginTop="65dp"></TextView>
        <TextView android:id="@+id/toAddress " android:textSize="30px" android:text="To Address:  " android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_below="@+id/fromAddress " android:layout_alignLeft="@+id/fromAddress " android:layout_marginTop="53dp"></TextView>
    		<TextView android:id="@+id/fromAddress " android:textSize="30px" android:text="From Address:  " android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_below="@+id/arrivalTime " android:layout_alignParentLeft="true" android:layout_marginTop="53dp"></TextView>
    		<TextView android:id="@+id/arrivalTime " android:textSize="30px" android:text="Estimated Arrival Time:  " android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_below="@+id/driverPhone " android:layout_alignParentLeft="true" android:layout_marginTop="46dp"></TextView>
         <Button android:id="@+id/refresh" android:text="Refresh" android:layout_height="wrap_content" android:layout_width="wrap_content" android:textSize="20px" android:layout_alignParentBottom="true" android:layout_toRightOf="@+id/arrivalTime " android:layout_alignParentRight="true"></Button>
+        <TextView android:layout_height="wrap_content" android:textSize="30px" android:text="Driver Phone #: " android:id="@+id/driverPhone " android:layout_width="wrap_content" android:layout_below="@+id/driverName " android:layout_alignParentLeft="true" android:layout_marginTop="64dp"></TextView>
+        <TextView android:layout_height="wrap_content" android:textSize="30px" android:text="Driver Name:  " android:id="@+id/driverName " android:layout_width="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentLeft="true" android:layout_marginTop="47dp"></TextView>
     
 </RelativeLayout>

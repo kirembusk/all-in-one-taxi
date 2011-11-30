@@ -2,50 +2,40 @@ package com.taxiride;
 
 public class DriverInfo {
 	
-	private Long id;
-	private String loginName;
-	private String loginPin;
+	private String deviceID;
 	private String fullName;
+	private String pin;
 	private String cabName;
-	private String phoneNumber;
+	private String phoneNum;
+	private String maxPickUp;
+	private String maxDropOff;
+	private String paymentType; 
 	private String currentLatitude;
 	private String currentLongitude;
 	private String isAvailable;
 	private boolean isAuth;
 	
+	
 
-	public DriverInfo(Long id, String loginName, String loginPin,
-			String fullName, String cabName, String phoneNumber,
-			String currentLatitude, String currentLongitude,
-			String isAvailable, boolean isAuth) {
-		this.id = id;
-		this.loginName = loginName;
-		this.loginPin = loginPin;
-		this.fullName = fullName;
-		this.cabName = cabName;
-		this.phoneNumber = phoneNumber;
+	public DriverInfo() {
+		this.deviceID = null;
+		this.fullName = null;
+		this.pin = null;
+		this.cabName = null;
+		this.phoneNum = null;
+		this.maxPickUp = null;
+		this.maxDropOff = null;
+		this.paymentType = null;
 		this.currentLatitude = currentLatitude;
 		this.currentLongitude = currentLongitude;
 		this.isAvailable = isAvailable;
 		this.isAuth = isAuth;
 	}
-	public Long getId() {
-		return id;
+	public String getDeviceID() {
+		return deviceID;
 	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	public String getLoginName() {
-		return loginName;
-	}
-	public void setLoginName(String loginName) {
-		this.loginName = loginName;
-	}
-	public String getLoginPin() {
-		return loginPin;
-	}
-	public void setLoginPin(String loginPin) {
-		this.loginPin = loginPin;
+	public void setDeviceID(String deviceID) {
+		this.deviceID = deviceID;
 	}
 	public String getFullName() {
 		return fullName;
@@ -53,17 +43,41 @@ public class DriverInfo {
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
+	public String getPin() {
+		return pin;
+	}
+	public void setPin(String pin) {
+		this.pin = pin;
+	}
 	public String getCabName() {
 		return cabName;
 	}
 	public void setCabName(String cabName) {
 		this.cabName = cabName;
 	}
-	public String getPhoneNumber() {
-		return phoneNumber;
+	public String getPhoneNum() {
+		return phoneNum;
 	}
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
+	public void setPhoneNum(String phoneNum) {
+		this.phoneNum = phoneNum;
+	}
+	public String getMaxPickUp() {
+		return maxPickUp;
+	}
+	public void setMaxPickUp(String maxPickUp) {
+		this.maxPickUp = maxPickUp;
+	}
+	public String getMaxDropOff() {
+		return maxDropOff;
+	}
+	public void setMaxDropOff(String maxDropOff) {
+		this.maxDropOff = maxDropOff;
+	}
+	public String getPaymentType() {
+		return paymentType;
+	}
+	public void setPaymentType(String paymentType) {
+		this.paymentType = paymentType;
 	}
 	public String getCurrentLatitude() {
 		return currentLatitude;
@@ -89,6 +103,8 @@ public class DriverInfo {
 	public void setAuth(boolean isAuth) {
 		this.isAuth = isAuth;
 	}
+	
+
 	
 
 }

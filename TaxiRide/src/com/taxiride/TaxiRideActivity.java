@@ -13,6 +13,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -45,7 +46,10 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
-
+/*
+ * This is the main activity for the taxi ride app. This class include two buttons
+ * name Find a passenger and Find a Driver 
+ */
 public class TaxiRideActivity extends Activity {
     /** Called when the activity is first created. */
   
@@ -54,7 +58,8 @@ public class TaxiRideActivity extends Activity {
         //select the main.xml for layout
         setContentView(R.layout.main);
         // get the RequestDriver button in main.xml
-     
+        ImageView image = (ImageView) findViewById(R.id.test_image);
+        
         
         Button driver = (Button) findViewById(R.id.RequestDriver);  
         //if the RequestDriver button is click direct the page to Address.class
@@ -62,6 +67,7 @@ public class TaxiRideActivity extends Activity {
             public void onClick(View view) {
             	SharedPreferences prefs2 = getSharedPreferences("PassengerPreference", Context.MODE_PRIVATE);
             	boolean haveWeShownPreferences = prefs2.getBoolean("HaveShownPrefs", false);
+            	
             	if(!haveWeShownPreferences){
                 Intent myIntent = new Intent(view.getContext(),PassengerPreference.class);
                 startActivityForResult(myIntent, 0);
@@ -80,6 +86,7 @@ public class TaxiRideActivity extends Activity {
             public void onClick(View view) {
             	SharedPreferences prefs = getSharedPreferences("DriverPreference", Context.MODE_PRIVATE);
             	boolean haveWeShownPreferences = prefs.getBoolean("HaveShownPrefs", false);
+           
             	if(!haveWeShownPreferences){
                 Intent myIntent = new Intent(view.getContext(),DriverPreference.class);
                 startActivityForResult(myIntent, 0);

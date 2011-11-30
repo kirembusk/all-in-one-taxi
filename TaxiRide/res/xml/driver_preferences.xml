@@ -3,35 +3,49 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory
                 android:title="My Preferences">
+                 <EditTextPreference
+                android:summary="Enter your company Name"
+                android:defaultValue=""
+                android:title="Cab Company Name"
+                android:key="editCompanyName" />
+                
                 <EditTextPreference
                 android:name="Edit First and Last Name"
                 android:summary="Enter your first name and last name"
                 android:defaultValue=""
-                android:title="Edit This Text"
+                android:title="Enter full name"
                 android:key="editName"/>
+                
+                 <EditTextPreference
+                android:summary="enter your password"
+                android:defaultValue=""
+                android:title="Enter password"
+                android:key="editPassword" />
                 <EditTextPreference
+                
                 android:name="Edit Phone number"
                 android:summary="Enter your phone number"
                 android:defaultValue=""
                 android:title="Edit This Text"
                 android:key="editPhoneNum" />
                 <EditTextPreference
-                android:name="Max distanct for pick up"
-                android:summary="Enter max distanct for pick up in miles"
+                android:name="Max distance for pick up"
+                android:summary="Enter max distance for pick up in miles"
                 android:defaultValue=""
                 android:title="Edit This Text"
                 android:key="editMaxPickup" />
                 <EditTextPreference
-                android:name="Max distanct for drop off"
-                android:summary="Enter max distanct for drop off in miles"
+                android:name="Max distance for drop off"
+                android:summary="Enter max distance for drop off in miles"
                 android:defaultValue=""
                 android:title="Edit This Text"
                 android:key="editMaxDropOff" />
+                
                <ListPreference
                         android:title="payment option"
                         android:summary="select which payment you are willing to accept"
-                        android:key="listPref"
-                        android:defaultValue="digiGreen"
+                        android:key="editPayment"
+                        android:defaultValue=""
                         android:entries="@array/payment"
                         android:entryValues="@array/paymentValues" />
                 

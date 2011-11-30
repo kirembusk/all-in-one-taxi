@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent" 
-        android:layout_height="fill_parent" >
+        android:layout_height="fill_parent" 
+        android:background="#888888">
        
                 <TextView android:layout_height="wrap_content" 
                         android:id="@+id/Text_From" 
@@ -10,7 +11,8 @@
                         android:layout_width="wrap_content" 
                         android:layout_alignBaseline="@+id/editFromAddress" 
                         android:layout_alignBottom="@+id/editFromAddress" 
-                        android:layout_alignParentLeft="true"></TextView>
+                        android:layout_alignParentLeft="true"
+                        android:textColor="#ffffff"></TextView>
         
                 <EditText android:width="100px" 
                         android:layout_height="wrap_content" 
@@ -27,16 +29,10 @@
        android:layout_width="fill_parent" 
        android:layout_above="@+id/editToAddress" 
        android:layout_marginBottom="50dp" 
-       android:layout_toRightOf="@+id/Text_From" android:layout_alignRight="@+id/ButtonEnter"></EditText>
+       android:layout_toRightOf="@+id/Text_From" 
+       android:layout_alignRight="@+id/ButtonEnter"
+       ></EditText>
         
-       <CheckBox android:layout_height="wrap_content" 
-       android:text=" Enable GPS" 
-       android:layout_width="wrap_content" 
-       android:typeface="serif" 
-       android:layout_above="@+id/editToAddress" 
-       android:layout_alignParentLeft="true" 
-       android:layout_marginLeft="16dp" 
-       android:id="@+id/checkBox1"></CheckBox>
        
        <TextView android:layout_height="wrap_content" 
        android:id="@+id/Text_To" 
@@ -44,7 +40,8 @@
        android:text="To: " 
        android:layout_width="wrap_content" 
        android:layout_centerVertical="true" 
-       android:layout_alignLeft="@+id/checkBox1"></TextView>
+       android:layout_alignLeft="@+id/checkBox1"
+       android:textColor="#ffffff"></TextView>
        
        <Button android:textSize="20px" 
        android:id="@+id/ButtonEnter" 
@@ -54,7 +51,7 @@
        android:layout_below="@+id/editToAddress" 
        android:layout_alignParentRight="true" 
        android:layout_marginRight="22dp" 
-       android:layout_marginTop="49dp"></Button>
+       android:layout_marginTop="49dp" ></Button>
        
        <TextView android:layout_height="wrap_content" 
        android:id="@+id/Eg" 
@@ -63,7 +60,8 @@
        android:layout_width="wrap_content" 
        android:layout_above="@+id/editFromAddress" 
        android:layout_alignRight="@+id/editFromAddress" 
-       android:layout_marginRight="27dp"></TextView>
+       android:layout_marginRight="27dp"
+       android:textColor="#ffffff"></TextView>
         
       
          

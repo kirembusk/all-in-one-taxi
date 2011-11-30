@@ -13,6 +13,7 @@ import com.google.android.maps.MapController;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -22,6 +23,7 @@ import android.location.LocationProvider;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class FindBy extends LoggingActivity {
@@ -43,6 +45,7 @@ public class FindBy extends LoggingActivity {
         passengerInfo= new PassengerInfo();
         setContentView(R.layout.findby);
         // GET TO AND FROM ADDRESS FROM ADDRESS.JAVA ACTIVITY.
+        ImageView image = (ImageView) findViewById(R.id.test_image);
         Bundle bundle = getIntent().getExtras();
          toAddress = bundle.getString("toAddress"); 
          fromAddress = bundle.getString("fromAddress");
@@ -74,6 +77,18 @@ public class FindBy extends LoggingActivity {
  		passengerInfo.setToLat(coordinate[0]);
  		passengerInfo.setToLog(coordinate[1]); 
  		isConvertToLocDone =true;
+ 		
+		SharedPreferences prefs =getSharedPreferences("PassengerPreference",Context.MODE_PRIVATE);
+		String fName = prefs.getString("editFullName", "");
+	    passengerInfo.setfullName(fName);
+	    String phoneNum = prefs.getString("editPhoneNum","");
+	    passengerInfo.setPhoneNum(phoneNum);
+	    String payment = prefs.getString("listPref", "");
+	    passengerInfo.setPaymentType(payment);
+	    
+	   //  Toast toast3 = Toast.makeText(getApplicationContext(),"payment : " + paymentType, 10);
+        // toast3.show();  
+	  
 		
     	   
         Button cabDir = (Button) findViewById(R.id.ButtonCabDir);
@@ -82,7 +97,8 @@ public class FindBy extends LoggingActivity {
         	public void onClick(View view) {
         		if(isDone==true && isConvertToLocDone == true){
         			setDistance();
-              Intent myIntent2 = new Intent(view.getContext(),CabDirectory.class);
+        			
+                  Intent myIntent2 = new Intent(view.getContext(),CabDirectory.class);
                   startActivityForResult(myIntent2, 0);
         		}
         		else{

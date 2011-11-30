@@ -10,16 +10,18 @@ public class TaxiDriver {
 	private String phoneNumber;
 	private String currentLatitude;
 	private String currentLongitude;
+	private String maxPickupDistance;
+	private String maxDropOffDistance;
+	private String preferredPayment;
 	private String isAvailable;
 	private boolean isAuth;
-	
-	
 	
 	
 	public TaxiDriver(Long id, String loginName, String loginPin,
 			String fullName, String cabName, String phoneNumber,
 			String currentLatitude, String currentLongitude,
-			String isAvailable, boolean isAuth) {
+			String maxPickupDistance, String maxDropOffDistance,
+			String preferredPayment, String isAvailable, boolean isAuth) {
 		this.id = id;
 		this.loginName = loginName;
 		this.loginPin = loginPin;
@@ -28,6 +30,9 @@ public class TaxiDriver {
 		this.phoneNumber = phoneNumber;
 		this.currentLatitude = currentLatitude;
 		this.currentLongitude = currentLongitude;
+		this.maxPickupDistance = maxPickupDistance;
+		this.maxDropOffDistance = maxDropOffDistance;
+		this.preferredPayment = preferredPayment;
 		this.isAvailable = isAvailable;
 		this.isAuth = isAuth;
 	}
@@ -79,6 +84,24 @@ public class TaxiDriver {
 	public void setCurrentLongitude(String currentLongitude) {
 		this.currentLongitude = currentLongitude;
 	}
+	public String getMaxPickupDistance() {
+		return maxPickupDistance;
+	}
+	public void setMaxPickupDistance(String maxPickupDistance) {
+		this.maxPickupDistance = maxPickupDistance;
+	}
+	public String getMaxDropOffDistance() {
+		return maxDropOffDistance;
+	}
+	public void setMaxDropOffDistance(String maxDropOffDistance) {
+		this.maxDropOffDistance = maxDropOffDistance;
+	}
+	public String getPreferredPayment() {
+		return preferredPayment;
+	}
+	public void setPreferredPayment(String preferredPayment) {
+		this.preferredPayment = preferredPayment;
+	}
 	public String getIsAvailable() {
 		return isAvailable;
 	}
@@ -91,6 +114,7 @@ public class TaxiDriver {
 	public void setAuth(boolean isAuth) {
 		this.isAuth = isAuth;
 	}
+	
 	
 
 	

@@ -2,6 +2,7 @@ package com.taxiride;
 
 import android.app.Activity;
 import android.app.ListActivity;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -26,13 +27,23 @@ public class CabDirectory extends ListActivity{
 		 //super.onListItemClick(l, v, position, id);
 		 String selection = l.getItemAtPosition(position).toString();
 		 if (selection == "Yellow Cab"){
-			 Intent myIntent = new Intent(v.getContext(), YellowCab.class);
-    		 startActivityForResult(myIntent, 0);
+			 Intent dialIntent = new Intent(Intent.ACTION_DIAL, Uri
+                     .parse("tel:4153333333"));
+             startActivity(dialIntent);
 		 }
 		 if(selection == "Luxor Cab"){
-			 Intent myIntent = new Intent(v.getContext(), LuxorCab.class);
-    		 startActivityForResult(myIntent, 0);	 
+			 Intent dialIntent = new Intent(Intent.ACTION_DIAL, Uri
+                     .parse("tel:4152824141"));
+             startActivity(dialIntent); 
 			 
+		 }if(selection == "United Cab"){
+			 Intent dialIntent = new Intent(Intent.ACTION_DIAL, Uri
+                     .parse("tel:4153869700"));
+             startActivity(dialIntent); 
+		 }if(selection == "DeSoto Cab"){
+			 Intent dialIntent = new Intent(Intent.ACTION_DIAL, Uri
+                     .parse("tel:4159701300"));
+             startActivity(dialIntent); 
 		 }
 			 
 		 

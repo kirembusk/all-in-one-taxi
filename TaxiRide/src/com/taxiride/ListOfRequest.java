@@ -34,6 +34,7 @@ public class ListOfRequest extends ListActivity {
 	private int clickCounter=0;
 	public static TaxiRequest TAXIREQUEST; 
 	private List<TaxiRequest> taxiRequestList;
+	public static long requestID; 
 	
 	public void onCreate(Bundle savedInstanceState) {
 		 super.onCreate(savedInstanceState);
@@ -99,6 +100,7 @@ public class ListOfRequest extends ListActivity {
 
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		TAXIREQUEST = taxiRequestList.get(position);
+			requestID = TAXIREQUEST.getId(); 
 		
 		Intent myIntent = new Intent(v.getContext(), PassengerRequest.class);
 		 startActivityForResult(myIntent, 0);

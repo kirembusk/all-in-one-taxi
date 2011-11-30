@@ -8,9 +8,14 @@ public class PassengerInfo {
 	private double fromlog;
 	private double toLat;
 	private double toLog;
-	private int totalPeople;
+	private String totalPeople;
 	private boolean isEnableGPS;
 	private double distance; 
+	private String phoneNum; 
+	private String fullName; 
+	private String paymentType;
+	private String confirmID;
+	
 	
 	
 	
@@ -22,9 +27,13 @@ public class PassengerInfo {
 		this.fromlog = 0;
 		this.toLat = 0;
 		this.toLog = 0;
-		this.totalPeople = 0;
+		this.totalPeople = "";
 		this.isEnableGPS = false;
 		this.distance = 0; 
+		this.phoneNum="";
+		this.fullName="";
+		this.paymentType = ""; 
+		this.confirmID =""; 
 	}
 	
 	public String getFromAddress() {
@@ -63,10 +72,10 @@ public class PassengerInfo {
 	public void setToLog(double toLog) {
 		this.toLog = toLog;
 	}
-	public int getTotalPeople() {
+	public String getTotalPeople() {
 		return totalPeople;
 	}
-	public void setTotalPeople(int totalPeople) {
+	public void setTotalPeople(String totalPeople) {
 		this.totalPeople = totalPeople;
 	}
 	public boolean isEnableGPS() {
@@ -84,7 +93,34 @@ public class PassengerInfo {
 		return distance; 
 	}
 	
-	
+	public void setPhoneNum(String phoneNum){
+		this.phoneNum = phoneNum;
+		
+	}
+	public String getPhoneNum(){
+		return phoneNum;
+	}
 
+	public void setfullName(String fullName){
+		this.fullName = fullName;
+	}
 	
+	public String getfullName(){
+		return fullName; 
+	}
+	public void setPaymentType(String paymentType){
+		this.paymentType = paymentType; 
+	}
+	public String getPaymentType(){
+		return paymentType;
+	}
+	
+	public String getconfirmID(){
+		return confirmID;
+	}
+	
+	public void setconfirmID(String confirmID){
+		this.confirmID = confirmID;
+		
+	}
 }
