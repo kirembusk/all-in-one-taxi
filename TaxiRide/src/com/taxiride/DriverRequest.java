@@ -10,6 +10,7 @@ import java.net.URLEncoder;
 import com.google.gson.Gson;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -17,6 +18,8 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 public class DriverRequest extends LoggingActivity {
@@ -65,9 +68,11 @@ int after) {
 	        
 	        enter.setOnClickListener(new View.OnClickListener() {
 	        	public void onClick(View view) {
-	        		boolean isDone = false;
 	        		
+	        		boolean isDone = false;
+	        	
 	        		String result = updateHttpRequest();
+	        		 
 	        		if(result.equals("fail")){
 	        			Toast toast = Toast.makeText(getApplicationContext(), "Cannot submit to server please try again! ", 1000);
 	        			toast.show();

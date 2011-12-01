@@ -3,19 +3,19 @@
         android:layout_width="fill_parent" 
         android:layout_height="fill_parent" >
         
-      
         <EditText android:layout_width="fill_parent"
          android:layout_height="wrap_content" 
          android:width="100px" 
          android:id="@+id/editName" 
          android:layout_below="@+id/Name"
           android:layout_alignLeft="@+id/Name"></EditText>
-		
+          
         <EditText android:layout_width="fill_parent" 
         android:layout_height="wrap_content" 
         android:width="100px" android:id="@+id/PhoneNumber" 
         android:layout_below="@+id/PhoneNum" 
         android:layout_alignLeft="@+id/PhoneNum"></EditText>
+        
          
         <EditText android:layout_width="fill_parent" 
         android:layout_height="wrap_content" 

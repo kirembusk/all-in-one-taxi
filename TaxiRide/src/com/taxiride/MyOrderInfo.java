@@ -61,11 +61,83 @@ public class MyOrderInfo extends LoggingActivity{
 				}
 				 
 			 });
+			 
+			 Button complete = (Button) findViewById(R.id.complete);  
+			 complete.setOnClickListener(new View.OnClickListener() {
+
+				@Override
+				public void onClick(View arg0) {
+					String result = completeHttpRequest();
+					if(result.equals("auth")){
+	        			Toast toast1 = Toast.makeText(getApplicationContext(), "invalid authentication ",100);
+	        			toast1.show(); 
+	        		}else if(result.equals("success")){
+	        			Toast toast = Toast.makeText(getApplicationContext(), "Your request has been successfully cancel ", 100);
+	        			toast.show();
+	        		}else if (result.equals("fail")){
+	        			Toast toast2 = Toast.makeText(getApplicationContext(),"Your request has NOT been cancel due to server error, please select another request or try again ", 100); 
+	        			toast2.show(); 
+	        		}
+					
+				}
+				 
+			 });
 		       
 	}	 
 	
 	public String sendHttpRequest(){
 		 String myURL = "http://taxitestcenter.appspot.com/cancel";
+		 
+		 StringBuilder taxiStationResponse = new StringBuilder();
+		 StringBuffer jb = new StringBuffer();
+		 Gson gson = new Gson();
+			String requestResult = "";
+			
+			
+
+			try {
+				// Construct data
+				 
+				Toast.makeText(getApplicationContext(),"Name: " + DriverWindow.driverInfo.getDeviceID() + " pin: " + DriverWindow.driverInfo.getPin(), 100).show(); 
+				
+				 String data = URLEncoder.encode("driverLoginName", "UTF-8") + "=" + URLEncoder.encode(DriverWindow.driverInfo.getDeviceID(), "UTF-8");
+				 data += "&" + URLEncoder.encode("driverLoginPin", "UTF-8") + "=" + URLEncoder.encode(DriverWindow.driverInfo.getPin(), "UTF-8");
+				  data += "&" + URLEncoder.encode("requestID", "UTF-8") + "=" + URLEncoder.encode(String.valueOf(ListOfRequest.requestID), "UTF-8");
+				  
+			 
+		      URL url = new URL(myURL);
+			  URLConnection conn =  url.openConnection();
+			  conn.setDoOutput(true);
+
+			// Send data
+
+			 OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
+			 wr.write(data);
+			 wr.flush();
+
+			// Get the response
+			   BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+			   String line;
+
+
+			  while ((line = rd.readLine()) != null) {
+			// Process line...
+			        taxiStationResponse.append(line);
+			  }
+		   wr.close();
+		rd.close();
+		 } catch (Exception e) {
+		 }
+		 
+		 requestResult = taxiStationResponse.toString();
+		 
+	
+	   return requestResult; 
+
+	}
+	
+	public String completeHttpRequest(){
+		String myURL = "http://taxitestcenter.appspot.com/cancel";
 		 
 		 StringBuilder taxiStationResponse = new StringBuilder();
 		 StringBuffer jb = new StringBuffer();
@@ -113,7 +185,7 @@ public class MyOrderInfo extends LoggingActivity{
 		 
 	
 	   return requestResult; 
-
+		
 	}
 	
 	
