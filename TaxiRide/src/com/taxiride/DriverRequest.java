@@ -18,7 +18,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class DriverRequest extends LoggingActivity {
-
+Boolean isTotalDone = false;
 	 public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.driverrequest);    
@@ -35,8 +35,11 @@ public class DriverRequest extends LoggingActivity {
 	        final EditText toAddress = (EditText) findViewById(R.id.editToAddress);
 	        toAddress.setText(FindBy.passengerInfo.getToAddress());
 	        
+	        
 	        final EditText numOfPeople = (EditText) findViewById(R.id.EditNumOfPeople); 
 	        FindBy.passengerInfo.setTotalPeople(numOfPeople.getText().toString());
+	       
+	       
 	    
 	        
 	        FindBy.passengerInfo.setFromAddress(fromAddress.getText().toString());
@@ -47,6 +50,7 @@ public class DriverRequest extends LoggingActivity {
 	        enter.setOnClickListener(new View.OnClickListener() {
 	        	public void onClick(View view) {
 	        		boolean isDone = false;
+	        		
 	        		String result = updateHttpRequest();
 	        		if(result.equals("fail")){
 	        			Toast toast = Toast.makeText(getApplicationContext(), "Cannot submit to server please try again! ", 1000);
@@ -62,7 +66,8 @@ public class DriverRequest extends LoggingActivity {
 	                  Intent myIntent = new Intent(view.getContext(), RequestConfirmation.class);
 	                  startActivityForResult(myIntent, 0);
 	        		}
-	            }
+	        		
+	        	}
 
 	        });
 		}
@@ -79,7 +84,7 @@ public class DriverRequest extends LoggingActivity {
 				int counter = 0;
 				try {
 					// Construct data
-					 
+					 Toast.makeText(getApplicationContext(), "Find by: " + FindBy.passengerInfo.getTotalPeople(), 100);
 					 String data = URLEncoder.encode("requestName", "UTF-8") + "=" + URLEncoder.encode(FindBy.passengerInfo.getfullName(), "UTF-8");
 					  data += "&" + URLEncoder.encode("requestPhoneNumber", "UTF-8") + "=" + URLEncoder.encode(FindBy.passengerInfo.getPhoneNum(), "UTF-8");
 					  data += "&" + URLEncoder.encode("requestPickupLocation", "UTF-8") + "=" + URLEncoder.encode(FindBy.passengerInfo.getFromAddress(), "UTF-8");

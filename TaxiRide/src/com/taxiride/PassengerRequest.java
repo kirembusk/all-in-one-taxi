@@ -11,6 +11,8 @@ import com.google.gson.Gson;
 import com.taxiride.model.TaxiRequest;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -69,6 +71,21 @@ public class PassengerRequest extends LoggingActivity{
 		        			toast2.show(); 
 		        		}
 		        	}
+				});
+				
+				Button call = (Button) findViewById(R.id.call);
+				call.setOnClickListener(new View.OnClickListener() {
+
+					@Override
+					public void onClick(View arg0) {
+					String tel = "tel:" + ListOfRequest.TAXIREQUEST.getRequestPhoneNumber();
+							 Intent dialIntent = new Intent(Intent.ACTION_DIAL, Uri
+				                     .parse(tel));
+				             startActivity(dialIntent);
+						
+					}
+					
+					
 				});
 				
 		 }

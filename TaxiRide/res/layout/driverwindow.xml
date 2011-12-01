@@ -3,9 +3,11 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+     android:background="#888888"
     >
-    <Button android:textSize="32px" android:layout_height="110px" android:layout_width="300px" android:text="My Order " android:id="@+id/MyOrder" android:layout_alignParentTop="true" android:layout_alignLeft="@+id/OpenRequest" android:layout_marginTop="137dp"></Button>
-    <Button android:text="Open Request " android:layout_width="300px" android:layout_height="110px" android:id="@+id/OpenRequest" android:textSize="32px" android:layout_below="@+id/MyOrder" android:layout_centerHorizontal="true"></Button>
-    <Button android:text="Edit Preferences " android:layout_width="300px" android:layout_height="110px" android:id="@+id/editPreference" android:textSize="32px" android:layout_below="@+id/OpenRequest" android:layout_alignLeft="@+id/OpenRequest"></Button>
+    <ImageView android:src="@drawable/findby" android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/test_image" android:layout_alignParentLeft="true" android:layout_alignParentRight="true"></ImageView>
+    <Button android:layout_width="300px" android:background="#444444" android:text="Open Request " android:id="@+id/OpenRequest" android:textSize="32px" android:layout_height="110px" android:layout_below="@+id/MyOrder" android:layout_centerHorizontal="true" android:layout_marginTop="17dp" android:textColor="#ffffff"></Button>
+    <Button android:layout_width="300px" android:background="#444444" android:text="Edit Preferences " android:id="@+id/editPreference" android:textSize="32px" android:layout_height="110px" android:layout_below="@+id/OpenRequest" android:layout_alignLeft="@+id/OpenRequest" android:layout_marginTop="20dp" android:textColor="#ffffff"></Button>
+    <Button android:layout_width="300px" android:background="#444444" android:text="My Order " android:id="@+id/MyOrder" android:textSize="32px" android:layout_height="110px" android:layout_centerVertical="true" android:layout_alignLeft="@+id/OpenRequest" android:textColor="#ffffff"></Button>
 </RelativeLayout>
  

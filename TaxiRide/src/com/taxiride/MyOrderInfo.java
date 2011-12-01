@@ -8,7 +8,7 @@ public class MyOrderInfo extends LoggingActivity{
 	public void onCreate(Bundle savedInstanceState) {
 		 super.onCreate(savedInstanceState);
 		 
-		 setContentView(R.layout.passengerrequest);
+		 setContentView(R.layout.myorderinfo);
 		 TextView requestName = (TextView) findViewById(R.id.RequestName);
 			requestName.setText("Request Name: " + MyOrder.ORDER.getRequestName());
 			

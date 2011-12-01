@@ -15,13 +15,13 @@ import android.widget.EditText;
 import android.location.Geocoder;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-//firstnameandlastname+ date and time+mms
+
 
 
 public class Address extends LoggingActivity{
 	private static int calls = 0;
-	public static String TOADDRESS;
-	public static String FROMADDRESS;
+	public static String ToAddress;
+	public static String FromAddress;
 	private double lat;
 	private double log; 
 	private String addressString =""; 
@@ -49,12 +49,9 @@ public class Address extends LoggingActivity{
         	public void onClick(View view) {
         	
         		Bundle bundle = new Bundle();
-                TOADDRESS = toAddress.getText().toString();
-                FROMADDRESS = fromAddress.getText().toString();
-                bundle.putString("toAddress", toAddress.getText().toString());
-                bundle.putString("fromAddress", fromAddress.getText().toString());
-        		 TOADDRESS = toAddress.getText().toString();
-        		 FROMADDRESS = fromAddress.getText().toString();
+                ToAddress = toAddress.getText().toString();
+                FromAddress = fromAddress.getText().toString();
+               
         		 Intent myIntent = new Intent(view.getContext(), FindBy.class);
         		 myIntent.putExtras(bundle);
         		 startActivityForResult(myIntent, 0);

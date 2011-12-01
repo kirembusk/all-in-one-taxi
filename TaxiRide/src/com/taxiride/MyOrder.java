@@ -20,6 +20,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class MyOrder extends ListActivity{
 	
@@ -31,9 +32,10 @@ public class MyOrder extends ListActivity{
 	
 	
 	public void onCreate(Bundle savedInstanceState) {
+		
 		 super.onCreate(savedInstanceState);
 		 
-		 String myURL = "http://taxitestcenter.appspot.com/order?action=json&loginID=william";
+		 String myURL = "http://taxitestcenter.appspot.com/order";
 		 
 		 StringBuilder taxiStationResponse = new StringBuilder();
 		 StringBuffer jb = new StringBuffer();
@@ -43,7 +45,8 @@ public class MyOrder extends ListActivity{
 			try {
 				// Construct data
 				  String data = URLEncoder.encode("action", "UTF-8") + "=" + URLEncoder.encode("json", "UTF-8");
-				  
+				   data += "&" + URLEncoder.encode("loginID", "UTF-8") + "=" + URLEncoder.encode(DriverWindow.driverInfo.getDeviceID(), "UTF-8");
+				   
 			  URL url = new URL(myURL);
 			  URLConnection conn =  url.openConnection();
 			  conn.setDoOutput(true);
@@ -80,6 +83,7 @@ public class MyOrder extends ListActivity{
 				
 			 }	
 		} 
+			//	Toast.makeText(getApplicationContext(), text, BIND_AUTO_CREATE); 
 		 
 		 adapter=new ArrayAdapter<String>(this,
 				    android.R.layout.simple_list_item_1,

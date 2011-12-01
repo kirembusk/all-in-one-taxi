@@ -26,19 +26,19 @@
                 android:name="Edit Phone number"
                 android:summary="Enter your phone number"
                 android:defaultValue=""
-                android:title="Edit This Text"
+                android:title="Enter your phone number"
                 android:key="editPhoneNum" />
                 <EditTextPreference
                 android:name="Max distance for pick up"
                 android:summary="Enter max distance for pick up in miles"
                 android:defaultValue=""
-                android:title="Edit This Text"
+                android:title="Enter max pick up distance"
                 android:key="editMaxPickup" />
                 <EditTextPreference
                 android:name="Max distance for drop off"
                 android:summary="Enter max distance for drop off in miles"
                 android:defaultValue=""
-                android:title="Edit This Text"
+                android:title="Enter Max Drop off distance"
                 android:key="editMaxDropOff" />
                 
                <ListPreference
@@ -50,4 +50,5 @@
                         android:entryValues="@array/paymentValues" />
                 
         </PreferenceCategory>
+      	
 </PreferenceScreen>

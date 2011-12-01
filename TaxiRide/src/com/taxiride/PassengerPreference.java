@@ -13,6 +13,7 @@ import android.preference.PreferenceManager;
 import android.provider.Settings.Secure;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 
@@ -24,6 +25,9 @@ public class PassengerPreference extends PreferenceActivity  implements OnShared
 	private boolean nameFlag = false; 
 	private boolean phoneFlag = false;
 	private boolean paymentFlag = false; 
+	private boolean showPrefs = false; 
+	private String showPref;
+
 	protected void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
          
@@ -36,10 +40,13 @@ public class PassengerPreference extends PreferenceActivity  implements OnShared
           
           ed2 = prefs2.edit();
          
-         ed2.putBoolean("HaveShownPrefs", true);
-         ed2.commit();
+         //ed2.putBoolean("HaveShownPrefs", true);
+         //ed2.commit();
          String androidID = Secure.getString(getBaseContext().getContentResolver(),
                  Secure.ANDROID_ID); 
+              showPrefs = prefs2.getBoolean("HaveShownPrefs",false);
+	          showPref = new Boolean(showPrefs).toString(); 
+	    	
          
 	 }   
 	
@@ -51,15 +58,29 @@ public class PassengerPreference extends PreferenceActivity  implements OnShared
 	  	 
 	  	    @Override
 	  	    public boolean onOptionsItemSelected(MenuItem item) {
-	  	    
-	  	    	if(phoneFlag == true && nameFlag == true && paymentFlag == true){
+	  	    	
+	  	    	
+	  	    	if(showPref.equals("false")){
 	  	        switch (item.getItemId()) {
 	  	            case 0:
-	  	                startActivity(new Intent(this, Address.class));
+	  	            	
+	  	            	 ed2.putBoolean("HaveShownPrefs", true);
+	  		  	         ed2.commit();
+	  	                startActivity(new Intent(this, FindBy.class));
 	  	                return true;
-	  	        }
-	  	    	}
-	  	    	Toast.makeText(getApplicationContext(), "Please enter all the information", 100).show(); 
+	  	        	}
+	  	        }else{
+	  	        switch (item.getItemId()) {
+	  	            case 0:
+	  	            	
+	  	            	Intent myIntent = new Intent(this,FindBy.class);
+	                    startActivityForResult(myIntent, 0);
+	  	                return true;
+	  	                
+	  	           }
+	  	        
+	  	    	 }
+	  	    	//Toast.makeText(getApplicationContext(), "Please enter all the information", 100).show(); 
 	  	       return false; 
 	  	    }
 
@@ -71,25 +92,19 @@ public class PassengerPreference extends PreferenceActivity  implements OnShared
 					 String value = sp.getString(key, null);
 					 ed2.putString("editFullName", value);
 					 ed2.commit();
-					 if(value == "")
-						 nameFlag = false;
-					 else nameFlag = true;
+					 
 				 }
 				 if (key.equals("editPhoneNum")) {
 					 String value = sp.getString(key, null);
 					 ed2.putString("editPhoneNum", value);
 					 ed2.commit();
-					 if(value == "")
-						phoneFlag = false;
-					 else phoneFlag = true;
+					
 				 }
 				 if (key.equals("listPref")) {
 					 String value = sp.getString(key, null);
 					 ed2.putString("listPref", value);
 					 ed2.commit();
-					 if(value == "")
-						 paymentFlag = false;
-					 else paymentFlag = true;
+					
 				 }
 				 Preference pref = findPreference(key);
 				    if (pref instanceof EditTextPreference) {

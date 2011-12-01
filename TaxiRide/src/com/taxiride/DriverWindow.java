@@ -28,10 +28,13 @@ public class DriverWindow extends LoggingActivity {
         
         driverInfo = new DriverInfo(); 
         SharedPreferences pref =getSharedPreferences("DriverPreference",Context.MODE_PRIVATE);
-		String fName = pref.getString("editCompanyName", "");
-	    driverInfo.setCabName(fName);
+		String cName = pref.getString("editCompanyName", "");
+	    driverInfo.setCabName(cName);
 	    String password = pref.getString("editPassword", "");
 	    driverInfo.setPin(password);
+	    String fName = pref.getString("editFullName", "");
+	    driverInfo.setFullName(fName);
+	  
 	    
 	    String deviceID = Secure.getString(getBaseContext().getContentResolver(),
                 Secure.ANDROID_ID);
@@ -45,9 +48,9 @@ public class DriverWindow extends LoggingActivity {
         driverInfo.setPhoneNum(DriverPreference.phoneNum);
         driverInfo.setPin(DriverPreference.pin);*/
         
-        driverInfo.setFullName(DriverPreference.fullName);
-       Toast toast1= Toast.makeText(getApplicationContext(),DriverPreference.fullName , 100);
-        toast1.show();
+      // driverInfo.setFullName(DriverPreference.fullName);
+      // Toast toast1= Toast.makeText(getApplicationContext(),DriverPreference.fullName , 100);
+       // toast1.show();
         
         
         

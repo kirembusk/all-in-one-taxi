@@ -15,10 +15,11 @@ public final class R {
     public static final class attr {
     }
     public static final class drawable {
-        public static final int cmarker=0x7f020000;
-        public static final int findby=0x7f020001;
-        public static final int icon=0x7f020002;
-        public static final int logo=0x7f020003;
+        public static final int address=0x7f020000;
+        public static final int cmarker=0x7f020001;
+        public static final int findby=0x7f020002;
+        public static final int icon=0x7f020003;
+        public static final int logo=0x7f020004;
     }
     public static final class id {
         public static final int ButtonCabDir=0x7f070014;
@@ -27,7 +28,7 @@ public final class R {
         public static final int EditNumOfPeople=0x7f07000d;
         public static final int Eg=0x7f070006;
         public static final int LinearLayout01=0x7f070007;
-        public static final int MyOrder=0x7f07000f;
+        public static final int MyOrder=0x7f070011;
         public static final int Name=0x7f070009;
         public static final int NumOfPeople=0x7f07000e;
         public static final int OpenRequest=0x7f070010;
@@ -49,21 +50,22 @@ public final class R {
         public static final int call=0x7f07001c;
         public static final int cancel=0x7f070026;
         public static final int checkBox1=0x7f070005;
-        public static final int driverName =0x7f07002c;
-        public static final int driverPhone =0x7f07002a;
+        public static final int cost =0x7f07002d;
+        public static final int driverName =0x7f07002b;
+        public static final int driverPhone =0x7f07002c;
         public static final int editFromAddress=0x7f070001;
         public static final int editName=0x7f070008;
-        public static final int editPreference=0x7f070011;
+        public static final int editPreference=0x7f070012;
         public static final int editToAddress=0x7f070002;
         public static final int fromAddress =0x7f070029;
         public static final int mainlayout=0x7f07001f;
         public static final int mapview=0x7f070020;
-        public static final int output=0x7f07002d;
+        public static final int output=0x7f07002e;
         public static final int password =0x7f070016;
         public static final int password_ =0x7f07001a;
-        public static final int refresh=0x7f07002b;
+        public static final int refresh=0x7f07002a;
         public static final int status=0x7f070025;
-        public static final int test_image=0x7f070012;
+        public static final int test_image=0x7f07000f;
         public static final int toAddress =0x7f070023;
         public static final int totalPass =0x7f070024;
         public static final int yellowcab=0x7f07001b;
@@ -79,10 +81,11 @@ public final class R {
         public static final int luxorcab=0x7f030007;
         public static final int main=0x7f030008;
         public static final int map=0x7f030009;
-        public static final int passengerrequest=0x7f03000a;
-        public static final int requestconfirmation=0x7f03000b;
-        public static final int statuspage=0x7f03000c;
-        public static final int yellowcab=0x7f03000d;
+        public static final int myorderinfo=0x7f03000a;
+        public static final int passengerrequest=0x7f03000b;
+        public static final int requestconfirmation=0x7f03000c;
+        public static final int statuspage=0x7f03000d;
+        public static final int yellowcab=0x7f03000e;
     }
     public static final class string {
         public static final int app_name=0x7f060001;

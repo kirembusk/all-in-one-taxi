@@ -15,6 +15,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
@@ -22,31 +23,27 @@ import android.preference.PreferenceManager;
 import android.provider.Settings.Secure;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 
 public class DriverPreference extends PreferenceActivity  implements OnSharedPreferenceChangeListener{
 	 
-	private boolean nameFlag = false;
-	private boolean phoneFlag = false;
-	private boolean companyFlag = false; 
-	private boolean pinFlag = false;
-	private boolean paymentFlag = false;
-	private boolean pickUpFlag = false;
-	private boolean dropOffFlag = false; 
-	public static String deviceID;
-	public static String cabName; 
-	public static String pin; 
-	public static String phoneNum;
-	public static String fullName;
-	public static String maxPickUp;
-	public static String maxDropOff;
-	public static String paymentType;
+	
+	private String deviceID;
+	private  String cabName; 
+	private  String pin; 
+	private  String phoneNum;
+	private  String fullName;
+	private  String maxPickUp;
+	private String maxDropOff;
+	private String paymentType;
 	private String regID; 
 	private SharedPreferences prefs;
 	private SharedPreferences.Editor ed;
 	private String id; 
-
+	
 	
 	protected void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
@@ -57,10 +54,10 @@ public class DriverPreference extends PreferenceActivity  implements OnSharedPre
          sp.registerOnSharedPreferenceChangeListener(this);
           prefs = getSharedPreferences("DriverPreference", Context.MODE_PRIVATE);
          ed = prefs.edit();
- 
          ed.putBoolean("HaveShownPrefs", true);
          ed.commit();
-       
+        
+         
 	 }   
 	
 	  @Override
@@ -71,16 +68,12 @@ public class DriverPreference extends PreferenceActivity  implements OnSharedPre
 	  	 
 	  	    @Override
 	  	    public boolean onOptionsItemSelected(MenuItem item) {
+	  	    	 
 	  	    	boolean isGood = false; 
 	  	    	SharedPreferences prefs = getSharedPreferences("DriverPreference", Context.MODE_PRIVATE);
 	  	    		  id = prefs.getString("regID", "");
-	  	    		  
-	  	    	
-		  	
 		  	   	String result = updateHttpRequest();
-	  	            	
-	  	            
-	  		  	         
+		  	
 	  	             if(result.equals("fail")){
 	  	            	Toast toast1 = Toast.makeText(getApplicationContext(),"Cannot send to the server, please try again", BIND_AUTO_CREATE);
 	                    toast1.show();
@@ -97,8 +90,7 @@ public class DriverPreference extends PreferenceActivity  implements OnSharedPre
 	                    toast2.show();
 	  	            	 
 	  	             }
-	  	           if(isGood == true && paymentFlag == true && nameFlag == true && companyFlag == true
-	  	        		   && dropOffFlag == true && pickUpFlag == true && pinFlag == true) 	{ 
+	  	           if(isGood == true ) 	{ 
 	  	        	   switch (item.getItemId()) {
 	  	        	   case 0:
 	  	                startActivity(new Intent(this, DriverWindow.class));
@@ -130,60 +122,46 @@ public class DriverPreference extends PreferenceActivity  implements OnSharedPre
 					  fullName = sp.getString(key, "");
 					  ed.putString("editName", fullName); 
 					  ed.commit();
-					 if(fullName == "")
-						 nameFlag = false;
-					 else nameFlag = true; 
+					
 				 }	 
 				 
 				 	if(key.equals("editCompanyName")){
 				 	cabName = sp.getString(key, "");
 				 	ed.putString("editCompanyName", cabName);
 				 	ed.commit();
-				 	if(cabName == "")
-						 companyFlag = false;
-					 else companyFlag = true; 
+				 	
 				 	}
 				 	if(key.equals("editPassword")){
 				 		
 				 	pin = sp.getString(key, "");
 				 	ed.putString("editPassword", pin);
 				 	ed.commit();
-				 	if(pin == "")
-						 pinFlag = false;
-					 else pinFlag = true; 
+				 	
 				 	}
 				 	if(key.equals("editPhoneNum")){
 				 	phoneNum = sp.getString(key, "");
 				 	ed.putString("editPhoneNum", phoneNum);
 				 	ed.commit();
-				 	if(phoneNum == "")
-						 phoneFlag = false;
-					 else phoneFlag = true; 
+				 	
 				 	}
 				 	if(key.equals("editMaxPickup")){
 				 	maxPickUp = sp.getString(key, "");
 				 	ed.putString("editMaxPickup", maxPickUp);
 				 	ed.commit();
-				 	if(maxPickUp == "")
-						 pickUpFlag = false;
-					 else pickUpFlag = true; 
+				 	
 				 	}
 				 	if(key.equals("editMaxDropOff")){
 				 	maxDropOff = sp.getString(key, "");
 				 	ed.putString("editMaxDropOff", maxDropOff);
 				 	ed.commit();
-				 	if(maxDropOff == "")
-						 dropOffFlag = false;
-					 else dropOffFlag = true; 
+				 	
 				 	
 				 	}
 				 	if(key.equals("editPayment")){
 				 	paymentType = sp.getString(key, "");
 				 	ed.putString("editPayment", paymentType);
 				 	ed.commit();
-				 	if(paymentType == "")
-						 paymentFlag = false;
-					 else paymentFlag = true; 
+				 	
 				 	}
 				 	
 		

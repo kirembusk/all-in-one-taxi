@@ -45,14 +45,13 @@ public class FindBy extends LoggingActivity {
         passengerInfo= new PassengerInfo();
         setContentView(R.layout.findby);
         // GET TO AND FROM ADDRESS FROM ADDRESS.JAVA ACTIVITY.
-        ImageView image = (ImageView) findViewById(R.id.test_image);
-        Bundle bundle = getIntent().getExtras();
-         toAddress = bundle.getString("toAddress"); 
-         fromAddress = bundle.getString("fromAddress");
+         ImageView image = (ImageView) findViewById(R.id.test_image);
+         toAddress = com.taxiride.Address.ToAddress; 
+         fromAddress = com.taxiride.Address.FromAddress; 
          geoCoder = new Geocoder(this, Locale.getDefault());
          
          passengerInfo.setToAddress(toAddress);
-        	
+        // find current location from GPS 
  		if(fromAddress.equalsIgnoreCase("Current Location")){
  			passengerInfo.setEnableGPS(true);
  			locationManager =(LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -64,6 +63,7 @@ public class FindBy extends LoggingActivity {
 	        	          new GPSLocationListener());
  			
  		}else{
+ 			// convert from address to coordinates 
  			passengerInfo.setFromAddress(fromAddress);
  			convertToCoordinate(fromAddress); 
  			passengerInfo.setFromLat(coordinate[0]);
@@ -72,7 +72,7 @@ public class FindBy extends LoggingActivity {
  			isDone=true;
  		}
  		
- 		
+ 		//convert to address to coordinate and save it in passenger info 
  		convertToCoordinate(toAddress); 
  		passengerInfo.setToLat(coordinate[0]);
  		passengerInfo.setToLog(coordinate[1]); 
@@ -137,7 +137,8 @@ public class FindBy extends LoggingActivity {
         
         
 	}
-	
+
+	// convert addresses to coordinates
 	public void convertToCoordinate(String address){
 		 List<Address> addresses;
 		 
@@ -156,8 +157,9 @@ public class FindBy extends LoggingActivity {
 			
 		
 	}
+	
+	// find distance between two points 
 	 public void setDistance(){
-		 
   		 float[] results = {0};
   		 Location distanceBetween = new Location ("point a to b");
  	    distanceBetween.distanceBetween(passengerInfo.getFromLat(), passengerInfo.getFromlog(), passengerInfo.getToLat(), passengerInfo.getToLog(), results);

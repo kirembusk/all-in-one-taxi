@@ -7,11 +7,11 @@ public class TaxiRequest {
 	private String requestPhoneNumber;
 	private String requestPickupLocation;
 	private String requestDestination;
-
+	private String assignedDriverLogin; 
+	private String assignedDriverName;
 	private String assignedDriverPhoneNumber;
 	private String assignedDriverLatitude;
 	private String assignedDriverLongitude;
-	private String assignedDriverName;
 	private String estimatedArrivalTime;
 	private String preferredPayment;
 	private String currentLatitude;
@@ -22,26 +22,25 @@ public class TaxiRequest {
 	private int totalPeople;
 	private String isRequestTaken;
 	private String isRequestCompleted;
-	
-	
-
 	public TaxiRequest(Long id, String requestName, String requestPhoneNumber,
 			String requestPickupLocation, String requestDestination,
+			String assignedDriverLogin, String assignedDriverName,
 			String assignedDriverPhoneNumber, String assignedDriverLatitude,
-			String assignedDriverLongitude, String assignedDriverName,
-			String estimatedArrivalTime, String preferredPayment,
-			String currentLatitude, String currentLongitude, String toLatitude,
-			String toLongitude, String totalDistance, int totalPeople,
-			String isRequestTaken, String isRequestCompleted) {
+			String assignedDriverLongitude, String estimatedArrivalTime,
+			String preferredPayment, String currentLatitude,
+			String currentLongitude, String toLatitude, String toLongitude,
+			String totalDistance, int totalPeople, String isRequestTaken,
+			String isRequestCompleted) {
 		this.id = id;
 		this.requestName = requestName;
 		this.requestPhoneNumber = requestPhoneNumber;
 		this.requestPickupLocation = requestPickupLocation;
 		this.requestDestination = requestDestination;
+		this.assignedDriverLogin = assignedDriverLogin;
+		this.assignedDriverName = assignedDriverName;
 		this.assignedDriverPhoneNumber = assignedDriverPhoneNumber;
 		this.assignedDriverLatitude = assignedDriverLatitude;
 		this.assignedDriverLongitude = assignedDriverLongitude;
-		this.assignedDriverName = assignedDriverName;
 		this.estimatedArrivalTime = estimatedArrivalTime;
 		this.preferredPayment = preferredPayment;
 		this.currentLatitude = currentLatitude;
@@ -53,8 +52,6 @@ public class TaxiRequest {
 		this.isRequestTaken = isRequestTaken;
 		this.isRequestCompleted = isRequestCompleted;
 	}
-	
-	
 	public Long getId() {
 		return id;
 	}
@@ -85,6 +82,18 @@ public class TaxiRequest {
 	public void setRequestDestination(String requestDestination) {
 		this.requestDestination = requestDestination;
 	}
+	public String getAssignedDriverLogin() {
+		return assignedDriverLogin;
+	}
+	public void setAssignedDriverLogin(String assignedDriverLogin) {
+		this.assignedDriverLogin = assignedDriverLogin;
+	}
+	public String getAssignedDriverName() {
+		return assignedDriverName;
+	}
+	public void setAssignedDriverName(String assignedDriverName) {
+		this.assignedDriverName = assignedDriverName;
+	}
 	public String getAssignedDriverPhoneNumber() {
 		return assignedDriverPhoneNumber;
 	}
@@ -102,12 +111,6 @@ public class TaxiRequest {
 	}
 	public void setAssignedDriverLongitude(String assignedDriverLongitude) {
 		this.assignedDriverLongitude = assignedDriverLongitude;
-	}
-	public String getAssignedDriverName() {
-		return assignedDriverName;
-	}
-	public void setAssignedDriverName(String assignedDriverName) {
-		this.assignedDriverName = assignedDriverName;
 	}
 	public String getEstimatedArrivalTime() {
 		return estimatedArrivalTime;
@@ -169,8 +172,6 @@ public class TaxiRequest {
 	public void setIsRequestCompleted(String isRequestCompleted) {
 		this.isRequestCompleted = isRequestCompleted;
 	}
-	
-	
 	
 	
 }
