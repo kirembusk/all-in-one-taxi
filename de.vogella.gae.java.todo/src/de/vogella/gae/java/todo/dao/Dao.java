@@ -109,6 +109,7 @@ public enum Dao {
 			try
 			{
 				request = (TaxiRequest) q.getSingleResult();
+				request.setIsRequestTaken("N");
 				em.persist(request);
 			    result = "success";	
 			}
