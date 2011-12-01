@@ -150,7 +150,7 @@ public enum Dao {
 	
 	public List<TaxiRequest> getMyTaxiRequest(String loginId) {
 		EntityManager em = EMFService.get().createEntityManager();
-		Query q = em.createQuery("select t from TaxiRequest t where t.assignedDriverLogin = :loginId");
+		Query q = em.createQuery("select t from TaxiRequest t where t.assignedDriverLogin = :loginId and t.isRequestCompleted = 'N'");
 		q.setParameter("loginId", loginId);
 		List<TaxiRequest> requests = q.getResultList();
 		return requests;
