@@ -128,7 +128,7 @@ public enum Dao {
 		return result;
 	}
 
-	public String revokeTaxiRequest(long refID, String requestID) {
+	public String revokeTaxiRequest(long refID, String deviceID) {
 
 		String result = "fail";
 		

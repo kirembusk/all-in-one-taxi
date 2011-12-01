@@ -16,7 +16,8 @@ public class ServletRevokeTaxiRequest {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
 		String requestID = checkNull(req.getParameter("requestID"));
-
+		String deviceID =  checkNull(req.getParameter("deviceID"));
+		
 		long id = 0;
 		
 		try
@@ -28,16 +29,14 @@ public class ServletRevokeTaxiRequest {
 			id = 0;
 		}
 		
-		TaxiRequest request = new TaxiRequest();
-		request = Dao.INSTANCE.getUpdateTaxiRequest(id);
-
+		String result = "fail";
+				
+		result = Dao.INSTANCE.revokeTaxiRequest(id, deviceID);
 
 		PrintWriter out = resp.getWriter();
-
-		Gson gson = new Gson();
-		String jsonDrivers = gson.toJson(request);
-		out.println(jsonDrivers);
+		out.println(result);
 		out.flush();
+		
 	}
 
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
