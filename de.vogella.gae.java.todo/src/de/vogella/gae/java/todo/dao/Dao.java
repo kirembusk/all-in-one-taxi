@@ -109,6 +109,13 @@ public enum Dao {
 			try
 			{
 				request = (TaxiRequest) q.getSingleResult();
+				
+				request.setAssignedDriverLogin("");
+				request.setAssignedDriverName("");
+				request.setAssignedDriverPhoneNumber("");
+				request.setAssignedDriverLatitude("");
+				request.setAssignedDriverLongitude("");
+				request.setEstimatedArrivalTime("");
 				request.setIsRequestTaken("N");
 				em.persist(request);
 			    result = "success";	
@@ -182,8 +189,10 @@ public enum Dao {
 
 	public List<TaxiRequest> getMyTaxiRequest(String loginId) {
 		EntityManager em = EMFService.get().createEntityManager();
-		Query q = em.createQuery("select t from TaxiRequest t where t.assignedDriverLogin = :loginId");
+		Query q = em.createQuery("select t from TaxiRequest t where t.assignedDriverLogin = :loginId and t.isRequestTaken = :requestTaken and t.isRequestCompleted = :requestCompleted");
 		q.setParameter("loginId", loginId);
+		q.setParameter("requestTaken", "Y");
+		q.setParameter("requestCompleted", "N");
 		List<TaxiRequest> requests = q.getResultList();
 		return requests;
 	}
