@@ -257,11 +257,12 @@ public enum Dao {
 		return drivers;
 	}
 	
-	public String updateTaxiRequestAssignedTo(long refId, String assignedDriverName, String assignedDriverPhoneNumber, String assignedDriverLatitude, String assignedDriverLongitude, String estimatedArrivalTime) {
+	public String updateTaxiRequestAssignedTo(long refId, String assignedDriverLogin, String assignedDriverName, String assignedDriverPhoneNumber, String assignedDriverLatitude, String assignedDriverLongitude, String estimatedArrivalTime) {
 		String result = "fail";
 		EntityManager em = EMFService.get().createEntityManager();
 		try {
 			TaxiRequest request = em.find(TaxiRequest.class, refId);
+			request.setAssignedDriverLogin(assignedDriverLogin);
 			request.setAssignedDriverName(assignedDriverName);
 			request.setAssignedDriverPhoneNumber(assignedDriverPhoneNumber);
 			request.setAssignedDriverLatitude(assignedDriverLatitude);
