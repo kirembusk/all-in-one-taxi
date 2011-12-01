@@ -62,6 +62,14 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<servlet-name>ApproveTaxiRequest</servlet-name>
 		<servlet-class>de.vogella.gae.java.todo.ServletApproveTaxiRequest</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>CancelTaxiRequest</servlet-name>
+		<servlet-class>de.vogella.gae.java.todo.ServletCancelTaxiRequest</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CancelTaxiRequest</servlet-name>
+		<url-pattern>/cancel</url-pattern>
+	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>ApproveTaxiRequest</servlet-name>
 		<url-pattern>/approve</url-pattern>

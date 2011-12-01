@@ -73,7 +73,7 @@ public enum Dao {
 		// Read the existing entries
 		Query q = em.createQuery("select d from TaxiDriver d where d.loginName = :loginName");
 		q.setParameter("loginName", loginName);
-		
+
 		TaxiDriver driver = null;
 
 		long result = 0;
@@ -94,6 +94,37 @@ public enum Dao {
 		return result;
 	}
 
+	public String cancelTaxiRequest(long refID, String loginID) {
+
+		String result = "fail";
+		
+		synchronized (this) {
+
+			EntityManager em = EMFService.get().createEntityManager();
+			// Read the existing entries
+			Query q = em.createQuery("select t from TaxiRequest t where t.id = :requestId and t.assignedDriverLogin = :loginId");
+			q.setParameter("requestId", refID);
+			q.setParameter("loginId", loginID);
+			TaxiRequest request = null;
+			try
+			{
+				request = (TaxiRequest) q.getSingleResult();
+				em.persist(request);
+			    result = "success";	
+			}
+			catch (Exception e)
+			{
+				result = "fail";
+			}
+			finally 
+			{
+				em.close();
+			}
+
+		}
+		
+		return result;
+	}
 
 	public TaxiDriver checkLogin(String loginName, String loginPin) {
 		EntityManager em = EMFService.get().createEntityManager();
@@ -147,7 +178,7 @@ public enum Dao {
 		TaxiRequest request = (TaxiRequest) q.getSingleResult();
 		return request;
 	}
-	
+
 	public List<TaxiRequest> getMyTaxiRequest(String loginId) {
 		EntityManager em = EMFService.get().createEntityManager();
 		Query q = em.createQuery("select t from TaxiRequest t where t.assignedDriverLogin = :loginId");
@@ -158,10 +189,10 @@ public enum Dao {
 
 
 
-	
+
 	public long addTaxiRequest(String requestName, String requestPhoneNumber, String requestPickupLocation, String requestDestination, String preferredPayment, String currentLatitude, String currentLongitude, String toLatitude, String toLongitude, int totalPeople, String totalDistance) {
 		long result = 0;
-		
+
 		synchronized (this) {
 			String assignedDriverLogin = "";
 			String assignedDriverName = "";
@@ -169,16 +200,16 @@ public enum Dao {
 			String assignedDriverLatitude = "";
 			String assignedDriverLongitude = "";
 			String estimatedArrivalTime = "";
-			
+
 			EntityManager em = EMFService.get().createEntityManager();
 			TaxiRequest request = new TaxiRequest(requestName, requestPhoneNumber, requestPickupLocation, requestDestination, assignedDriverLogin,
-			                                      assignedDriverName, assignedDriverPhoneNumber, assignedDriverLatitude, assignedDriverLongitude, estimatedArrivalTime, 
-			                                      preferredPayment, currentLatitude, currentLongitude, toLatitude, toLongitude, totalDistance, totalPeople);
+					assignedDriverName, assignedDriverPhoneNumber, assignedDriverLatitude, assignedDriverLongitude, estimatedArrivalTime, 
+					preferredPayment, currentLatitude, currentLongitude, toLatitude, toLongitude, totalDistance, totalPeople);
 			em.persist(request);
 			em.close();
 			result = request.getId();
 		}
-		
+
 		return result;
 	}
 
@@ -203,9 +234,9 @@ public enum Dao {
 
 	public String updateTaxiDriver(long regID, String loginName, String loginPin, String fullName, String cabName, String phoneNumber, String currentLatitude, String currentLongitude, String maxPickupDistance, String maxDropOffDistance, String preferredPayment) {
 		String result = "fail";
-		
+
 		synchronized (this) {
-			
+
 			EntityManager em = EMFService.get().createEntityManager();
 			try {
 				TaxiDriver driver = em.find(TaxiDriver.class, regID);
@@ -235,7 +266,7 @@ public enum Dao {
 				em.close();
 			}
 		}
-		
+
 		return result;
 	}
 
@@ -256,7 +287,7 @@ public enum Dao {
 		List<TaxiDriver> drivers = q.getResultList();
 		return drivers;
 	}
-	
+
 	public String updateTaxiRequestAssignedTo(long refId, String assignedDriverLogin, String assignedDriverName, String assignedDriverPhoneNumber, String assignedDriverLatitude, String assignedDriverLongitude, String estimatedArrivalTime) {
 		String result = "fail";
 		EntityManager em = EMFService.get().createEntityManager();
@@ -280,7 +311,7 @@ public enum Dao {
 		finally {
 			em.close();
 		}
-		
+
 		return result;
 	}
 
