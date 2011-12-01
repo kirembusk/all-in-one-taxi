@@ -203,6 +203,7 @@ We have implement the third page of our design which included two buttons called
  # I learned to pass value to HTTP and connect to the server to get result back 
  # I learned how to make perferences and store it into the phone
 *What you plan to do the following week*
+ # Progress bar for both driver preference and passenger preference
  # Filter cab request by location and payment option
  # Get estimated arrival time
  # cancel requests for my order as well as passenger request order
