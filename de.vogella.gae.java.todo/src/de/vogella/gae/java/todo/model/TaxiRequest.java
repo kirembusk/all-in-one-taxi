@@ -16,6 +16,7 @@ public class TaxiRequest {
 	private String requestPhoneNumber;
 	private String requestPickupLocation;
 	private String requestDestination;
+	private String assignedDriverLogin;
 	private String assignedDriverName;
 	private String assignedDriverPhoneNumber;
 	private String assignedDriverLatitude;
@@ -39,6 +40,7 @@ public class TaxiRequest {
 		this.requestPhoneNumber = "";
 		this.requestPickupLocation = "";
 		this.requestDestination = "";
+		this.assignedDriverLogin = "";
 		this.assignedDriverName = "";
 		this.assignedDriverPhoneNumber = "";
 		this.assignedDriverLatitude = "";
@@ -55,17 +57,23 @@ public class TaxiRequest {
 		this.isRequestCompleted = "N";
 	}
 
+
+
+
+
 	public TaxiRequest(String requestName, String requestPhoneNumber,
 			String requestPickupLocation, String requestDestination,
-			String assignedDriverName, String assignedDriverPhoneNumber,
-			String assignedDriverLatitude, String assignedDriverLongitude,
-			String estimatedArrivalTime, String preferredPayment,
-			String currentLatitude, String currentLongitude, String toLatitude,
-			String toLongitude, String totalDistance, int totalPeople) {
+			String assignedDriverLogin, String assignedDriverName,
+			String assignedDriverPhoneNumber, String assignedDriverLatitude,
+			String assignedDriverLongitude, String estimatedArrivalTime,
+			String preferredPayment, String currentLatitude,
+			String currentLongitude, String toLatitude, String toLongitude,
+			String totalDistance, int totalPeople) {
 		this.requestName = requestName;
 		this.requestPhoneNumber = requestPhoneNumber;
 		this.requestPickupLocation = requestPickupLocation;
 		this.requestDestination = requestDestination;
+		this.assignedDriverLogin = assignedDriverLogin;
 		this.assignedDriverName = assignedDriverName;
 		this.assignedDriverPhoneNumber = assignedDriverPhoneNumber;
 		this.assignedDriverLatitude = assignedDriverLatitude;
@@ -81,6 +89,16 @@ public class TaxiRequest {
 		this.isRequestTaken = "N";
 		this.isRequestCompleted = "N";
 	}
+
+
+	public String getAssignedDriverLogin() {
+		return assignedDriverLogin;
+	}
+
+	public void setAssignedDriverLogin(String assignedDriverLogin) {
+		this.assignedDriverLogin = assignedDriverLogin;
+	}
+
 
 
 

@@ -150,7 +150,7 @@ public enum Dao {
 	
 	public List<TaxiRequest> getMyTaxiRequest(String loginId) {
 		EntityManager em = EMFService.get().createEntityManager();
-		Query q = em.createQuery("select t from TaxiRequest t where t.assignedDriverLogin = :loginId and t.isRequestCompleted = 'N'");
+		Query q = em.createQuery("select t from TaxiRequest t where t.assignedDriverLogin = :loginId");
 		q.setParameter("loginId", loginId);
 		List<TaxiRequest> requests = q.getResultList();
 		return requests;
@@ -163,6 +163,7 @@ public enum Dao {
 		long result = 0;
 		
 		synchronized (this) {
+			String assignedDriverLogin = "";
 			String assignedDriverName = "";
 			String assignedDriverPhoneNumber = "";
 			String assignedDriverLatitude = "";
@@ -170,7 +171,7 @@ public enum Dao {
 			String estimatedArrivalTime = "";
 			
 			EntityManager em = EMFService.get().createEntityManager();
-			TaxiRequest request = new TaxiRequest(requestName, requestPhoneNumber, requestPickupLocation, requestDestination,
+			TaxiRequest request = new TaxiRequest(requestName, requestPhoneNumber, requestPickupLocation, requestDestination, assignedDriverLogin,
 			                                      assignedDriverName, assignedDriverPhoneNumber, assignedDriverLatitude, assignedDriverLongitude, estimatedArrivalTime, 
 			                                      preferredPayment, currentLatitude, currentLongitude, toLatitude, toLongitude, totalDistance, totalPeople);
 			em.persist(request);
