@@ -70,6 +70,14 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<servlet-name>CompleteTaxiRequest</servlet-name>
 		<servlet-class>de.vogella.gae.java.todo.ServletCompleteTaxiRequest</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>RevokeTaxiRequest</servlet-name>
+		<servlet-class>de.vogella.gae.java.todo.ServletRevokeTaxiRequest</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RevokeTaxiRequest</servlet-name>
+		<url-pattern>/complete</url-pattern>
+	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>CompleteTaxiRequest</servlet-name>
 		<url-pattern>/complete</url-pattern>

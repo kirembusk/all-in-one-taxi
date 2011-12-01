@@ -128,6 +128,45 @@ public enum Dao {
 		return result;
 	}
 
+	public String revokeTaxiRequest(long refID, String requestID) {
+
+		String result = "fail";
+		
+		synchronized (this) {
+
+			EntityManager em = EMFService.get().createEntityManager();
+			// Read the existing entries
+			Query q = em.createQuery("select t from TaxiRequest t where t.id = :requestId");
+			q.setParameter("requestId", refID);
+		//	q.setParameter("loginId", loginID);
+			TaxiRequest request = null;
+			try
+			{
+				request = (TaxiRequest) q.getSingleResult();
+				
+				request.setAssignedDriverLogin("");
+				request.setAssignedDriverName("");
+				request.setAssignedDriverPhoneNumber("");
+				request.setAssignedDriverLatitude("");
+				request.setAssignedDriverLongitude("");
+				request.setEstimatedArrivalTime("");
+				request.setIsRequestTaken("N");
+				em.persist(request);
+			    result = "success";	
+			}
+			catch (Exception e)
+			{
+				result = "fail";
+			}
+			finally 
+			{
+				em.close();
+			}
+
+		}
+		
+		return result;
+	}
 	
 	public String cancelTaxiRequest(long refID, String loginID) {
 
