@@ -29,6 +29,7 @@ public class ServletApproveTaxiRequest extends HttpServlet {
 		TaxiDriver driver = Dao.INSTANCE.checkLogin(driverLoginName, driverLoginPin);
 
 		String driverFullName = "";
+		String driverPhoneNumber = "";
 		String driverLatitude = "";
 		String driverLongitude = "";
 		String estimatedArrivalTime = "";
@@ -40,6 +41,7 @@ public class ServletApproveTaxiRequest extends HttpServlet {
 		if (driver != null)
 		{
 			driverFullName = driver.getFullName();
+			driverPhoneNumber = driver.getPhoneNumber();
 			driverLatitude = checkNull(req.getParameter("driverLatitude"));
 			driverLongitude = checkNull(req.getParameter("driverLongitude"));
 			estimatedArrivalTime = checkNull(req.getParameter("estimatedArrivalTime"));
@@ -56,7 +58,7 @@ public class ServletApproveTaxiRequest extends HttpServlet {
 
 			if (refID > 0)
 			{
-				result = Dao.INSTANCE.updateTaxiRequestAssignedTo(refID, driverFullName, driverLatitude, driverLongitude, estimatedArrivalTime);
+				result = Dao.INSTANCE.updateTaxiRequestAssignedTo(refID, driverFullName, driverPhoneNumber, driverLatitude, driverLongitude, estimatedArrivalTime);
 			}
 
 		}
