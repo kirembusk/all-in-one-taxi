@@ -39,20 +39,7 @@ public class PassengerRequest extends LoggingActivity{
 				
 				TextView totalPass = (TextView) findViewById(R.id.totalPass);
 				totalPass.setText("Total Passengers: " + ListOfRequest.TAXIREQUEST.getTotalPeople());
-				
-				TextView status = (TextView) findViewById(R.id.status);
 			
-				
-			//	if(ListOfRequest.TAXIREQUEST.getIsRequestTaken() == "Y"){
-			//	status.setText("Status:  Close  ------- Assigned to Driver: " + ListOfRequest.TAXIREQUEST.getAssignedDriverLogin());// + ListOfRequest.TAXIREQUEST.getAssignedDriverLogin());
-				 //Toast toast2 = Toast.makeText(getApplicationContext(),"String:  "+ ListOfRequest.TAXIREQUEST.getAssignedDriverLogin(), BIND_AUTO_CREATE);
-                 //toast2.show();
-			//	}
-			//	else
-			//	status.setText("Status:  Open  -------- Driver hasn't been assigned yet");
-				//Button accept = (Button)findViewById(R.id.status);
-				//accept
-				
 				
 				
 				Button accept = (Button) findViewById(R.id.accept);
@@ -61,7 +48,7 @@ public class PassengerRequest extends LoggingActivity{
 		        	public void onClick(View view) {
 		        		String result = sendHttpRequest();
 		        		if(result.equals("auth")){
-		        			Toast toast1 = Toast.makeText(getApplicationContext(), "SCREW YOU!!!! ",100);
+		        			Toast toast1 = Toast.makeText(getApplicationContext(), "invalid authentication ",100);
 		        			toast1.show(); 
 		        		}else if(result.equals("success")){
 		        			Toast toast = Toast.makeText(getApplicationContext(), "Your request has been successfully confirmed. Please Check your order in the 'My Order' scrren ", 100);
@@ -105,7 +92,7 @@ public class PassengerRequest extends LoggingActivity{
 						try {
 							// Construct data
 							 
-							Toast.makeText(getApplicationContext(),"Name: " + DriverWindow.driverInfo.getDeviceID() + " pin: " + DriverWindow.driverInfo.getPin(), 100).show(); 
+						
 							
 							 String data = URLEncoder.encode("driverLoginName", "UTF-8") + "=" + URLEncoder.encode(DriverWindow.driverInfo.getDeviceID(), "UTF-8");
 							 data += "&" + URLEncoder.encode("driverLoginPin", "UTF-8") + "=" + URLEncoder.encode(DriverWindow.driverInfo.getPin(), "UTF-8");

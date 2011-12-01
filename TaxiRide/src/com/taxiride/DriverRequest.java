@@ -12,6 +12,8 @@ import com.google.gson.Gson;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -35,15 +37,29 @@ Boolean isTotalDone = false;
 	        final EditText toAddress = (EditText) findViewById(R.id.editToAddress);
 	        toAddress.setText(FindBy.passengerInfo.getToAddress());
 	        
-	        
-	        final EditText numOfPeople = (EditText) findViewById(R.id.EditNumOfPeople); 
-	        FindBy.passengerInfo.setTotalPeople(numOfPeople.getText().toString());
-	       
-	       
-	    
+	      
 	        
 	        FindBy.passengerInfo.setFromAddress(fromAddress.getText().toString());
 	        FindBy.passengerInfo.setToAddress(toAddress.getText().toString());
+	        
+	        final EditText numOfPeople = (EditText) findViewById(R.id.EditNumOfPeople); 
+	        numOfPeople.addTextChangedListener(new TextWatcher() {
+                public void afterTextChanged(Editable s) {
+                    //XXX do something
+            }
+            public void beforeTextChanged(CharSequence s, int start, int count,
+int after) {
+                    //XXX do something
+            }
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            	
+            	FindBy.passengerInfo.setTotalPeople(s.toString());       
+            }
+}); 
+	        	
+	        
+	       
+	        
 	        
 	        Button enter = (Button) findViewById(R.id.ButtonEnter);
 	        
@@ -66,7 +82,9 @@ Boolean isTotalDone = false;
 	                  Intent myIntent = new Intent(view.getContext(), RequestConfirmation.class);
 	                  startActivityForResult(myIntent, 0);
 	        		}
-	        		
+	        		return; 
+	        	   
+	        	  
 	        	}
 
 	        });
@@ -75,7 +93,7 @@ Boolean isTotalDone = false;
 	 public String updateHttpRequest(){
   	   
   	   String myURL = "http://taxitestcenter.appspot.com/submit";
-			 
+  	 
 			 StringBuilder taxiStationResponse = new StringBuilder();
 			 StringBuffer jb = new StringBuffer();
 			 Gson gson = new Gson();
@@ -84,7 +102,7 @@ Boolean isTotalDone = false;
 				int counter = 0;
 				try {
 					// Construct data
-					 Toast.makeText(getApplicationContext(), "Find by: " + FindBy.passengerInfo.getTotalPeople(), 100);
+					 
 					 String data = URLEncoder.encode("requestName", "UTF-8") + "=" + URLEncoder.encode(FindBy.passengerInfo.getfullName(), "UTF-8");
 					  data += "&" + URLEncoder.encode("requestPhoneNumber", "UTF-8") + "=" + URLEncoder.encode(FindBy.passengerInfo.getPhoneNum(), "UTF-8");
 					  data += "&" + URLEncoder.encode("requestPickupLocation", "UTF-8") + "=" + URLEncoder.encode(FindBy.passengerInfo.getFromAddress(), "UTF-8");
