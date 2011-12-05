@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="horizontal"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+        <TextView android:id="@+id/RequestName " android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Request Name:  " android:textSize="25px" android:layout_alignParentTop="true" android:layout_marginTop="14dp"></TextView>
+        <TextView android:id="@+id/RequestPhone " android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Request Phone #: " android:textSize="25px" android:layout_below="@+id/RequestName " android:layout_alignParentLeft="true" android:layout_marginTop="14dp"></TextView>
+        <TextView android:id="@+id/status" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Status " android:textSize="25px" android:layout_below="@+id/totalPass " android:layout_alignLeft="@+id/RequestName " android:layout_marginTop="22dp"></TextView>
+        <TextView android:id="@+id/fromAddress " android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Pickup location:  " android:textSize="25px" android:layout_below="@+id/RequestPhone " android:layout_alignParentLeft="true" android:layout_marginTop="20dp"></TextView>
+        <TextView android:id="@+id/toAddress " android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Destination:  " android:textSize="25px" android:layout_below="@+id/fromAddress " android:layout_alignParentLeft="true" android:layout_marginTop="27dp"></TextView>
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Refresh" android:id="@+id/refresh" android:textSize="20px" android:layout_alignParentLeft="true" android:layout_alignParentRight="true" android:layout_above="@+id/call"></Button>
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cancel" android:id="@+id/cancel" android:textSize="20px" android:layout_above="@+id/refresh" android:layout_alignParentLeft="true" android:layout_alignParentRight="true"></Button>
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="CALL" android:id="@+id/call" android:textSize="20px" android:layout_alignParentBottom="true" android:layout_alignParentLeft="true" android:layout_marginBottom="16dp" android:layout_alignParentRight="true"></Button>
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Complete" android:id="@+id/complete" android:textSize="20px" android:layout_above="@+id/cancel" android:layout_alignParentLeft="true" android:layout_alignParentRight="true"></Button>
+        <TextView android:id="@+id/totalPass " android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Total Passengers:  " android:textSize="25px" android:layout_below="@+id/toAddress " android:layout_alignParentLeft="true" android:layout_marginTop="14dp"></TextView>
+    	
+</RelativeLayout>

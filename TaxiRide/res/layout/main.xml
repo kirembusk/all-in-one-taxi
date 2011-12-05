@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#888888"
+    >
+    <Button android:text="Request passenger " android:textSize="32px" android:id="@+id/RequestPassenger" android:layout_height="110px" android:layout_width="300px" android:layout_below="@+id/RequestDriver" android:layout_centerHorizontal="true" android:layout_marginTop="20dp" android:background="#444444" android:textColor="#ffffff"></Button>
+    <ImageView android:src="@drawable/logo" android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/test_image" android:layout_alignParentLeft="true" ></ImageView>
+    <Button android:text="Request Driver " android:textSize="32px" android:id="@+id/RequestDriver" android:layout_height="110px" android:layout_width="300px" android:layout_below="@+id/test_image" android:layout_alignLeft="@+id/RequestPassenger" android:layout_marginTop="16dp" android:background="#444444" android:textColor="#ffffff" ></Button>
+</RelativeLayout>
+ 

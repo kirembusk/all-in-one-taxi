@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="horizontal"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+        <TextView android:layout_width="wrap_content" android:text="Destination:  " android:id="@+id/toAddress " android:textSize="25px" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_alignParentLeft="true"></TextView>
+        <TextView android:layout_width="wrap_content" android:text="Total Passengers:  " android:id="@+id/totalPass " android:textSize="25px" android:layout_height="wrap_content" android:layout_below="@+id/toAddress " android:layout_alignParentLeft="true" android:layout_marginTop="44dp"></TextView>
+        <Button android:text="CALL" android:id="@+id/call" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20px" android:layout_alignParentBottom="true" android:layout_alignParentLeft="true" android:layout_alignParentRight="true"></Button>
+        <TextView android:layout_width="wrap_content" android:text="Request Phone #: " android:id="@+id/RequestPhone " android:textSize="25px" android:layout_height="wrap_content" android:layout_below="@+id/RequestName " android:layout_alignParentLeft="true" android:layout_marginTop="35dp"></TextView>
+        <TextView android:layout_width="wrap_content" android:text="Request Name:  " android:id="@+id/RequestName " android:textSize="25px" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentLeft="true" android:layout_marginTop="24dp"></TextView>
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Accept" android:id="@+id/accept" android:textSize="20px" android:layout_above="@+id/call" android:layout_alignParentLeft="true" android:layout_marginBottom="19dp" android:layout_alignParentRight="true"></Button>
+        <TextView android:id="@+id/fromAddress " android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Pickup location:  " android:textSize="25px" android:layout_below="@+id/RequestPhone " android:layout_alignParentLeft="true" android:layout_marginTop="53dp"></TextView>
+    	
+</RelativeLayout>

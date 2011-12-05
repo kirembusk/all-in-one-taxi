@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+                android:title="My Preferences">
+                <EditTextPreference
+                android:name="Edit First and last Name"
+                android:summary="e.g John Doe"
+                android:defaultValue=""
+                android:title="Enter your full name"
+                android:key="editFullName"/>
+                
+                <EditTextPreference
+                android:summary="e.g   4155511234"
+                android:defaultValue=""
+                android:title="Enter phone number"
+                android:key="editPhoneNum" />
+                
+               <ListPreference
+                        android:title="payment option"
+                        android:summary="select which payment you are willing to accept"
+                        android:key="listPref"
+                        android:defaultValue=""
+                        android:entries="@array/payment"
+                        android:entryValues="@array/paymentValues" />
+                
+        </PreferenceCategory>
+</PreferenceScreen>
