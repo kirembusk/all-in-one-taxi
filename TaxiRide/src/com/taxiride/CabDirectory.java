@@ -8,7 +8,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.view.View;
 import android.content.Intent;
-
+/*
+ *This class uses list to get the cab directory and i implement all the call 
+ *buttons to call each of the cab directory
+ * 
+ * 
+ */
 
 
 public class CabDirectory extends ListActivity{

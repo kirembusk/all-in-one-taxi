@@ -1,6 +1,7 @@
 package com.taxiride;
 
 import java.io.IOException;
+
 import java.lang.reflect.Array;
 import java.text.DecimalFormat;
 import java.util.List;
@@ -27,6 +28,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+
+/*
+ * This class use GPS to get the current location if the user did not 
+ * specifiy a from address in the Address.java class. The address and 
+ * coordinate is save into the passenger info class. There is three buttons
+ *  in this class a edit prefereces, resever a taxi and cab directoyr. 
+ */
+
 public class FindBy extends LoggingActivity {
 	public static PassengerInfo passengerInfo = new PassengerInfo();
 	private String toAddress;
@@ -45,17 +54,20 @@ public class FindBy extends LoggingActivity {
         super.onCreate(savedInstanceState);
         passengerInfo= new PassengerInfo();
         setContentView(R.layout.findby);
+        // get passenger device ID and store it in the passengerInfo class
         String deviceID = Secure.getString(getBaseContext().getContentResolver(),
                 Secure.ANDROID_ID);
 	    passengerInfo.setDeviceID(deviceID);
         // GET TO AND FROM ADDRESS FROM ADDRESS.JAVA ACTIVITY.
          ImageView image = (ImageView) findViewById(R.id.test_image);
+         // get to and from address in Address.java class
          toAddress = com.taxiride.Address.ToAddress; 
          fromAddress = com.taxiride.Address.FromAddress; 
          geoCoder = new Geocoder(this, Locale.getDefault());
          
          passengerInfo.setToAddress(toAddress);
-        // find current location from GPS 
+        // find current location from GPS if the user specifiy current location
+         
  		if(fromAddress.equalsIgnoreCase("Current Location")){
  			passengerInfo.setEnableGPS(true);
  			locationManager =(LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -67,7 +79,7 @@ public class FindBy extends LoggingActivity {
 	        	          new GPSLocationListener());
  			
  		}else{
- 			// convert from address to coordinates 
+ 			// convert from address to coordinates and set it into the passengerinfo class
  			passengerInfo.setFromAddress(fromAddress);
  			convertToCoordinate(fromAddress); 
  			passengerInfo.setFromLat(coordinate[0]);
@@ -82,6 +94,7 @@ public class FindBy extends LoggingActivity {
  		passengerInfo.setToLog(coordinate[1]); 
  		isConvertToLocDone =true;
  		
+ 		//get passenger preferences and store it to passengerInfo class
 		SharedPreferences prefs =getSharedPreferences("PassengerPreference",Context.MODE_PRIVATE);
 		String fName = prefs.getString("editFullName", "");
 	    passengerInfo.setfullName(fName);
@@ -90,8 +103,7 @@ public class FindBy extends LoggingActivity {
 	    String payment = prefs.getString("listPref", "");
 	    passengerInfo.setPaymentType(payment);
 	    
-	   //  Toast toast3 = Toast.makeText(getApplicationContext(),"payment : " + paymentType, 10);
-        // toast3.show();  
+	   
 	  
 		
     	   
@@ -162,7 +174,7 @@ public class FindBy extends LoggingActivity {
 		
 	}
 	
-	// find distance between two points 
+	// find distance between from and to address
 	 public void setDistance(){
   		 float[] results = {0};
   		 Location distanceBetween = new Location ("point a to b");
@@ -176,7 +188,7 @@ public class FindBy extends LoggingActivity {
   		  
   	  }
  
-      
+ // Find latitude and longtitude and set it into the passengerinfo class.
  public class GPSLocationListener implements LocationListener 
   	{
   	  public void onLocationChanged(Location location) {

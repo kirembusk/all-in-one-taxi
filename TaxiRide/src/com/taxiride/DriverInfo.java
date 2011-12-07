@@ -1,5 +1,12 @@
 package com.taxiride;
 
+
+/*
+ * This class is the strucutre of driver info. It contain the information
+ * of the driver. It has get and set function to get and set the driver
+ * info
+ * 
+ */
 public class DriverInfo {
 	
 	private String deviceID;

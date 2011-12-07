@@ -1,6 +1,9 @@
 
 package com.taxiride;
-
+/*
+ * This class provide strucutre of the taxiDriverInfo
+ * 
+ */
 public class TaxiDriverInfo {
         private String id;
         private String name;

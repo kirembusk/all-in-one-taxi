@@ -3,17 +3,16 @@ package com.taxiride;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.lang.reflect.Type;
+
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
-import java.util.List;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
+
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +22,12 @@ import com.google.gson.reflect.TypeToken;
 import com.taxiride.MyOrder;
 import com.taxiride.model.TaxiRequest;
 
+/*
+ * This class show the driver the information of their order. The 
+ * passenger name, phone and etc is display on the screen, if the 
+ * driver could call the passenger or hit confirmed when he/she is done
+ * 
+ */
 public class MyOrderInfo extends LoggingActivity{
 	public void onCreate(Bundle savedInstanceState) {
 		 super.onCreate(savedInstanceState);
@@ -46,13 +51,16 @@ public class MyOrderInfo extends LoggingActivity{
 			TextView status = (TextView) findViewById(R.id.status);
 			status.setText("Status: Assigned"); 
 			
-			
+			// if the driver decide to cancel the order.
+			// press on the cancel button
 			 Button cancel = (Button) findViewById(R.id.cancel);  
 			 cancel.setOnClickListener(new View.OnClickListener() {
 
 				@Override
 				public void onClick(View arg0) {
-					
+					// send an http request to the server will return success
+					// if it's successfully cacnel 
+					// if it's not successfully, it would return failed
 					String result = sendHttpRequest(); 
 					if(result.equals("auth")){
 	        			Toast toast1 = Toast.makeText(getApplicationContext(), "invalid authentication ",100);
@@ -68,11 +76,13 @@ public class MyOrderInfo extends LoggingActivity{
 				 
 			 });
 			 
+			 // complete button
 			 Button complete = (Button) findViewById(R.id.complete);  
 			 complete.setOnClickListener(new View.OnClickListener() {
 
 				@Override
 				public void onClick(View arg0) {
+					// send the request to server and delete the order from the server.
 					String result = completeHttpRequest();
 					if(result.equals("auth")){
 	        			Toast toast1 = Toast.makeText(getApplicationContext(), "invalid authentication ",100);
@@ -88,7 +98,7 @@ public class MyOrderInfo extends LoggingActivity{
 				}
 				 
 			 });
-			 
+			 // a call button that you could use to call the pasenger
 			 Button call  = (Button) findViewById(R.id.call);
 			 call.setOnClickListener(new View.OnClickListener() {
 
@@ -109,7 +119,7 @@ public class MyOrderInfo extends LoggingActivity{
 	}	 
 	
 	
-
+  // send a http request to cancel the order
 	public String sendHttpRequest(){
 		 String myURL = "http://taxitestcenter.appspot.com/cancel";
 		 
@@ -159,6 +169,8 @@ public class MyOrderInfo extends LoggingActivity{
 
 	}
 	
+	// send a http request to let the server know the order is completed and 
+	// is to delete from the server
 	public String completeHttpRequest(){
 		String myURL = "http://taxitestcenter.appspot.com/complete";
 		 

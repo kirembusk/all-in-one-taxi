@@ -1,5 +1,8 @@
 package com.taxiride.model;
-
+/*
+ * Providing a passenger info strucutre when returning an object
+ * from the server.
+ */
 public class TaxiRequest {
 	
 	private Long id;

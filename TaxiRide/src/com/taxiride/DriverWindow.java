@@ -13,6 +13,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+/*
+ * This class contain three buttons. My order, open request and edit preferences.
+ * This class find the current location of the driver thru GPS.
+ * Get the current location of the driver and set as lat and log in the driverinfo class.
+ * get all the necessary info from the preferences class and set it as driver info
+ * 
+ */
 public class DriverWindow extends LoggingActivity {
 	private double lat;
 	private double log; 
@@ -39,26 +46,13 @@ public class DriverWindow extends LoggingActivity {
 	    String deviceID = Secure.getString(getBaseContext().getContentResolver(),
                 Secure.ANDROID_ID);
 	    driverInfo.setDeviceID(deviceID);
-       /* driverInfo.setCabName(DriverPreference.cabName);
-        driverInfo.setDeviceID(DriverPreference.deviceID);
-        driverInfo.setFullName(DriverPreference.fullName);
-        driverInfo.setMaxDropOff(DriverPreference.maxDropOff);
-        driverInfo.setMaxPickUp(DriverPreference.maxPickUp);
-        driverInfo.setPaymentType(DriverPreference.paymentType);
-        driverInfo.setPhoneNum(DriverPreference.phoneNum);
-        driverInfo.setPin(DriverPreference.pin);*/
+      
         
-      // driverInfo.setFullName(DriverPreference.fullName);
-      // Toast toast1= Toast.makeText(getApplicationContext(),DriverPreference.fullName , 100);
-       // toast1.show();
-        
-        
-        
-             
+  
         
         Button openRequest = (Button) findViewById(R.id.OpenRequest);  
        
-        
+        // open request button 
         openRequest.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
             	isDone = true;
@@ -77,7 +71,7 @@ public class DriverWindow extends LoggingActivity {
             }
 
         });
-        
+        // my order button
         Button myOrder = (Button) findViewById(R.id.MyOrder);  
         //if the RequestDriver button is click direct the page to Address.class
         myOrder.setOnClickListener(new View.OnClickListener() {
@@ -87,7 +81,7 @@ public class DriverWindow extends LoggingActivity {
             }
            
         });  
-        
+        //edit preference button
         Button editPrefs = (Button) findViewById(R.id.editPreference);
         editPrefs.setOnClickListener(new View.OnClickListener() {
                public void onClick(View view) {
@@ -98,6 +92,7 @@ public class DriverWindow extends LoggingActivity {
 
        });
         
+        // find current location using GPS
         LocationManager locationManager =(LocationManager) getSystemService(Context.LOCATION_SERVICE);
        
         locationManager.requestLocationUpdates(

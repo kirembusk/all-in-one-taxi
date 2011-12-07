@@ -22,6 +22,12 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+/*
+ * User need to type in the form to reserved a taxi. Then
+ * all the information would be send to the server. User could 
+ * change the information if they like or by default, it's 
+ * the information that they filled out in the other class
+ */
 public class DriverRequest extends LoggingActivity {
 Boolean isTotalDone = false;
 	 public void onCreate(Bundle savedInstanceState) {
@@ -63,14 +69,16 @@ int after) {
 	        
 	       
 	        
-	        
+	        // user press the enter button
 	        Button enter = (Button) findViewById(R.id.ButtonEnter);
 	        
 	        enter.setOnClickListener(new View.OnClickListener() {
 	        	public void onClick(View view) {
 	        		
 	        		boolean isDone = false;
-	        	
+	        		//send the http request to confirmed the request, if the 
+	        		// request failed it would return fail otherwise it would
+	        		// return the order id
 	        		String result = updateHttpRequest();
 	        		 
 	        		if(result.equals("fail")){
@@ -82,7 +90,7 @@ int after) {
 	        			toast.show();
 	        			isDone=true; 
 	        		}
-	        		
+	        		// After successfully send to the server, go to the Request Confirmation page 
 	        		if(isDone==true){
 	                  Intent myIntent = new Intent(view.getContext(), RequestConfirmation.class);
 	                  startActivityForResult(myIntent, 0);
@@ -95,6 +103,8 @@ int after) {
 	        });
 		}
 	 
+
+	 
 	 public String updateHttpRequest(){
   	   
   	   String myURL = "http://taxitestcenter.appspot.com/submit";
@@ -104,7 +114,7 @@ int after) {
 			 Gson gson = new Gson();
 				String requestResult = "";
 				
-				int counter = 0;
+			
 				try {
 					// Construct data
 					 
@@ -147,8 +157,7 @@ int after) {
 			 //return ID, confirmation number, that this thing is record on system
 			 // if failed, please submit again.
 			 requestResult = taxiStationResponse.toString();
-		//	 requestResult = requestResult.substring(1);
-		//	 requestResult = requestResult.substring(0, requestResult.length() - 1);
+		
   	   return requestResult; 
   	   
   	   

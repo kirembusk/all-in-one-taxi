@@ -22,6 +22,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+/*
+ * This is my order class. It shows the list of orders that the driver
+ * has confirmed. This class used list. 
+ * 
+ */
 public class MyOrder extends ListActivity{
 	
 	ArrayList<String> listItems=new ArrayList<String>();
@@ -34,7 +39,7 @@ public class MyOrder extends ListActivity{
 	public void onCreate(Bundle savedInstanceState) {
 		
 		 super.onCreate(savedInstanceState);
-		 
+		 // get list of object back from server
 		 String myURL = "http://taxitestcenter.appspot.com/order";
 		 
 		 StringBuilder taxiStationResponse = new StringBuilder();
@@ -77,28 +82,24 @@ public class MyOrder extends ListActivity{
 			Type type = new TypeToken<List<TaxiRequest>>(){}.getType();
 	         taxiRequestList = gson.fromJson(taxiRequestData, type);
 			 
+	         // get the passenger name and save it into a list
 	         for (TaxiRequest taxiRequest : taxiRequestList) {
 	        	 
 				 listItems.add(taxiRequest.getRequestName());
 				
 			 }	
 		} 
-			//	Toast.makeText(getApplicationContext(), text, BIND_AUTO_CREATE); 
-		 
+		// display the list.
 		 adapter=new ArrayAdapter<String>(this,
 				    android.R.layout.simple_list_item_1,
 				    listItems);
 			
 				setListAdapter(adapter);
-			//	final ListView listView = getListView();
-
-		//        listView.setItemsCanFocus(false);
-		//        listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-		 
+			
 		 
 	} 
 	
-	
+	// start a new order into myorderinfo class
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		ORDER = taxiRequestList.get(position);
 		Intent myIntent = new Intent(v.getContext(), MyOrderInfo.class);

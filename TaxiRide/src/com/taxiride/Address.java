@@ -15,7 +15,12 @@ import android.widget.EditText;
 import android.location.Geocoder;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-
+/*
+ * This class is for user to enter the address. If the user decides to turn
+ * on the GPS coordinate to find their current location, the user does
+ * not need to change the text at the edittext "current location".
+ * The addresses are save as a global varaible to pass by to the FindBy.java
+ */
 
 
 public class Address extends LoggingActivity{

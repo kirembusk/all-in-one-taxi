@@ -1,6 +1,11 @@
 package com.taxiride.model;
 
+/*
+ * Provide a taxi driver info structure when returning an object from the server
+ * 
+ */
 public class TaxiDriver {
+	
 
 	private Long id;
 	private String loginName;

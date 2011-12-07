@@ -15,7 +15,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
-
+/*
+ *This class is for passenger preferences. It save the information on the phone 
+ * 
+ */
 
 public class PassengerPreference extends PreferenceActivity  implements OnSharedPreferenceChangeListener{
 	
@@ -32,7 +35,7 @@ public class PassengerPreference extends PreferenceActivity  implements OnShared
          super.onCreate(savedInstanceState);
          
          addPreferencesFromResource(R.xml.passenger_preference);
-         
+         // get share preferences 
           sp2 = PreferenceManager.getDefaultSharedPreferences(this);
           sp2.registerOnSharedPreferenceChangeListener(this);
          
@@ -40,11 +43,7 @@ public class PassengerPreference extends PreferenceActivity  implements OnShared
           
           ed2 = prefs2.edit();
          
-         //ed2.putBoolean("HaveShownPrefs", true);
-         //ed2.commit();
-         String androidID = Secure.getString(getBaseContext().getContentResolver(),
-                 Secure.ANDROID_ID); 
-              showPrefs = prefs2.getBoolean("HaveShownPrefs",false);
+             // showPrefs = prefs2.getBoolean("HaveShownPrefs",false);
 	          showPref = new Boolean(showPrefs).toString(); 
 	    	
          
@@ -59,17 +58,20 @@ public class PassengerPreference extends PreferenceActivity  implements OnShared
 	  	    @Override
 	  	    public boolean onOptionsItemSelected(MenuItem item) {
 	  	    	
-	  	    	
+	  	    	// if the preferences is shown on the first time
+	  	    	// after the user save it, it create a new intent to 
+	  	    	// the address class and set the string to true
 	  	    	if(showPref.equals("false")){
 	  	        switch (item.getItemId()) {
 	  	            case 0:
 	  	            	
 	  	            	 ed2.putBoolean("HaveShownPrefs", true);
 	  		  	         ed2.commit();
-	  	                startActivity(new Intent(this, FindBy.class));
+	  	                startActivity(new Intent(this, Address.class));
 	  	                return true;
 	  	        	}
 	  	        }else{
+	  	        	// if the prefernces has shown before go to findby.class
 	  	        switch (item.getItemId()) {
 	  	            case 0:
 	  	            	
@@ -80,11 +82,12 @@ public class PassengerPreference extends PreferenceActivity  implements OnShared
 	  	           }
 	  	        
 	  	    	 }
-	  	    	//Toast.makeText(getApplicationContext(), "Please enter all the information", 100).show(); 
+	  	    
 	  	       return false; 
 	  	    }
 
 			@Override
+			// save all the preferences information of the passenger
 			public void onSharedPreferenceChanged(SharedPreferences sp,
 					String key) {
 				

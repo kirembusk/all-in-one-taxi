@@ -20,7 +20,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
+/*
+ * After the user press the open request and press the name of the 
+ * requestor this page would fired up. The driver is able to see
+ * the information of the passenger as well as buttons to accept 
+ * the request or call the passenger 
+ */
 public class PassengerRequest extends LoggingActivity{
 
 		private String driverLat;
@@ -46,6 +51,7 @@ public class PassengerRequest extends LoggingActivity{
 				TextView totalPass = (TextView) findViewById(R.id.totalPass);
 				totalPass.setText("Total Passengers: " + ListOfRequest.TAXIREQUEST.getTotalPeople());
 				
+				// get the coordinate of the passenger and the driver
 				passengerLat = ListOfRequest.TAXIREQUEST.getCurrentLatitude();
 				passengerLog = ListOfRequest.TAXIREQUEST.getCurrentLongitude();
 				driverLat = DriverWindow.driverInfo.getCurrentLatitude();
@@ -53,14 +59,18 @@ public class PassengerRequest extends LoggingActivity{
 				driverLat = "37.7234785";
 				driverLog = "-122.4785258";
 				
-				
+				// convert it into miles 
 				miles = (getDistance(driverLat, driverLog, passengerLat, passengerLog) *0.4);
 				
-				
+				// accept the request
 				Button accept = (Button) findViewById(R.id.accept);
 				
 				accept.setOnClickListener(new View.OnClickListener() {
 		        	public void onClick(View view) {
+		        		//send http request, if the driver has successfully
+		        		// accepted the requet to the server than it would return success
+		        		// otherwise it would return failed 
+		        		
 		        		String result = sendHttpRequest();
 		        		if(result.equals("auth")){
 		        			Toast toast1 = Toast.makeText(getApplicationContext(), "invalid authentication ",100);
@@ -75,6 +85,8 @@ public class PassengerRequest extends LoggingActivity{
 		        	}
 				});
 				
+				
+				// a call button to call the passenger
 				Button call = (Button) findViewById(R.id.call);
 				call.setOnClickListener(new View.OnClickListener() {
 
@@ -92,6 +104,7 @@ public class PassengerRequest extends LoggingActivity{
 				
 		 }
 		 
+		 // get the distance between two points and return the result in double and mile
 		 public double getDistance(String lat_A, String log_A, String lat_B, String log_B){
 				float[] results = {0};
 				double latA = Double.parseDouble(lat_A);
@@ -113,6 +126,8 @@ public class PassengerRequest extends LoggingActivity{
 				
 			}
 		 
+		 // send http request to accept the request. Return success if successlly or return fail
+		 // if it's unsuccessfully. 
 		 public String sendHttpRequest(){
 		  	   
 		  	   String myURL = "http://taxitestcenter.appspot.com/approve";

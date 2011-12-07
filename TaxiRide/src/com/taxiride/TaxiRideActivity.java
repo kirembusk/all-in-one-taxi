@@ -67,7 +67,8 @@ public class TaxiRideActivity extends Activity {
             public void onClick(View view) {
             	SharedPreferences prefs2 = getSharedPreferences("PassengerPreference", Context.MODE_PRIVATE);
             	boolean haveWeShownPreferences = prefs2.getBoolean("HaveShownPrefs", false);
-            	
+            	// if the passenger perferences has not been shown before, go to the passenger prference class
+            	// otherwise go to the address class
             	if(!haveWeShownPreferences){
                 Intent myIntent = new Intent(view.getContext(),PassengerPreference.class);
                 startActivityForResult(myIntent, 0);
@@ -79,18 +80,20 @@ public class TaxiRideActivity extends Activity {
             }
 
         });
-        
+        // this is the button to request passenger
         Button passenger = (Button) findViewById(R.id.RequestPassenger);  
         //if the RequestDriver button is click direct the page to Address.class
         passenger.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+            	
             	SharedPreferences prefs = getSharedPreferences("DriverPreference", Context.MODE_PRIVATE);
             	boolean haveWeShownPreferences = prefs.getBoolean("HaveShownPrefs", false);
-           
+            	// if driver preferences has not been shown before go to driver preferences class
             	if(!haveWeShownPreferences){
                 Intent myIntent = new Intent(view.getContext(),DriverPreference.class);
                 startActivityForResult(myIntent, 0);
             	}else{
+            		// if driver preference is shown before then go to driver window
             		Intent myIntent = new Intent(view.getContext(),DriverWindow.class);
                     startActivityForResult(myIntent, 0);
             	  }

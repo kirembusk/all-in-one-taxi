@@ -26,7 +26,13 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
+/*
+ * 
+ * This class display the list of open request. 
+ * The server return a list of objects and and the
+ * object is store into a list to display to the driver. 
+ *
+ */
 public class ListOfRequest extends ListActivity {
 	
 	ArrayList<String> listItems=new ArrayList<String>();
@@ -38,7 +44,7 @@ public class ListOfRequest extends ListActivity {
 	
 	public void onCreate(Bundle savedInstanceState) {
 		 super.onCreate(savedInstanceState);
-		 
+		 // get a list of object back from the server 
 		 String myURL = "http://taxitestcenter.appspot.com/list";
 		 StringBuilder taxiStationResponse = new StringBuilder();
 			StringBuffer jb = new StringBuffer();
@@ -78,7 +84,7 @@ public class ListOfRequest extends ListActivity {
 		 Type type = new TypeToken<List<TaxiRequest>>(){}.getType();
          taxiRequestList = gson.fromJson(taxiRequestData, type);
          
-         
+         // get the name of request passenger and save it into the array
          for (TaxiRequest taxiRequest : taxiRequestList) {
         	 
 			 listItems.add(taxiRequest.getRequestName());

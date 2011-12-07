@@ -1,5 +1,11 @@
 package com.taxiride;
 
+/*
+ * Driver preferences class is to save driver preference to the phone and
+ * the save data will be send thru http request to the server 
+ * 
+ */
+
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -48,12 +54,15 @@ public class DriverPreference extends PreferenceActivity  implements OnSharedPre
 	protected void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
          addPreferencesFromResource(R.xml.driver_preferences);
+         // get the device id
          deviceID = Secure.getString(getBaseContext().getContentResolver(),
                  Secure.ANDROID_ID);
+         // recognized that the preference have shown or not
          SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
          sp.registerOnSharedPreferenceChangeListener(this);
           prefs = getSharedPreferences("DriverPreference", Context.MODE_PRIVATE);
          ed = prefs.edit();
+         //if the preferences have been shown before save it as true
          ed.putBoolean("HaveShownPrefs", true);
          ed.commit();
         
@@ -61,6 +70,7 @@ public class DriverPreference extends PreferenceActivity  implements OnSharedPre
 	 }   
 	
 	  @Override
+	  // menu to save the preferences
 		    public boolean onCreateOptionsMenu(Menu menu) {
 	  	        menu.add(Menu.NONE, 0, 0, "Save");
 	  	        return super.onCreateOptionsMenu(menu);
@@ -69,14 +79,19 @@ public class DriverPreference extends PreferenceActivity  implements OnSharedPre
 	  	    @Override
 	  	    public boolean onOptionsItemSelected(MenuItem item) {
 	  	    	 
-	  	    	boolean isGood = false; 
+	  	    	boolean isGood = false;
+	  	    	
 	  	    	SharedPreferences prefs = getSharedPreferences("DriverPreference", Context.MODE_PRIVATE);
-	  	    		  id = prefs.getString("regID", "");
+	  	        id = prefs.getString("regID", "");
+	  	        // sending the information to server. return fail it it
+	  	        // is not successfully, otherwise it would return me the regID
+	  	        // and save the regID in the driver preferences 
 		  	   	String result = updateHttpRequest();
-		  	
+		  	   		
 	  	             if(result.equals("fail")){
 	  	            	Toast toast1 = Toast.makeText(getApplicationContext(),"Cannot send to the server, please try again", BIND_AUTO_CREATE);
 	                    toast1.show();
+	                    // if the result return true
 	  	             }else if(!result.equals("fail")){
 	  	            	 isGood=true;  
 	  	            	 
@@ -84,11 +99,7 @@ public class DriverPreference extends PreferenceActivity  implements OnSharedPre
 	  	            	 ed.commit();
 	  	            	 String temp =prefs.getString("regID", "");
 	  	            	 
-	  	            	 
-	  	            	 
-	  	            	Toast toast2 = Toast.makeText(getApplicationContext(),"Successfully send to server", BIND_AUTO_CREATE);
-	                    toast2.show();
-	  	            	 
+	  	          
 	  	             }
 	  	           if(isGood == true ) 	{ 
 	  	        	   switch (item.getItemId()) {
@@ -98,7 +109,7 @@ public class DriverPreference extends PreferenceActivity  implements OnSharedPre
 	  	        	   }
 	  	      
 	  	         }
-	  	           Toast.makeText(getApplicationContext(), "Please enter all the information", 100);
+	  	           
 	  	        return false;
 	  	    }
 	  	  @Override 
@@ -115,6 +126,7 @@ public class DriverPreference extends PreferenceActivity  implements OnSharedPre
         } 
 
 			@Override
+			// save key into preference when user changes the preferences
 			public void onSharedPreferenceChanged(SharedPreferences sp,
 					String key) {
 				
@@ -171,7 +183,8 @@ public class DriverPreference extends PreferenceActivity  implements OnSharedPre
 			}
 			
        
- 
+    // send http request to the server to save driver preferences and return
+	// back the regID if it's successful otherwise return false
        public String updateHttpRequest(){
     	   
     	   String myURL = "http://taxitestcenter.appspot.com/settings";
@@ -219,8 +232,7 @@ public class DriverPreference extends PreferenceActivity  implements OnSharedPre
 			 } catch (Exception e) {
 			 }
 			 requestResult = taxiStationResponse.toString();
-		//	 requestResult = requestResult.substring(1);
-		//	 requestResult = requestResult.substring(0, requestResult.length() - 1);
+		
     	   return requestResult; 
     	   
     	   

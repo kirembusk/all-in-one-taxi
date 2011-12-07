@@ -1,6 +1,13 @@
 package com.taxiride;
 
+/*
+ * This class contain all the information of the passenger. 
+ * As well as getter and setter methods to get and set passenger information 
+ */
+
 public class PassengerInfo {
+	
+	
 	
 	private String fromAddress;
 	private String toAddress;

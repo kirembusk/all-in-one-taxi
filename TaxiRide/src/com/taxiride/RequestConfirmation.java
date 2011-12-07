@@ -18,7 +18,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
+/*
+ * This class is for the passenger side. This is the 
+ * confirmation page after the passenger has 
+ * reserved a taxi
+ * 
+ */
 public class RequestConfirmation extends LoggingActivity {
 	TextView driverName;
 	TextView driverPhone;
@@ -28,6 +33,7 @@ public class RequestConfirmation extends LoggingActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.requestconfirmation);
+		// get the driver name and their information and display on screen
 		
 		driverName = (TextView) findViewById(R.id.driverName);
 		driverPhone = (TextView) findViewById(R.id.driverPhone);
@@ -36,18 +42,27 @@ public class RequestConfirmation extends LoggingActivity {
 		
 	
 		
-		
+		// get from and to address of passenger and display on screen
 		TextView fromAddress = (TextView) findViewById(R.id.fromAddress);
 		fromAddress.setText("From: " + FindBy.passengerInfo.getFromAddress());
 		
 		TextView toAddress = (TextView) findViewById(R.id.toAddress);
 		toAddress.setText("To: " + FindBy.passengerInfo.getToAddress());
 		
+		
+		// the refresh button. Is to get request from the server and 
+		//see if any driver has taken this order
+		// if the taxi driver take this order, it would display 
+		// the driver name and information on screen otherwise
+		// it's blank
 		Button refresh = (Button) findViewById(R.id.refresh);
 		
 		refresh.setOnClickListener(new View.OnClickListener() {
         	public void onClick(View view) {
         		
+        			//send an http request to update the information
+        			// if a taxi driver has not accept this request return nothing
+        		    // else return an object with the driver name phone number and etc
                       TaxiRequest requestInfo =  updateHttpRequest();
                     
                       if(requestInfo.getAssignedDriverName().equals("")){
@@ -57,12 +72,9 @@ public class RequestConfirmation extends LoggingActivity {
                           cost.setText("Estimated Cost:");
                     	  
                       }else{
-                    	  String driverLat = requestInfo.getAssignedDriverLatitude();
-                    	  String driverLog = requestInfo.getAssignedDriverLongitude();
-                    	  double passLat = FindBy.passengerInfo.getFromLat();
-                    	  double passLog = FindBy.passengerInfo.getFromlog();
-                    	  
+                    	 
                     	  double tripCost = FindBy.passengerInfo.getDistance() * 2 ; 
+                    	  
                     	  driverName.setText("Driver name: " + requestInfo.getAssignedDriverName());
                     	  driverPhone.setText("Driver phone #: "+ requestInfo.getAssignedDriverPhoneNumber());
                     	  arrivalTime.setText("Estimated Arrival Time: "+ requestInfo.getEstimatedArrivalTime() + "min");
@@ -74,17 +86,20 @@ public class RequestConfirmation extends LoggingActivity {
 
         });
 		
-		
+		// this is the cancel button. Is to cacnel the request if the passenger
+		// wanted to 
 		Button cancel = (Button) findViewById(R.id.cancel);
 		cancel.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
+				// send an http request to cancel the request. return failed if failed otherwise it's successfully
 				String result =  cancelSendHttpRequest();
 				if(result.equals("fail")){
         			Toast toast = Toast.makeText(getApplicationContext(), "Cannot cancel your request! Please try again! ", 1000);
         			toast.show();
         		}else{
+        			// after canceling the http request, the confirmation is reset back to empty on every field
         			FindBy.passengerInfo.setconfirmID(result);
         			 driverName.setText("Driver name:");
                      driverPhone.setText("Driver phone #:");
@@ -102,7 +117,9 @@ public class RequestConfirmation extends LoggingActivity {
 			
 		});
 	}
-	
+	// Send an http request on the refresh button to check to see if any 
+	// driver has accepted this request, if it has it would return a TaxiRequest
+	// object which has information of the driver
 	 public TaxiRequest updateHttpRequest(){
 	  	   
 	  	   String myURL = "http://taxitestcenter.appspot.com/update";
@@ -111,8 +128,6 @@ public class RequestConfirmation extends LoggingActivity {
 				 StringBuffer jb = new StringBuffer();
 				 Gson gson = new Gson();
 					String requestResult = "";
-					
-					int counter = 0;
 					
 	
 					try {
@@ -155,6 +170,8 @@ public class RequestConfirmation extends LoggingActivity {
 	     	   
 	     }
 	 
+	 //cancel the http rquest and send it to the server
+	
 	 public String cancelSendHttpRequest(){
 	  	   
 	  	   String myURL = "http://taxitestcenter.appspot.com/revoke";
