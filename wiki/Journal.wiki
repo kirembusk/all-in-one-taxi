@@ -208,3 +208,134 @@ We have implement the third page of our design which included two buttons called
  # cancel requests for my order as well as passenger request order
  # create javadoc
  # clean up the UI. 
+
+== <u> Week #8 11/17 - 12/1 </u> ==
+*The progress you made (once you start coding, mention the revisions for that week)*
+ # implemented the cancel button for the driver and passenger so they could cancel requests
+ # clean up the UI and design it so it looks better
+ # Implementing the confirmed button so after the driver is done with the request they are able to confirmed the request and the request would disappear in his/her order page
+ # inserted drawing into the UI 
+ # implement the call button for both the passenger and driver
+ # Clean up the cab directory
+ # We have got the estimated arrival time to display to the passenger
+
+*The problems you have encounter:*
+ # We have encounter an error confirming request because of a invalid URL
+*lesson learned*
+ # Learned how to design the UI and insert images to the android
+
+*What you plan to do the following week*
+ # Create javadoc
+ # create a flow chart for the classes that we have made
+ # set up eclipse for our laptops in order to present in class
+ # set up the emulator and test emulator so we could present in the class
+
+
+== <u> Week #5-6 10/27 - 11/10 </u> ==
+*The progress you made (once you start coding, mention the revisions for that week)*
+  # Set up the google app engine account to host the server side for process the taxi request
+  # Set up the data structure and storage to keep track and manage taxi driver and passenger information. 
+  # Write the log in authentication procedure to verify user
+  # Create a web based front end to add new driver and add new request for testing purpose
+  # Set up a request page for users where user could enter information in order to request nearby driver
+  # Set up a confirmation page after user requested a driver
+  # Set up a log in page where user could log in
+  # Set up a open request page which it connected to the google app engine server to get all the open request for driver to view 
+  # Set up a my order page where driver could see the order that he has made.  
+
+ *The problems you have encounter:*
+ # encounter the google map does not work anymore and to replace it we use list instead because of time constraint
+ # Struggling on how to set up the database back end
+ # running into trouble of saving the data into the database
+ # making sql query with no result exception
+ # trying to create the servlet to manage the driver and the taxi request having the mapping result in http 405 exception
+
+*Lesson Learned*
+ # We learned google app engine. 
+ # We learned using listactivity
+ # We learned how to map java object to database using persistence model
+  
+ 
+*What you plan to do the following week*
+ # Set up preference for phone passenger and driver side
+ # re-do the database mapping using the new preferences schema design
+ # find current location of driver and passenger 
+ # convert current location of passenger to address and fill into the edittext
+ # Setup the registration and save info into preferences
+ # create sql filtering to match driver and passenger preferences
+ # Implement server side accepting request for the driver
+ # implement client and server side competing request (handling problem for simultaneous accepting request submission from both taxi drivers
+
+== <u> Week #7 11/10 - 11/17 </u> ==
+*The progress you made (once you start coding, mention the revisions for that week)*
+ # Created both perferences for driver and passenger
+ # Send driver perferences and passenger perferences to server
+ # Get GPS location from driver and passenger
+ # convert current GPS coordinate to street address
+ # Able to send http request to request for a driver
+ # From the driver side, i was able to retrieve the passenger order from the server
+ # From the driver side, I was able to retrieve my order from the server
+ # caculated the distance between point a to point b
+ # Able to accept passenger order
+
+*The problems you have encounter:*
+ # There was a problem convert coordinate to address. I named the class called Address and to convert, I need to use geocoder which return an array of List<address> and the compiler didn't recoginze which address i am talking about.
+ # In the FindBy class, I turn on the GPS but it take time to load until i could convert the point to address. I have to wait for the GPS to finish to get the address before preceeding further, so i set a flag to prohibit to continue unless i have my current location
+*lesson learned*
+ # Google supported mutil-thread 
+ # I learned to pass value to HTTP and connect to the server to get result back 
+ # I learned how to make perferences and store it into the phone
+*What you plan to do the following week*
+ # Filter cab request by location and payment option
+ # Get estimated arrival time
+ # cancel requests for my order as well as passenger request order
+ # create javadoc
+ # clean up the UI. 
+
+== <u> Week #8 11/17 - 12/1 </u> ==
+*The progress you made (once you start coding, mention the revisions for that week)*
+ # implemented the cancel button for the driver and passenger so they could cancel requests
+ # clean up the UI and design it so it looks better
+ # Implementing the confirmed button so after the driver is done with the request they are able to confirmed the request and the request would disappear in his/her order page
+ # inserted drawing into the UI 
+ # implement the call button for both the passenger and driver
+ # Clean up the cab directory
+ # We have got the estimated arrival time to display to the passenger
+
+*The problems you have encounter:*
+ # We have encounter an error confirming request because of a invalid URL
+*lesson learned*
+ # Learned how to design the UI and insert images to the android
+
+*What you plan to do the following week*
+ # Create javadoc
+ # create a flow chart for the classes that we have made
+ # set up eclipse for our laptops in order to present in class
+ # set up the emulator and test emulator so we could present in the class
+
+
+
+== <u> Week #9 12/1 - 12/8 </u> ==
+*The progress you made (once you start coding, mention the revisions for that week)*
+ # we have created javadoc for all our classes
+ # we have created a flow chart that explain the flow of the classes from one page to another
+ # we have clean up everything in our svn so it's easier to navigate
+ # we have included link to the wiki page so it's easier to navigate
+ # we have done a powerpoint for the presentation
+ # we practice our presentation
+ # we setup our laptop and emulator to prepare for the presentation
+*The problems you have encounter:*
+ # it was pretty confusing as to importing the project to our newly install laptop. The project could not identify the R.java 
+ # came across problem with the emulator because it was too slow on my netbook. I had to install eclipse and android sdk to my faster laptop
+ 
+*lesson learned*
+ # I could save state on my emulator so when the presentation is ready I'm able to fire it up in a shorter amount of time
+
+*What you plan to do the following week*
+ # STUDY FOR FINALS!
+ 
+
+ 
+
+
+ 
