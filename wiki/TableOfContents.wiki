@@ -2,4 +2,6 @@
 
   * <a href="http://all-in-one-taxi.googlecode.com/files/001.jpg">Project Mock Up Design</a>
 
+  * <a href="http://code.google.com/p/all-in-one-taxi/wiki/Journal">Project Flow Diagram</a>
+
  * <a href="http://code.google.com/p/all-in-one-taxi/wiki/Journal">Journal</a>
