@@ -29,7 +29,8 @@ public class Address extends LoggingActivity{
 	public static String FromAddress;
 	private double lat;
 	private double log; 
-	private String addressString =""; 
+	private String addressString ="";
+	public String currentFromAddress;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

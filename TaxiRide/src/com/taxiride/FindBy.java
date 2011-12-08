@@ -203,6 +203,7 @@ public class FindBy extends LoggingActivity {
 	        String addressString="";
 	        Geocoder gc = new Geocoder(getApplicationContext(),Locale.getDefault());
 	        StringBuilder sb =new StringBuilder();
+	        
 	    	try {
 	    		
 	    	      List<Address> address = gc.getFromLocation(lat, log, 1);

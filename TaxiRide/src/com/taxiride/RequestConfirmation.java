@@ -30,6 +30,7 @@ public class RequestConfirmation extends LoggingActivity {
 	TextView arrivalTime;
 	TextView cost; 
 	double distance; 
+	double tripCost; 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.requestconfirmation);
@@ -48,6 +49,10 @@ public class RequestConfirmation extends LoggingActivity {
 		
 		TextView toAddress = (TextView) findViewById(R.id.toAddress);
 		toAddress.setText("To: " + FindBy.passengerInfo.getToAddress());
+		
+		 tripCost = FindBy.passengerInfo.getDistance() * 2 ; 
+  	  
+		 cost.setText("Estimated Cost: " + tripCost + 3);
 		
 		
 		// the refresh button. Is to get request from the server and 
@@ -69,16 +74,14 @@ public class RequestConfirmation extends LoggingActivity {
                     	  driverName.setText("Driver name:");
                           driverPhone.setText("Driver phone #:");
                           arrivalTime.setText("Estimated Arrival Time:");
-                          cost.setText("Estimated Cost:");
+                         
                     	  
                       }else{
                     	 
-                    	  double tripCost = FindBy.passengerInfo.getDistance() * 2 ; 
                     	  
                     	  driverName.setText("Driver name: " + requestInfo.getAssignedDriverName());
                     	  driverPhone.setText("Driver phone #: "+ requestInfo.getAssignedDriverPhoneNumber());
                     	  arrivalTime.setText("Estimated Arrival Time: "+ requestInfo.getEstimatedArrivalTime() + "min");
-                    	  cost.setText("Estimated Cost: $" + tripCost + 3);
                     	  
                       }
         		
