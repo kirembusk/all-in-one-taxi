@@ -42,7 +42,7 @@
                 android:key="editMaxDropOff" />
                 
                <ListPreference
-                        android:title="payment option"
+                        android:title="Payment option"
                         android:summary="select which payment you are willing to accept"
                         android:key="editPayment"
                         android:defaultValue=""

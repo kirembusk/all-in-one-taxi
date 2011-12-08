@@ -25,9 +25,7 @@ public class PassengerPreference extends PreferenceActivity  implements OnShared
 	private SharedPreferences sp2; 
 	private SharedPreferences prefs2; 
 	private SharedPreferences.Editor ed2; 
-	private boolean nameFlag = false; 
-	private boolean phoneFlag = false;
-	private boolean paymentFlag = false; 
+	
 	private boolean showPrefs = false; 
 	private String showPref;
 
@@ -43,7 +41,7 @@ public class PassengerPreference extends PreferenceActivity  implements OnShared
           
           ed2 = prefs2.edit();
          
-             // showPrefs = prefs2.getBoolean("HaveShownPrefs",false);
+              //showPrefs = prefs2.getBoolean("HaveShownPrefs",false);
 	          showPref = new Boolean(showPrefs).toString(); 
 	    	
          
