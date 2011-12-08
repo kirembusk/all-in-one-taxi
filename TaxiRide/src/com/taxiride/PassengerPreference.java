@@ -41,7 +41,7 @@ public class PassengerPreference extends PreferenceActivity  implements OnShared
           
           ed2 = prefs2.edit();
          
-              //showPrefs = prefs2.getBoolean("HaveShownPrefs",false);
+              showPrefs = prefs2.getBoolean("HaveShownPrefs",false);
 	          showPref = new Boolean(showPrefs).toString(); 
 	    	
          
