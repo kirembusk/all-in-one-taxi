@@ -32,7 +32,7 @@ public class PassengerRequest extends LoggingActivity{
 		private String driverLog;
 		private String passengerLat;
 		private String passengerLog;
-		private double miles; 
+		private double time; 
 		 public void onCreate(Bundle savedInstanceState) {
 		        super.onCreate(savedInstanceState);
 		        setContentView(R.layout.passengerrequest);
@@ -56,11 +56,9 @@ public class PassengerRequest extends LoggingActivity{
 				passengerLog = ListOfRequest.TAXIREQUEST.getCurrentLongitude();
 				driverLat = DriverWindow.driverInfo.getCurrentLatitude();
 				driverLog = DriverWindow.driverInfo.getCurrentLongitude();
-				driverLat = "37.7234785";
-				driverLog = "-122.4785258";
 				
 				// convert it into miles 
-				miles = (getDistance(driverLat, driverLog, passengerLat, passengerLog) *0.4);
+				time = (getDistance(driverLat, driverLog, passengerLat, passengerLog) *0.4);
 				
 				// accept the request
 				Button accept = (Button) findViewById(R.id.accept);
@@ -147,9 +145,9 @@ public class PassengerRequest extends LoggingActivity{
 							
 							 String data = URLEncoder.encode("driverLoginName", "UTF-8") + "=" + URLEncoder.encode(DriverWindow.driverInfo.getDeviceID(), "UTF-8");
 							  data += "&" + URLEncoder.encode("driverLoginPin", "UTF-8") + "=" + URLEncoder.encode(DriverWindow.driverInfo.getPin(), "UTF-8");
-							  data += "&" + URLEncoder.encode("driverLatitude", "UTF-8") + "=" + URLEncoder.encode("37.7234785", "UTF-8");
-							  data += "&" + URLEncoder.encode("driverLongitude", "UTF-8") + "=" + URLEncoder.encode("-122.4785258", "UTF-8");
-							  data += "&" + URLEncoder.encode("estimatedArrivalTime", "UTF-8") + "=" + URLEncoder.encode(String.valueOf(miles), "UTF-8");
+							  data += "&" + URLEncoder.encode("driverLatitude", "UTF-8") + "=" + URLEncoder.encode(driverLat, "UTF-8");
+							  data += "&" + URLEncoder.encode("driverLongitude", "UTF-8") + "=" + URLEncoder.encode(driverLog, "UTF-8");
+							  data += "&" + URLEncoder.encode("estimatedArrivalTime", "UTF-8") + "=" + URLEncoder.encode(String.valueOf(time), "UTF-8");
 							  data += "&" + URLEncoder.encode("requestID", "UTF-8") + "=" + URLEncoder.encode(String.valueOf(ListOfRequest.requestID), "UTF-8");
 						 
 					      URL url = new URL(myURL);
