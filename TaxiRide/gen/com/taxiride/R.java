@@ -44,11 +44,11 @@ public final class R {
         public static final int To=0x7f07000c;
         public static final int accept=0x7f070021;
         public static final int addBtn=0x7f070014;
-        public static final int arrivalTime =0x7f070022;
+        public static final int arrivalTime =0x7f070025;
         public static final int call=0x7f07001e;
         public static final int cancel=0x7f07001f;
         public static final int complete=0x7f070020;
-        public static final int cost =0x7f070025;
+        public static final int cost =0x7f070022;
         public static final int driverName =0x7f070023;
         public static final int driverPhone =0x7f070024;
         public static final int editFromAddress=0x7f070001;
